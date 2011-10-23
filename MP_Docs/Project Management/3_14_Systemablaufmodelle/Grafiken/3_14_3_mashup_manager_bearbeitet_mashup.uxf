@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.ActivityDiagramText</type>
+    <coordinates>
+      <x>70</x>
+      <y>60</y>
+      <w>440</w>
+      <h>589</h>
+    </coordinates>
+    <panel_attributes>title:ad Mashup Manager bearbeitet Mashup
+Start
+Mashup Manager loggt sich auf der MP-Webseite ein
+Mashup Manager kopiert bestehenden Mashup von der MP-Webseite
+Quellen anpassen~id1
+Auslesen der Quellen anpassen
+Ausgabe des Mashups anpassen
+Mashup auf Mashup-Plattform laden
+Mashup testen
+If
+	[Mashup nicht korrekt]
+	-&gt;id1
+	
+	[Mashup korrekt]
+	End
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

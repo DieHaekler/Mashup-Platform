@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.ActivityDiagramText</type>
+    <coordinates>
+      <x>100</x>
+      <y>0</y>
+      <w>616</w>
+      <h>409</h>
+    </coordinates>
+    <panel_attributes>title:ad Mashup Manager löscht Mashup
+Start
+Mashup Manager loggt sich auf der MP-Webseite ein
+Mashup Manager wählt zu löschenden Mashup aus~id1
+If
+	[Mashup wird nicht gelöscht]
+	Mashup wird nicht von der MP gelöscht-&gt;id1
+
+	[Mashup soll gelöscht werden]
+	Mashup wird von der MP gelöscht
+	End</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

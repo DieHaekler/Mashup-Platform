@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>90</x>
+      <y>130</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Mashup
+Manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>90</x>
+      <y>230</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Mashup
+Benutzer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>280</x>
+      <y>180</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Mashup
+Benutzer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>480</x>
+      <y>180</y>
+      <w>100</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Quelle</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>160</x>
+      <y>100</y>
+      <w>190</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..*
+erstellt&gt;
+bearbeitet&gt;
+löscht&gt;</panel_attributes>
+    <additional_attributes>30;50;90;50;170;50;170;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>160</x>
+      <y>190</y>
+      <w>190</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..*
+benutzt&gt;</panel_attributes>
+    <additional_attributes>30;60;90;60;170;60;170;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>350</x>
+      <y>150</y>
+      <w>150</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..*
+m2=1..*
+verknüpft&gt;</panel_attributes>
+    <additional_attributes>30;50;130;50</additional_attributes>
+  </element>
+</diagram>
