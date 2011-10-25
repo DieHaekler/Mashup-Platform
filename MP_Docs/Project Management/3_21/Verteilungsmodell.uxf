@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="11.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>590</x>
+      <y>40</y>
+      <w>470</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>center:&lt;&lt;device&gt;&gt;
+center::DB-Server</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Database</type>
+    <coordinates>
+      <x>870</x>
+      <y>140</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>DB 1
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Database</type>
+    <coordinates>
+      <x>870</x>
+      <y>190</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>DB 2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Database</type>
+    <coordinates>
+      <x>870</x>
+      <y>240</y>
+      <w>110</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>DB n</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>0</x>
+      <y>40</y>
+      <w>470</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>center:&lt;&lt;device&gt;&gt;
+center::Web-Server</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>300</x>
+      <y>440</y>
+      <w>470</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>center:&lt;&lt;device&gt;&gt;
+center::Remote Client</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>10</x>
+      <y>100</y>
+      <w>440</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>center:&lt;&lt;execution environment&gt;&gt;
+center::Applikations-Server
+center:(JSP-Server - Apache Tomcat)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Artefact</type>
+    <coordinates>
+      <x>140</x>
+      <y>200</y>
+      <w>200</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>:Mashup-Plattform.war</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>600</x>
+      <y>100</y>
+      <w>440</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>center:&lt;&lt;execution environment&gt;&gt;
+center::CouchDB</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Artefact</type>
+    <coordinates>
+      <x>640</x>
+      <y>170</y>
+      <w>200</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>:CouchDB Module
+(Apache)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Node</type>
+    <coordinates>
+      <x>310</x>
+      <y>490</y>
+      <w>440</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>center:&lt;&lt;execution environment&gt;&gt;
+center::Webbrowser</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>210</x>
+      <y>270</y>
+      <w>270</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+_Internet_
+(HTTP)
+</panel_attributes>
+    <additional_attributes>30;30;250;170</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>600</x>
+      <y>270</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+_Internet_
+(HTTP)</panel_attributes>
+    <additional_attributes>30;170;210;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>440</x>
+      <y>120</y>
+      <w>174</w>
+      <h>94</h>
+    </coordinates>
+    <panel_attributes>lt=-
+_Intranet/Internet_
+(HTTP)</panel_attributes>
+    <additional_attributes>30;50;150;50</additional_attributes>
+  </element>
+</diagram>
