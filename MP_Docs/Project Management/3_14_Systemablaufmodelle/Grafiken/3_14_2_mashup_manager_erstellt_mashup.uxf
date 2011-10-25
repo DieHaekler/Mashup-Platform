@@ -6,13 +6,13 @@
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>371</w>
+      <w>376</w>
       <h>861</h>
     </coordinates>
     <panel_attributes>title:ad Mashup Manager erstellt Mashup
 Start
-Mashup Manager loggt sich auf der MP-Webseite ein
-Mashup Manager kopiert Default-Mashup auf seine\Entwicklerplattform
+Mashup Manager legt eine Kopie des Default-Mashups\auf der Entwicklerplattform an
+Name des Mashups anpassen
 Quelle 1 bestimmen~id1
 Quelle 2 bestimmen
 While

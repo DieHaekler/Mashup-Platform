@@ -7,20 +7,27 @@
       <x>0</x>
       <y>0</y>
       <w>521</w>
-      <h>491</h>
+      <h>737</h>
     </coordinates>
     <panel_attributes>title:ad Mashup Benutzer benutzt Mashup
 Start
 Mashup Benutzer ruft MP-Webseite auf
-Mögliche Mashups anzeigen~id1
+Erste 10 mögliche Mashups anzeigen~id1
+
+While
+	[Mashup nicht gefunden]
+	Zeige jeweils 10 weitere\Mashup-Namen an
+
 Mashup auswählen
 Mashup-Resultate anzeigen
+	
 If
 	[Weitere Mashups anzeigen]
 	-&gt;id1
 
 	[Keine weiteren Mashups anzeigen]
-	End</panel_attributes>
+	End
+EndIf</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

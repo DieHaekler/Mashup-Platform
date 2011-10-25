@@ -6,13 +6,12 @@
     <coordinates>
       <x>70</x>
       <y>60</y>
-      <w>440</w>
-      <h>589</h>
+      <w>347</w>
+      <h>559</h>
     </coordinates>
     <panel_attributes>title:ad Mashup Manager bearbeitet Mashup
 Start
-Mashup Manager loggt sich auf der MP-Webseite ein
-Mashup Manager kopiert bestehenden Mashup von der MP-Webseite
+Mashup Manager öffnet bestehenden\Mashup auf der Entwicklerplattform
 Quellen anpassen~id1
 Auslesen der Quellen anpassen
 Ausgabe des Mashups anpassen
