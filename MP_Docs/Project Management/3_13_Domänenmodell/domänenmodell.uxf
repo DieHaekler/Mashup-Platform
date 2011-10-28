@@ -4,8 +4,8 @@
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>90</x>
-      <y>130</y>
+      <x>150</x>
+      <y>280</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -16,32 +16,31 @@ Manager</panel_attributes>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>90</x>
-      <y>230</y>
-      <w>100</w>
+      <x>130</x>
+      <y>170</y>
+      <w>120</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Mashup
-Benutzer</panel_attributes>
+    <panel_attributes>Webseitenbesucher</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>280</x>
-      <y>180</y>
+      <x>290</x>
+      <y>220</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>Mashup
-Benutzer</panel_attributes>
+Plattform</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Class</type>
     <coordinates>
-      <x>480</x>
-      <y>180</y>
+      <x>490</x>
+      <y>220</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -51,10 +50,10 @@ Benutzer</panel_attributes>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>160</x>
-      <y>100</y>
-      <w>190</w>
-      <h>100</h>
+      <x>220</x>
+      <y>230</y>
+      <w>178</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
@@ -62,27 +61,27 @@ m2=1..*
 erstellt&gt;
 bearbeitet&gt;
 löscht&gt;</panel_attributes>
-    <additional_attributes>30;50;90;50;170;50;170;80</additional_attributes>
+    <additional_attributes>30;70;120;70;120;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>160</x>
-      <y>190</y>
-      <w>190</w>
-      <h>80</h>
+      <x>220</x>
+      <y>140</y>
+      <w>164</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=1..*
 m2=1..*
 benutzt&gt;</panel_attributes>
-    <additional_attributes>30;60;90;60;170;60;170;30</additional_attributes>
+    <additional_attributes>30;50;120;50;120;80</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>350</x>
-      <y>150</y>
+      <x>360</x>
+      <y>190</y>
       <w>150</w>
       <h>70</h>
     </coordinates>

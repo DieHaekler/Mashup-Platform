@@ -5,7 +5,7 @@
     <type>com.umlet.element.Actor</type>
     <coordinates>
       <x>110</x>
-      <y>140</y>
+      <y>210</y>
       <w>100</w>
       <h>120</h>
     </coordinates>
@@ -15,9 +15,9 @@
   <element>
     <type>com.umlet.element.custom.Systemborder</type>
     <coordinates>
-      <x>100</x>
-      <y>60</y>
-      <w>290</w>
+      <x>90</x>
+      <y>50</y>
+      <w>300</w>
       <h>300</h>
     </coordinates>
     <panel_attributes>use case Mashup Plattform</panel_attributes>
@@ -27,7 +27,7 @@
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>250</x>
-      <y>100</y>
+      <y>170</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -38,7 +38,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>160</x>
-      <y>90</y>
+      <y>160</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -49,7 +49,7 @@
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>250</x>
-      <y>150</y>
+      <y>220</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -60,7 +60,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>160</x>
-      <y>140</y>
+      <y>210</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -71,7 +71,7 @@
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>250</x>
-      <y>200</y>
+      <y>270</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -82,7 +82,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>160</x>
-      <y>150</y>
+      <y>220</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -92,19 +92,19 @@
   <element>
     <type>com.umlet.element.Actor</type>
     <coordinates>
-      <x>110</x>
-      <y>250</y>
-      <w>100</w>
+      <x>100</x>
+      <y>90</y>
+      <w>120</w>
       <h>120</h>
     </coordinates>
-    <panel_attributes>Mashup Benutzer</panel_attributes>
+    <panel_attributes>Webseitenbesucher</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>250</x>
-      <y>260</y>
+      <y>100</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -115,7 +115,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>160</x>
-      <y>250</y>
+      <y>90</y>
       <w>110</w>
       <h>50</h>
     </coordinates>

@@ -6,30 +6,38 @@
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>376</w>
-      <h>861</h>
+      <w>549</w>
+      <h>1255</h>
     </coordinates>
     <panel_attributes>title:ad Mashup Manager erstellt Mashup
 Start
-Mashup Manager legt eine Kopie des Default-Mashups\auf der Entwicklerplattform an
-Name des Mashups anpassen
-Quelle 1 bestimmen~id1
-Quelle 2 bestimmen
+Mashup Manager legt eine Kopie des Default-Mashups\auf der Java-Webentwicklerplattform an
+Name und Dateiname des Mashups anpassen~id1
+If
+	[Liste mit Begriffen\als Primärresultate\angeben]
+	Liste mit Begriffen\als Primärresultate\angeben
+
+	[Primärresultate von\Primärquelle lesen]
+	While
+		[Resultate nicht korrekt]
+		Primärquelle angeben
+		Primärquelle auslesen
+		Primärresultate anzeigen
+
 While
-	[weitere Quelle benötigt]
-	Weitere Quelle bestimmen
-Auslesen der Quellen anpassen
-Ausgabe des Mashups anpassen
-Mashup auf Mashup-Plattform laden
-Mashup testen
+	[Resultate nicht korrekt oder\Weitere Sekundärquelle angeben]
+	Sekundärquelle angeben
+	Sekundärquelle auslesen
+	Sekundärquelle anzeigen
+
+Fertiger Mashup anzeigen
+
 If
 	[Mashup nicht korrekt]
 	-&gt;id1
 	
 	[Mashup korrekt]
-	End
-
-</panel_attributes>
+	End</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>
