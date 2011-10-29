@@ -6,8 +6,8 @@
     <coordinates>
       <x>0</x>
       <y>0</y>
-      <w>549</w>
-      <h>1255</h>
+      <w>786</w>
+      <h>1165</h>
     </coordinates>
     <panel_attributes>title:ad Mashup Manager erstellt Mashup
 Start
@@ -18,14 +18,12 @@ If
 	Liste mit Begriffen\als Primärresultate\angeben
 
 	[Primärresultate von\Primärquelle lesen]
-	While
-		[Resultate nicht korrekt]
+	While[Primärresultate nicht korrekt]
 		Primärquelle angeben
 		Primärquelle auslesen
 		Primärresultate anzeigen
 
-While
-	[Resultate nicht korrekt oder\Weitere Sekundärquelle angeben]
+While[Resultate nicht korrekt oder\Weitere Sekundärquelle angeben]
 	Sekundärquelle angeben
 	Sekundärquelle auslesen
 	Sekundärquelle anzeigen
