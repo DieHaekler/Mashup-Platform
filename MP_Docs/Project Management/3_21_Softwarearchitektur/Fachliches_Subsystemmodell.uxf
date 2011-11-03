@@ -4,85 +4,241 @@
   <element>
     <type>com.umlet.element.custom.Component</type>
     <coordinates>
-      <x>240</x>
-      <y>330</y>
-      <w>200</w>
-      <h>100</h>
+      <x>10</x>
+      <y>420</y>
+      <w>930</w>
+      <h>360</h>
     </coordinates>
-    <panel_attributes> 
-'CouchDB
-'&lt;&lt;Datenbank&gt;&gt;</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.custom.Component</type>
-    <coordinates>
-      <x>240</x>
-      <y>130</y>
-      <w>200</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes> 
-'Mashup Controller</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.custom.Component</type>
-    <coordinates>
-      <x>240</x>
-      <y>240</y>
-      <w>200</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes> 
-'Mashups</panel_attributes>
+    <panel_attributes>'&lt;&lt;component, subsystem&gt;&gt;
+ 
+'Mashup</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>410</x>
-      <y>250</y>
-      <w>104</w>
-      <h>130</h>
+      <x>570</x>
+      <y>180</y>
+      <w>50</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=&lt;(
-r1=requires</panel_attributes>
-    <additional_attributes>70;110;70;30;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>410</x>
-      <y>350</y>
-      <w>80</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;()
 </panel_attributes>
-    <additional_attributes>60;30;30;30</additional_attributes>
+    <additional_attributes>30;40;30;30</additional_attributes>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>190</x>
-      <y>130</y>
-      <w>70</w>
-      <h>50</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;()
-</panel_attributes>
-    <additional_attributes>30;30;50;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>310</x>
-      <y>160</y>
+      <x>570</x>
+      <y>220</y>
       <w>50</w>
-      <h>100</h>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>lt=())</panel_attributes>
-    <additional_attributes>30;80;30;30</additional_attributes>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;30;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>470</x>
+      <y>460</y>
+      <w>410</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component&gt;&gt;
+'Mashup</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>20</x>
+      <y>120</y>
+      <w>280</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component,dialog-agent&gt;&gt;
+'BenutzerVerwaltung</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>570</x>
+      <y>170</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+BenutzerVerwaltung</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>480</x>
+      <y>260</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Mashup-Manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>680</x>
+      <y>260</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Loginprotokoll</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>670</x>
+      <y>180</y>
+      <w>50</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
+    <additional_attributes>30;40;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>670</x>
+      <y>220</y>
+      <w>50</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;30;40</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>10</x>
+      <y>40</y>
+      <w>930</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component, subsystem&gt;&gt;
+ 
+'BenutzerVerwaltung</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>20</x>
+      <y>510</y>
+      <w>280</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component,dialog-agent&gt;&gt;
+'Mashup</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>470</x>
+      <y>90</y>
+      <w>410</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component&gt;&gt;
+'BenutzerVerwaltung</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>620</x>
+      <y>540</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+Mashup</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>500</x>
+      <y>610</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+Mashup</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>680</x>
+      <y>680</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Quellen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>590</y>
+      <w>60</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>40;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>740</x>
+      <y>550</y>
+      <w>50</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
+    <additional_attributes>30;40;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>670</x>
+      <y>570</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>30;50;100;50;100;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>640</x>
+      <y>620</y>
+      <w>150</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>30;30;130;30;130;60</additional_attributes>
   </element>
 </diagram>

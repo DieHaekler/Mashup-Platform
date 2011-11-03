@@ -2,136 +2,10 @@
 <diagram program="umlet" version="11.3">
   <zoom_level>10</zoom_level>
   <element>
-    <type>com.umlet.element.Package</type>
-    <coordinates>
-      <x>240</x>
-      <y>10</y>
-      <w>410</w>
-      <h>210</h>
-    </coordinates>
-    <panel_attributes>Client-Tier (Webbrowser)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Package</type>
-    <coordinates>
-      <x>240</x>
-      <y>260</y>
-      <w>410</w>
-      <h>330</h>
-    </coordinates>
-    <panel_attributes>Domain-Tier
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Package</type>
-    <coordinates>
-      <x>240</x>
-      <y>630</y>
-      <w>430</w>
-      <h>260</h>
-    </coordinates>
-    <panel_attributes>Backend-Tier</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Package</type>
-    <coordinates>
-      <x>250</x>
-      <y>40</y>
-      <w>390</w>
-      <h>170</h>
-    </coordinates>
-    <panel_attributes>Präsentationsschicht
---
-left:- HTML
-- Javascript</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Package</type>
-    <coordinates>
-      <x>250</x>
-      <y>290</y>
-      <w>330</w>
-      <h>130</h>
-    </coordinates>
-    <panel_attributes>Darstellungslogik
---
-left:Webserver:
-- HTML
-- JSP, Servlets</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Package</type>
-    <coordinates>
-      <x>250</x>
-      <y>430</y>
-      <w>320</w>
-      <h>150</h>
-    </coordinates>
-    <panel_attributes>Geschäftslogik
---
-left:Applikationsserver:
-- Java Beans</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Package</type>
-    <coordinates>
-      <x>250</x>
-      <y>660</y>
-      <w>390</w>
-      <h>220</h>
-    </coordinates>
-    <panel_attributes>Persistenzschicht
---
-left:noSQL-DB (Webserver):
-- Dokumentenorientierte Speicherung
-- JSON-Format
-- Restful-API</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>440</x>
-      <y>190</y>
-      <w>50</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;90;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>620</x>
-      <y>90</y>
-      <w>150</w>
-      <h>700</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>50;680;130;370;30;30</additional_attributes>
-  </element>
-  <element>
-    <type>com.umlet.element.Relation</type>
-    <coordinates>
-      <x>450</x>
-      <y>560</y>
-      <w>50</w>
-      <h>110</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>30;90;30;30</additional_attributes>
-  </element>
-  <element>
     <type>com.umlet.element.custom.Database</type>
     <coordinates>
-      <x>400</x>
-      <y>760</y>
+      <x>220</x>
+      <y>800</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
@@ -139,25 +13,364 @@ left:noSQL-DB (Webserver):
     <additional_attributes/>
   </element>
   <element>
-    <type>com.umlet.element.custom.Database</type>
+    <type>com.umlet.element.custom.Component</type>
     <coordinates>
-      <x>400</x>
-      <y>820</y>
-      <w>110</w>
-      <h>40</h>
+      <x>150</x>
+      <y>80</y>
+      <w>200</w>
+      <h>70</h>
     </coordinates>
-    <panel_attributes>Dateisystem</panel_attributes>
+    <panel_attributes>'&lt;&lt;component&gt;&gt;
+ 
+'Dialog-Steuerung</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>510</x>
+      <y>80</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component&gt;&gt;
+ 
+'Dialog</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>110</x>
+      <y>270</y>
+      <w>230</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component&gt;&gt;
+ 
+'Dialog-Agent</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>110</x>
+      <y>610</y>
+      <w>200</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;component&gt;&gt;
+ 
+'Externe Komponente</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <type>com.umlet.element.Relation</type>
     <coordinates>
-      <x>430</x>
-      <y>770</y>
+      <x>0</x>
+      <y>190</y>
+      <w>890</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>30;30;870;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>570</x>
+      <y>0</y>
+      <w>280</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Präsentationsschicht (Client/Webrowser)
+- HTML
+- Javascript</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>290</x>
+      <y>220</y>
       <w>50</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>lt=&lt;-</panel_attributes>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>560</x>
+      <y>240</y>
+      <w>290</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Anwendungslogik (Server)
+- HTML-Templates
+- JSP, Servlets
+- Java Beans</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>320</x>
+      <y>80</y>
+      <w>80</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
+    <additional_attributes>60;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>360</x>
+      <y>80</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>110;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>460</x>
+      <y>80</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;50;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>290</x>
+      <y>120</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
     <additional_attributes>30;50;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>290</x>
+      <y>150</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>30;80;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>0</x>
+      <y>520</y>
+      <w>900</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=.</panel_attributes>
+    <additional_attributes>30;30;880;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Text</type>
+    <coordinates>
+      <x>570</x>
+      <y>560</y>
+      <w>290</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>Dezentrale Datenhaltung
+- noSQL-DB (Webserver):
+- Dokumentenorientierte Speicherung
+- JSON-Format / Restful-API</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>750</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>650</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
+    <additional_attributes>30;50;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>250</x>
+      <y>680</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>30;80;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.custom.Component</type>
+    <coordinates>
+      <x>110</x>
+      <y>370</y>
+      <w>740</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>'&lt;&lt;subsystem, 
+component&gt;&gt;
+ 
+'Fachliche Komponente</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>260</x>
+      <y>490</y>
+      <w>50</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
+    <additional_attributes>30;40;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>260</x>
+      <y>510</y>
+      <w>50</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>30;60;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>260</x>
+      <y>560</y>
+      <w>50</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;30;50</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>110</x>
+      <y>80</y>
+      <w>60</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
+    <additional_attributes>30;30;40;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>10</x>
+      <y>80</y>
+      <w>130</w>
+      <h>580</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>70;560;30;290;110;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>70</x>
+      <y>620</y>
+      <w>60</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;40;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>120</x>
+      <y>470</y>
+      <w>180</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Anwendungsfallsteuerung</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Class</type>
+    <coordinates>
+      <x>320</x>
+      <y>470</y>
+      <w>180</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>Fachklassen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>400</x>
+      <y>290</y>
+      <w>50</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;()
+</panel_attributes>
+    <additional_attributes>30;30;30;80</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>310</x>
+      <y>280</y>
+      <w>70</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;(
+</panel_attributes>
+    <additional_attributes>50;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>340</x>
+      <y>280</y>
+      <w>100</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>80;30;30;30</additional_attributes>
   </element>
 </diagram>
