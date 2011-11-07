@@ -1,4 +1,4 @@
-package ch.ffhs.inf09.pa.mashup.var.news_from_finnish_bands.view.html;
+package ch.ffhs.inf09.pa.mashup.var.portrait_of_finnish_bands.view.html;
 
 import ch.ffhs.inf09.pa.mashup.system.view.*;
 import ch.ffhs.inf09.pa.mashup.system.model.*;
@@ -22,10 +22,12 @@ public class ViewMain extends ViewHTML
 			for (Content band: bands)
 			{
 				html += "<h2>" + band.getCaption() + "</h2>\n";
-				ArrayList<Content> newsList = band.getChildren();
-				for (Content news: newsList)
+				ArrayList<Content> portraits = band.getChildren();
+				for (Content portrait: portraits)
 				{
-					html += "<p>" + news.getCaption() + "</p>\n";
+					html += "<h3>" + portrait.getCaption() + "</h3>\n";
+					html += "<p>" + portrait.getBody()
+						+ " <a href=\"" + portrait.getUrl() + "\" target=\"_blank\">more</a></p>";
 				}
 			}
 		}

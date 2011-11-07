@@ -1,10 +1,15 @@
 package ch.ffhs.inf09.pa.mashup.system.model;
 
+import ch.ffhs.inf09.pa.mashup.system.util.*;
 import java.util.*;
+import java.io.*;
+import java.security.*;
 
-public class Content
+public class Content implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	private ArrayList<Content> children = new ArrayList<Content>();
+	private ArrayList<String> keyWords = new ArrayList<String>();
 	private String caption;
 	private String imgURL;
 	private String intro;
@@ -13,11 +18,73 @@ public class Content
 	private String footer;
 	private String url;
 	private String publisher;
+	private String publisherURL;
 	private String publishedDate;
 	
 	public Content(String caption)
 	{
 		this.caption = caption;
+	}
+	
+	public String getHashCode() throws ExceptionMashup
+	{
+		String ident = hash(this);
+		try
+		{
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(ident.getBytes());
+			StringBuffer hex = new StringBuffer();
+			byte[] result = md.digest();
+			for (int i = 0; i < result.length; i++)
+			{
+				if (result[i] <= 15 && result[i] >= 0) hex.append("0");
+				hex.append(Integer.toHexString(0xFF & result[i]));
+			}
+			return hex.toString();
+		} catch (NoSuchAlgorithmException e)
+		{
+			throw new ExceptionMashup("MD5 algorithm is not supported", e);
+		}
+	}
+	
+	private String hash(Content content)
+	{
+		String s = content.getCaption() + "_" + content.getIntro()
+			+ "_" + content.getHeading() + "_" + content.getBody()
+			+ "_" + content.getFooter() + "_" + content.getUrl()
+			+ "_" + content.getPublisher() + "_" + content.getPublisherURL();
+		ArrayList<Content> children = content.getChildren();
+		for (Content child: children)
+		{
+			s += "_" + hash(child);
+		}
+		return s;
+	}
+	
+	public void update(Content content)
+	{
+		children = content.getChildren();
+		keyWords = content.getKeyWords();
+		caption = content.getCaption();
+		imgURL = content.getImgUrl();
+		intro = content.getIntro();
+		heading = content.getHeading();
+		body = content.getBody();
+		footer = content.getFooter();
+		url = content.getUrl();
+		publisher = content.getPublisher();
+		publisherURL = content.getPublisherURL();
+		publishedDate = content.getPublishedDate();
+	}
+	
+	public void addKeyWord(String keyWord)
+	{
+		keyWords.add(keyWord);
+	}
+	
+	public ArrayList<String> getKeyWords()
+	{
+		return keyWords;
 	}
 	
 	public void setImgURL(String imgURL)
@@ -53,6 +120,16 @@ public class Content
 	public void setPublisher(String publisher)
 	{
 		this.publisher = publisher;
+	}
+	
+	public void setPublisherURL(String url)
+	{
+		publisherURL = url;
+	}
+	
+	public String getPublisherURL()
+	{
+		return publisherURL;
 	}
 	
 	public void setPublishedDate(String date)
@@ -110,12 +187,12 @@ public class Content
 		return children;
 	}
 	
-	public void setChilds(ArrayList<Content> children)
+	public void setChildren(ArrayList<Content> children)
 	{
 		this.children = children;
 	}
 	
-	public String getImgURL()
+	public String getImgUrl()
 	{
 		return imgURL;
 	}

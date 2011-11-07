@@ -14,16 +14,14 @@ public class Controller
 		int number) throws ExceptionMashup
 	{
 		String pathVar = "ch.ffhs.inf09.pa.mashup.var";
-		String pathModel = pathVar + "." + mashupName
-			+ ".model.ModelMain";
-		String pathView = pathVar + "." + mashupName
-			+ ".view." + viewType + ".ViewMain";
-		
+		String pathModel = pathVar + "." + mashupName + ".model.ModelMain";
+		String pathView = pathVar + "." + mashupName + ".view." + viewType + ".ViewMain";
 		try
 		{
 			Class<?> c = (Class<?>)Class.forName(pathModel);
 			Constructor<?> ct = c.getConstructor();
 			model = (Model)ct.newInstance();
+			LoggerMashup.writeNotice("model instantiated (" + pathModel + ")");
 			model.setRange(start, number);
 		} catch (ClassNotFoundException e)
 		{
@@ -32,7 +30,6 @@ public class Controller
 		{
 			throw new ExceptionMashup("Couldn't instantiate " + pathModel, e);
 		}
-		
 		try
 		{
 			Class<?> c = (Class<?>) Class.forName(pathView);
@@ -42,6 +39,7 @@ public class Controller
 			Object arglist[] = new Object[1];
 			arglist[0] = model;
 			view = (View)ct.newInstance(arglist);
+			LoggerMashup.writeNotice("view instantiated (" + pathView + ")");
 		} catch (ClassNotFoundException e)
 		{
 			throw new ExceptionMashup("Couldn't find " + pathView, e);
@@ -49,11 +47,7 @@ public class Controller
 		{
 			throw new ExceptionMashup("Couldn't instantiate " + pathView, e);
 		}
-		
 	}
 	
-	public View getView()
-	{
-		return view;
-	}
+	public View getView() { return view; }
 }

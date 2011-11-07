@@ -1,0 +1,44 @@
+package ch.ffhs.inf09.pa.mashup.system.util;
+
+import ch.ffhs.inf09.pa.mashup.config.*;
+import java.util.Calendar;
+import java.io.*;
+import java.text.*;
+
+public class LoggerMashup
+{
+	public static void writeNotice(String msg)
+	{
+		write(msg, "log");
+	}
+	
+	public static void writeError(ExceptionMashup e)
+	{
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		e.printStackTrace(pw);
+		writeError(sw.toString());
+	}
+	
+	public static void writeError(String msg)
+	{
+		write(msg, "error");
+	}
+	
+	private static void write(String msg, String prefix)
+	{
+		Calendar cal = Calendar.getInstance();
+		DateFormat df = new SimpleDateFormat("yyyy_MM_dd");
+		String filepath = Config.FILE_PATH_LOG + prefix + "_"
+			+ df.format(cal.getTime()) + ".txt";
+		df = new SimpleDateFormat("HH:mm:ss");
+		msg = df.format(cal.getTime()) + " --- " + msg + "\n";
+		try
+		{
+			FileMashup.write(filepath, msg, true);
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+}

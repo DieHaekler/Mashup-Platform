@@ -8,7 +8,7 @@ public abstract class Model
 	
 	public Model(String caption)
 	{
-		this.content = new Content(caption);
+		content = new Content(caption);
 	}
 	
 	public abstract void setRange(int start, int number) throws ExceptionMashup;
