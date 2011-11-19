@@ -1,0 +1,8 @@
+18:58:03 --- mashup platform started for input params: portrait_of_finnish_bands, html, 0, 3
+18:58:03 --- model instantiated (ch.ffhs.inf09.pa.mashup.var.portrait_of_finnish_bands.model.ModelMain)
+18:58:03 --- no cache entry found for 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3'
+18:58:03 --- no cache entry found for 'portrait_of_finnish_bands___DBFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3'
+18:58:04 --- no cache entry found for 'system___DBGoogleSearch_fbc8fa6ba0a98cc55760c2a1f43c4872_0_5'
+18:58:04 --- view instantiated (ch.ffhs.inf09.pa.mashup.var.portrait_of_finnish_bands.view.html.ViewMain)
+18:58:04 --- main controller instantiated
+18:58:04 --- mashup platform finished for input params: portrait_of_finnish_bands, html, 0, 3
