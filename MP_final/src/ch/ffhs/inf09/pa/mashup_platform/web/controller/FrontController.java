@@ -20,17 +20,16 @@ public class FrontController extends HttpServlet
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		initEnvironment(request);
-		Environment environment = Environment.getInstance();
+		Environment environment = initEnvironment(request);
 		ControllerApplication controller = null;
 		try
 		{
 			if ( environment.isUserLoggedIn() )
 			{
-				controller = new ControllerAccount();
+				controller = new ControllerAccount(environment);
 			} else
 			{
-				controller = new ControllerMashupOverview();
+				controller = new ControllerMashupOverview(environment);
 			}
 		} catch (ExceptionMP e)
 		{
@@ -51,10 +50,9 @@ public class FrontController extends HttpServlet
 		doGet(request, response);
 	}
 	
-	private void initEnvironment(HttpServletRequest request)
+	private Environment initEnvironment(HttpServletRequest request)
 	{
-		Environment environment = Environment.getInstance(request);
-		
+		Environment environment = new Environment(request);
 		if ( environment.isUserLoggedIn() )
 		{
 			// check if user wants to log out
@@ -73,6 +71,7 @@ public class FrontController extends HttpServlet
 				environment.login(username, password);
 			}
 		}
+		return environment;
 	}
 
 }
