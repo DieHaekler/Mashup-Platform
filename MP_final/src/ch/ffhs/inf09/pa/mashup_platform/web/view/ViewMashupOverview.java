@@ -1,20 +1,16 @@
 package ch.ffhs.inf09.pa.mashup_platform.web.view;
 
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
+import ch.ffhs.inf09.pa.mashup_platform.web.Environment;
 
 public class ViewMashupOverview extends ViewApplication
 {
-	public ViewMashupOverview() throws ExceptionMP
+	public ViewMashupOverview(Environment environment) throws ExceptionMP
 	{
-		super();
+		super(environment);
 		String part = getTemplate("html/mashup/overview.html");
 		content = content.replaceFirst("\\[__VIEW_APPLICATION__\\]", part);
 		
-		/*ViewMenu viewMenu = new ViewMenu(content);
-		content = viewMenu.getContent();
-		
-		ViewLogin viewLogin = new ViewLogin(content);
-		content = viewLogin.getContent();*/
 		complete();
 	}
 }

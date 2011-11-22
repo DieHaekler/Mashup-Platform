@@ -160,6 +160,7 @@ text-align: center;
 
 background-repeat:no-repeat;
 background-position: bottom;
+position: absolute;
 width: 350px;
 text-align: center;
 height: 100px;

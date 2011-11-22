@@ -29,7 +29,26 @@ public class FrontController extends HttpServlet
 				controller = new ControllerAccount(environment);
 			} else
 			{
-				controller = new ControllerMashupOverview(environment);
+				// check if user wants to log in
+				String loginParm = environment.getValuePost("login");
+				if (loginParm != null && loginParm.equals("1") )
+				{
+					controller = new ControllerLogin(environment);
+				} else 
+				{
+					// Check if specific mashup was accessed
+					String repositoryParm = environment.getValuePost("repository");
+					//String mashupParm = environment.getValuePost("mashup");
+
+					if (repositoryParm != null)
+					{					
+						controller = new ControllerViewMashups(environment);
+						//controller = new ControllerViewMashup(environment);
+					} 
+					else {
+						controller = new ControllerMashupOverview(environment);
+					}
+				}
 			}
 		} catch (ExceptionMP e)
 		{

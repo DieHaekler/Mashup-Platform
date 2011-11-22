@@ -8,6 +8,6 @@ public class ControllerMashupOverview extends ControllerApplication
 {
 	public ControllerMashupOverview(Environment environment) throws ExceptionMP
 	{
-		super(environment, new ViewMashupOverview());
+		super(environment, new ViewMashupOverview(environment));
 	}
 }

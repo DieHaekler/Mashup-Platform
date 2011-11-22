@@ -8,6 +8,6 @@ public class ControllerAccount extends ControllerApplication
 {
 	public ControllerAccount(Environment environment) throws ExceptionMP
 	{
-		super(environment, new ViewAccount());
+		super(environment, new ViewAccount(environment));
 	}
 }

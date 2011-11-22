@@ -11,19 +11,17 @@ public abstract class ViewApplication
 	protected String content;
 	protected String contentType = CONTENT_TYPE_HTML;
 	
-	public ViewApplication() throws ExceptionMP
+	public ViewApplication(Environment environment) throws ExceptionMP
 	{
 		content = getTemplate("html/main.html");
-		
-		//Get environment in order to check login status
-		Environment environment = Environment.getInstance();
-		
+				
 		//Add global menu
 		String menu = getTemplate("html/menu/menu.html");
 		if ( environment.isUserLoggedIn() )
 		{
 			menu = getTemplate("html/menu/menu_logged_in.html");
 		}
+		
 		content = content.replaceFirst("\\[__VIEW_MENU__\\]", menu);
 		
 	}
