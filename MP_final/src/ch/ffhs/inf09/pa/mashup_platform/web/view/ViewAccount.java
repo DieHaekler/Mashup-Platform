@@ -9,8 +9,12 @@ public class ViewAccount extends ViewApplication
 		super();
 		String part = getTemplate("html/account/overview.html");
 		content = content.replaceFirst("\\[__VIEW_APPLICATION__\\]", part);
+		
+		/*ViewMenu viewMenu = new ViewMenu(content);
+		content = viewMenu.getContent();
+		
 		ViewLogout viewLogout = new ViewLogout(content);
-		content = viewLogout.getContent();
+		content = viewLogout.getContent(); */
 		complete();
 	}
 }

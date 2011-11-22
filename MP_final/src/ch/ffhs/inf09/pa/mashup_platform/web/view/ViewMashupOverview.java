@@ -9,8 +9,12 @@ public class ViewMashupOverview extends ViewApplication
 		super();
 		String part = getTemplate("html/mashup/overview.html");
 		content = content.replaceFirst("\\[__VIEW_APPLICATION__\\]", part);
+		
+		/*ViewMenu viewMenu = new ViewMenu(content);
+		content = viewMenu.getContent();
+		
 		ViewLogin viewLogin = new ViewLogin(content);
-		content = viewLogin.getContent();
+		content = viewLogin.getContent();*/
 		complete();
 	}
 }

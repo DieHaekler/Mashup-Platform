@@ -1,0 +1,38 @@
+<script>
+    function trim(s) 
+    {
+        return s.replace( \/\^\\\s*\/, "" ).replace( \/\\\s*\$\/, "" );
+    }
+
+    function validate()
+    {
+        if(trim(document.frmLogin.user.value)=="")
+        {
+          alert("Username is empty");
+          document.frmLogin.user.focus();
+          return false;
+        }
+        else if(trim(document.frmLogin.pw.value)=="")
+        {
+          alert("Password is empty");
+          document.frmLogin.pw.focus();
+          return false;
+        }
+    }
+</script>
+<div id="loginDiv">
+	<form id="loginForm" name="frmLogin" onSubmit="return validate();" action="[___WEB_PATH_ROOT__]main" method="post">	
+			<fieldset><legend>Login</legend>
+				<p class="first">
+					<label for="userName">Username</label>
+					<input type="text" name="user" id="user" size="30" />
+				</p>
+				<p>
+					<label for="passWord">Password</label>
+					<input type="password" name="pw" id="pw" size="30" />
+				</p>		
+			</fieldset>			
+			<button class="submit" type="submit">Login</button>	
+		</form>
+<p>just for testing: User: <b>admin</b> Password: <b>admin</b></p>
+</div>

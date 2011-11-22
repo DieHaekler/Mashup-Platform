@@ -1,49 +1,243 @@
-body
-{
-	background-color: #ffffff;
+body {
+	font: normal .8em/1.5em Arial, Helvetica, sans-serif;
+	//background: #ebebeb;
+	width: 900px;
+	margin: 100px auto;
+	color: #666;
 }
 
-label
-{
-	float: left;
-	margin-left: 10px;
+a {
+	color: #666;
 }
 
-input
-{
+a:link
+{text-decoration:none;}
+
+#nav {
+	margin: auto;
+	padding: 7px 6px 0;
+	background: #7d7d7d repeat-x 0 -110px;
+	line-height: 100%;
+	margin: 0 auto;
+
+	
+	border-radius: 2em;
+	-webkit-border-radius: 2em;
+	-moz-border-radius: 2em;
+
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0, .4);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0, .4);
+	
+}
+
+#nav li {
+	margin: 0 5px;
+	padding: 0 0 8px;
+	display: inline-block;
+	position: relative;
+	list-style: none;
+	text-aligned: central;
+}
+
+
+/* main level link */
+#nav a {
+	font-weight: bold;
+	color: #e7e5e5;
+	text-decoration: none;
 	display: block;
-	float: left;
+	padding:  8px 20px;
+	margin: 0;
+	
+	-webkit-border-radius: 1.6em;
+	-moz-border-radius: 1.6em;
+	
+	text-shadow: 0 1px 1px rgba(0,0,0, .3);
+	
+}
+
+
+/* sub levels link hover */
+#nav ul li:hover a, #nav li:hover li a {
+	background: none;
+	border: none;
+	color: #666;
+
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+/* dropdown */
+#nav li:hover > ul {
+	display: block;
+}
+
+/* level 2 list */
+#nav ul {
+	display: none;
+
+	margin: 0;
+	padding: 0;
+	width: 185px;
+	position: absolute;
+	top: 35px;
+	left: 0;
+	background: #ddd url(../images/menu/gradient.png) repeat-x 0 0;
+	border: solid 1px #b4b4b4;
+
+	
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0, .3);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0, .3);
+	box-shadow: 0 1px 3px rgba(0,0,0, .3);
+	
+}
+#nav ul li {
+	float: none;
+	margin: 0;
+	padding: 0;
+}
+
+#nav ul a {
+	font-weight: normal;
+	text-shadow: 0 1px 0 #fff;
+}
+
+/* level 3+ list */
+#nav ul ul {
+	left: 181px;
+	top: -3px;
+}
+
+/* rounded corners of first and last link */
+#nav ul li:first-child > a {
+	
+	-webkit-border-top-left-radius: 9px;
+	-moz-border-radius-topleft: 9px;
+
+	-webkit-border-top-right-radius: 9px;
+	-moz-border-radius-topright: 9px;
+}
+#nav ul li:last-child > a {
+	
+	-webkit-border-bottom-left-radius: 9px;
+	-moz-border-radius-bottomleft: 9px;
+
+	-webkit-border-bottom-right-radius: 9px;
+	-moz-border-radius-bottomright: 9px;
+}
+
+/* clearfix */
+#nav:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+#nav {
+	display: inline-block;
+} 
+html[xmlns] #nav {
+	display: block;
+}
+ 
+* html #nav {
+	height: 1%;
+}
+
+#sliderWrap {
+margin: 0 auto;
+width: 350px;
+text-align: center;
+}
+
+#slider {
+
+background-repeat:no-repeat;
+background-position: bottom;
+width: 350px;
+text-align: center;
+height: 100px;
+margin-top: -145px;
+}
+#slider img {
+border: 0;
+}
+
+#openCloseWrap {
+	margin: auto;
+	padding: 7px 6px 0;
+	background: #7d7d7d;
+
+	line-height: 100%;
 	width: 100px;
-	margin-left: 6px;
-	margin-right: 6px;
+	height: 15px;
+	text-align: center;
+	
+	border-radius: 0em 0em 2em 2em;
+	-webkit-border-radius: 0em 0em 2em 2em;
+	-moz-border-radius: 0em 0em 2em 2em;
+	
+
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0, .4);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0, .4);
+	
+font-size:12px;
+font-weight:bold;
 }
 
-input#submit
-{
-	float: none;
-	width: auto;
-	margin-left: 100px;
+#openCloseWrap a {
+	color: #E7E5E5;
 }
 
-div
-{
-	float: none;
+/* loginForm */
+
+#loginDiv {
+	margin: auto;
+	text-align: center;
+	width: 300px;
+	height: 190px;
+	
+	border-radius: 2em 2em 2em 2em;
+	-webkit-border-radius: 2em 2em 2em 2em;
+	-moz-border-radius: 2em 2em 2em 2em;
+	
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0, .4);
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0, .4);
 }
 
-div#main
-{
-	padding: 8px;
-}
+	#loginForm fieldset{
+		border:none;	
+		display:inline;
+		}		
+	#loginForm legend{display:none;}	
+	#loginForm p{margin:.5em 0;}	
+	#loginForm label{display:block;}	
+		
+	#loginForm textarea{
+		height:125px;
+		overflow:auto;
+		}		
+		
 
-label
-{
-	text-align: right; 
-}
 
-form
-{
-	background: #de2;
-	border: thin solid #ab0;
-	margin: 0px;
-	padding: 4px;
+button.submit {
+	padding:0;
+	margin:0;
+	border:1px solid #D9DDDE; 
+	width:100px;
+	display:inline;
+	}		
+
+/* // loginForm */
+
+#MashupsDiv {
+	margin: auto;
+	text-align: center;
+	width: 320px;
 }

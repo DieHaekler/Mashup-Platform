@@ -2,6 +2,7 @@ package ch.ffhs.inf09.pa.mashup_platform.web.view;
 
 import ch.ffhs.inf09.pa.mashup_platform.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
+import ch.ffhs.inf09.pa.mashup_platform.web.Environment;
 
 public abstract class ViewApplication
 {
@@ -13,6 +14,18 @@ public abstract class ViewApplication
 	public ViewApplication() throws ExceptionMP
 	{
 		content = getTemplate("html/main.html");
+		
+		//Get environment in order to check login status
+		Environment environment = Environment.getInstance();
+		
+		//Add global menu
+		String menu = getTemplate("html/menu/menu.html");
+		if ( environment.isUserLoggedIn() )
+		{
+			menu = getTemplate("html/menu/menu_logged_in.html");
+		}
+		content = content.replaceFirst("\\[__VIEW_MENU__\\]", menu);
+		
 	}
 	
 	public ViewApplication(String templatePath) throws ExceptionMP
@@ -44,6 +57,11 @@ public abstract class ViewApplication
 	public String getContent()
 	{
 		return content;
+	}
+	
+	public void setContent(String templatePath) throws ExceptionMP
+	{
+		content = getTemplate(templatePath);
 	}
 	
 	private static String stripPlaceholders(String content)
