@@ -1,0 +1,33 @@
+<div id="main">
+
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		var twitter = Tempo.prepare('tweets').notify(function(event) {
+			if (event.type === TempoEvent.Types.RENDER_STARTING || event.type === TempoEvent.Types.RENDER_COMPLETE) {
+				$('ul').toggleClass('loading');
+			}
+		});
+		twitter.starting();
+		$.getJSON("http://search.twitter.com/search.json?q='Schweiz'&rpp=50&callback=?", function(data) {
+			twitter.render(data.results);
+		});
+	});
+</script>
+
+<!-- Example HTML Template -->
+<ul id="tweets">
+	<li class="row" data-template style="display: none;">
+		<div>
+			<h3>{{from_user}}</h3>
+			<img height="48" width="48" alt="{{from_user}}" src="images/tweeter.png" data-src="{{profile_image_url}}" />
+		</div>
+		<p>
+            {{text | replace '@([A-z0-9_]+)', '@<a href="http://twitter.com/$1">$1</a>'}}<span class="time">, {{created_at | date '\at HH:mm on EEEE' }}</span>
+        </p>
+	</li>
+    <li class="error" data-template-fallback>
+        Sorry, but you sort of need JavaScript for this one!
+    </li>
+</ul>
+
+</div>

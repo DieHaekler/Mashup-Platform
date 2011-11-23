@@ -1,0 +1,43 @@
+
+<script type="text/javascript">
+	\$(document).ready(function() {
+		\$(".topMenuAction").click( function() {
+			if (\$("#openCloseIdentifier").is(":hidden")) {
+				\$("#slider").animate({ 
+					marginTop: "-145px"
+					}, 500 );
+				\$("#topMenuText").html('Menu');
+				\$("#openCloseIdentifier").show();
+			} else {
+				\$("#slider").animate({ 
+					marginTop: "-100px"
+					}, 500 );
+				\$("#topMenuText").html('Close');
+				\$("#openCloseIdentifier").hide();
+			}
+		});  
+	});
+	</script>
+	
+	<div id="sliderWrap">
+		<div id="openCloseIdentifier"></div>
+		<div id="slider">
+				<ul id="nav">
+					<li class="current"><a href="?overview=1">Home</a></li>
+					<li><a href="?mashup=14212">Example</a></li>
+					<!-- Section logged in -->
+					<li><a href="#">Account</a>
+						<ul>
+							<li><a href="#">My Mashups</a></li>
+							<li><a href="#">My Account</a></li>
+							<li><a href="?logout=1">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			<div id="openCloseWrap">
+				<a href="#" class="topMenuAction" id="topMenuText">
+					Menu
+				</a>
+			</div>
+		</div>
+	</div>
