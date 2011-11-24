@@ -9,7 +9,7 @@ public class ViewMashup extends ViewApplication
 	{
 		super(environment);
 		String part = getTemplate("html/mashup/mashup.html");
-		content = content.replaceFirst("\\[__VIEW_APPLICATION__\\]", part);
+		content = content.replace(PLACEHOLDER_VIEW_APPLICATION, part);
 		
 		complete();
 	}

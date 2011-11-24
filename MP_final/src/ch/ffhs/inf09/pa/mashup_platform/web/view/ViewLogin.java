@@ -9,7 +9,7 @@ public class ViewLogin extends ViewApplication
 	{
 		super(environment);
 		String login = getTemplate("html/menu/login.html");
-		content = content.replaceFirst("\\[__VIEW_APPLICATION__\\]", login);
+		content = content.replace(PLACEHOLDER_VIEW_LOGIN_FORM, login);
 
 		complete();
 	}

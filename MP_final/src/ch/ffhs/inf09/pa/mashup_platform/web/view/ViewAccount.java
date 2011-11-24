@@ -9,7 +9,7 @@ public class ViewAccount extends ViewApplication
 	{
 		super(environment);
 		String part = getTemplate("html/account/overview.html");
-		content = content.replaceFirst("\\[__VIEW_APPLICATION__\\]", part);
+		content = content.replace(PLACEHOLDER_VIEW_APPLICATION, part);
 		
 		/*ViewMenu viewMenu = new ViewMenu(content);
 		content = viewMenu.getContent();

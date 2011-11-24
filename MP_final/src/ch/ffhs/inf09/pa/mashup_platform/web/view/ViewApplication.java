@@ -8,6 +8,11 @@ public abstract class ViewApplication
 {
 	public static final String CONTENT_TYPE_HTML = "text/html";
 	public static final String CONTENT_TYPE_JSON = "application/json";
+	public static final String PLACEHOLDER_VIEW_MENU = "[__VIEW_MENU__]";
+	public static final String PLACEHOLDER_VIEW_APPLICATION = "[__VIEW_APPLICATION__]";
+	public static final String PLACEHOLDER_WEB_PATH_ROOT = "[__WEB_PATH_ROOT__]";
+	public static final String PLACEHOLDER_VIEW_LOGIN_FORM = "[__VIEW_LOGIN_FORM__]";
+	
 	protected String content;
 	protected String contentType = CONTENT_TYPE_HTML;
 	
@@ -22,8 +27,7 @@ public abstract class ViewApplication
 			menu = getTemplate("html/menu/menu_logged_in.html");
 		}
 		
-		content = content.replaceFirst("\\[__VIEW_MENU__\\]", menu);
-		
+		content = content.replace(PLACEHOLDER_VIEW_MENU, menu);
 	}
 	
 	public ViewApplication(String templatePath) throws ExceptionMP
@@ -69,7 +73,7 @@ public abstract class ViewApplication
 	
 	protected void complete()
 	{
-		content.replaceAll("\\[__WEB_PATH_ROOT__\\]", Config.WEB_PATH_ROOT);
+		content = content.replace(PLACEHOLDER_WEB_PATH_ROOT, Config.WEB_PATH_ROOT);
 		content = stripPlaceholders(content);
 	}
 }

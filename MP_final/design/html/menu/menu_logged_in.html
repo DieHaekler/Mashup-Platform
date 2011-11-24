@@ -1,19 +1,19 @@
 
 <script type="text/javascript">
-	\$(document).ready(function() {
-		\$(".topMenuAction").click( function() {
-			if (\$("#openCloseIdentifier").is(":hidden")) {
-				\$("#slider").animate({ 
+	$(document).ready(function() {
+		$(".topMenuAction").click( function() {
+			if ($("#openCloseIdentifier").is(":hidden")) {
+				$("#slider").animate({ 
 					marginTop: "-145px"
 					}, 500 );
-				\$("#topMenuText").html('Menu');
-				\$("#openCloseIdentifier").show();
+				$("#topMenuText").html('Menu');
+				$("#openCloseIdentifier").show();
 			} else {
-				\$("#slider").animate({ 
+				$("#slider").animate({ 
 					marginTop: "-100px"
 					}, 500 );
-				\$("#topMenuText").html('Close');
-				\$("#openCloseIdentifier").hide();
+				$("#topMenuText").html('Close');
+				$("#openCloseIdentifier").hide();
 			}
 		});  
 	});
