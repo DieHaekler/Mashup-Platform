@@ -1,12 +1,8 @@
 <script>
-    function trim(s) 
-    {
-        return s.replace( \/\^\\\s*\/, "" ).replace( \/\\\s*\$\/, "" );
-    }
-
+   
     function validate()
     {
-        if(trim(document.frmLogin.user.value)=="")
+        if(document.frmLogin.user.value=="")
         {
           alert("Username is empty");
           document.frmLogin.user.focus();
@@ -31,6 +27,7 @@
 					<label for="passWord">Password</label>
 					<input type="password" name="pw" id="pw" size="30" />
 				</p>		
+					<input type="hidden" name="menu" id="menu" value="account"/>
 			</fieldset>			
 			<button class="submit" type="submit">Login</button>	
 		</form>

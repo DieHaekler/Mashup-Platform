@@ -24,10 +24,14 @@ $(document).ready(function() {
 		<div id="openCloseIdentifier"></div>
 		<div id="slider">
 				<ul id="nav">
-					<li class="current"><a href="?overview=1">Home</a></li>
-					<li><a href="?overview=1">Mashups</a></li>
+					<li class="current"><a href="?menu=home">Home</a></li>
+					<li><a href="?menu=overview">Mashups</a>
+						<ul>
+						<li><a href="?menu=mashup">Example</a></li>
+						</ul>
+					</li>
 					<!-- Section logged out -->
-					<li><a href="?login=1">Login</a></li>	
+					<li><a href="?menu=account">Login</a></li>	
 				</ul>
 			<div id="openCloseWrap">
 				<a href="#" class="topMenuAction" id="topMenuText">

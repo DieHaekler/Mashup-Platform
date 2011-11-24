@@ -13,6 +13,34 @@ public class FrontController extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
+	public static <T extends Enum<T>> boolean isMember(Class<T> enumType, String name) {
+	    for (Enum<T> constant : enumType.getEnumConstants()) {
+	        if (constant.toString().equals(name)) {
+	            return true;
+	        }
+	    }
+	    return false;
+	}
+
+	private enum Menu 
+	{ 
+		HOME, OVERVIEW, MASHUP, REPOSITORY, ACCOUNT;
+	    // We know we'll never mutate this, so we can keep
+	    // a local copy.
+	    private static final Menu[] copyOfValues = values();
+
+	    public static Menu forName(String name) {
+	        for (Menu value : copyOfValues) {
+	            if (value.name().equals(name)) {
+	                return value;
+	            }
+	        }
+	        return Menu.HOME;
+	    }
+
+
+	};
+	
 	public FrontController()
 	{
         super();
@@ -23,33 +51,44 @@ public class FrontController extends HttpServlet
 		Environment environment = initEnvironment(request);
 		ControllerApplication controller = null;
 		try
-		{
-			if ( environment.isUserLoggedIn() )
-			{
-				controller = new ControllerAccount(environment);
-			} else
-			{
-				// check if user wants to log in
-				String loginParm = environment.getValuePost("login");
-				if (loginParm != null && loginParm.equals("1") )
+		{	
+				//Default Menu
+				Menu menu = Menu.HOME;
+				
+				//Menu navigation
+				if (environment.getValuePost("menu") != null)
 				{
-					controller = new ControllerLogin(environment);
-				} else 
-				{
-					// Check if specific mashup was accessed
-					String repositoryParm = environment.getValuePost("repository");
-					//String mashupParm = environment.getValuePost("mashup");
-
-					if (repositoryParm != null)
-					{					
-						controller = new ControllerViewMashups(environment);
-						//controller = new ControllerViewMashup(environment);
-					} 
-					else {
-						controller = new ControllerMashupOverview(environment);
-					}
+					String menuParm = environment.getValuePost("menu");
+					menuParm = menuParm.toUpperCase();
+					menu = Menu.forName(menuParm);
 				}
-			}
+				
+				switch(menu)
+	             {
+	               case HOME:
+	            	   controller = new ControllerMashupOverview(environment);
+	            	   break;
+	               case OVERVIEW:
+	            	   controller = new ControllerMashupOverview(environment);
+	            	   break;
+	               case REPOSITORY:
+	            	 controller = new ControllerViewMashups(environment);
+	            	 break;
+	               case MASHUP:
+	            	 controller = new ControllerViewMashup(environment);
+	            	 break;
+	               case ACCOUNT:
+		       			if ( environment.isUserLoggedIn() )
+		    			{
+		    				controller = new ControllerAccount(environment);
+		    			} else
+		    			{
+		    				controller = new ControllerLogin(environment);
+		    			}
+		       			break;
+	               default:
+	            	   controller = new ControllerMashupOverview(environment);
+	             }
 		} catch (ExceptionMP e)
 		{
 			LoggerMP.writeError(e);
