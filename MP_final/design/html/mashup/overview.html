@@ -1,15 +1,41 @@
 <div id="main">
 
 <script type="text/javascript" charset="utf-8">
+var oTable;
+var giRedraw = false;
+var asInitVals = new Array();
+
 $(document).ready(function() {
-	$('#mashups').dataTable({
+	
+	
+	/* Add a double-click handler to the rows */
+    $("#mashups tbody").dblclick(function(event) {
+    	window.location = "?menu=mashup"; 
+    });
+	
+	/* Add a click handler to the rows */
+    $("#mashups tbody").click(function(event) {
+        $(oTable.fnSettings().aoData).each(function (){
+            $(this.nTr).removeClass('row_selected');
+        });
+        $(event.target.parentNode).addClass('row_selected');
+    });
+     
+    /* Add a click handler for the delete row */
+    $('#delete').click( function() {
+        var anSelected = fnGetSelected( oTable );
+        oTable.fnDeleteRow( anSelected[0] );
+    } );
+    
+	/* Init table */
+	oTable = $('#mashups').dataTable({
 		"bProcessing": true,
 		"bJQueryUI": true,
-        "bPaginate": false,
-        "bLengthChange": false,
+        "bPaginate": true,
+        "bLengthChange": true,
         "bFilter": true,
         "bSort": true,
-        "bInfo": false,
+        "bInfo": true,
         "bAutoWidth": true,
 		"sAjaxDataProp": "mashups",
         "sAjaxSource": '?menu=repository',
@@ -19,10 +45,59 @@ $(document).ready(function() {
                           { "mDataProp": "name" }
                       ]
     } );
+	
+	$("tfoot input").keyup( function () {
+        /* Filter on the column (the index) of this element */
+        oTable.fnFilter( this.value, $("tfoot input").index(this) );
+    } );
+	
+    /*
+     * Support functions to provide a little bit of 'user friendlyness' to the textboxes in
+     * the footer
+     */
+    $("tfoot input").each( function (i) {
+        asInitVals[i] = this.value;
+    } );
+     
+    $("tfoot input").focus( function () {
+        if ( this.className == "search_init" )
+        {
+            this.className = "";
+            this.value = "";
+        }
+    } );
+     
+    $("tfoot input").blur( function (i) {
+        if ( this.value == "" )
+        {
+            this.className = "search_init";
+            this.value = asInitVals[$("tfoot input").index(this)];
+        }
+    } );
+    
 } );
-</script>
 
-<table id="mashups">
+/* Get the rows which are currently selected */
+function fnGetSelected( oTableLocal )
+{
+    var aReturn = new Array();
+    var aTrs = oTableLocal.fnGetNodes();
+     
+    for ( var i=0 ; i<aTrs.length ; i++ )
+    {
+        if ( $(aTrs[i]).hasClass('row_selected') )
+        {
+            aReturn.push( aTrs[i] );
+        }
+    }
+    return aReturn;
+}
+
+</script>
+<h1>Mashup Overview</h1>
+
+<a href="javascript:void(0)" id="delete">Delete selected row</a>
+<table class="display" id="mashups">
 	<thead>
 		<tr>
 			<th>id</th>
@@ -31,8 +106,16 @@ $(document).ready(function() {
 		</tr>
 	</thead>
 	<tbody>
-	
+
 	</tbody>
+	<tfoot>
+		<tr>
+			<th><input type="text" name="search_id" value="Search id" class="search_init" /></th>
+			<th><input type="text" name="search_creator" value="Search creators" class="search_init" /></th>
+			<th><input type="text" name="search_name" value="Search names" class="search_init" /></th>
+		</tr>
+	</tfoot>
 </table>
+
 
 </div>
