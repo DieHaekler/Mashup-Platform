@@ -1,8 +1,8 @@
-package ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.model;
+package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model;
 
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.DB;
-import ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.model.db.*;
+import ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 
 public class ModelMain extends Model

@@ -23,7 +23,7 @@ public class DBGoogleSearch extends DB
 			for (Content child: list)
 			{
 				ArrayList<ResultGoogleSearch> results
-					= FetcherGoogleSearch.fetchResults(child.getKeyWords());
+					= FetcherGoogleSearch.fetchResults(child.getKeywords());
 				for (ResultGoogleSearch result: results)
 				{
 					Content contentResult = new Content(result.getTitle());

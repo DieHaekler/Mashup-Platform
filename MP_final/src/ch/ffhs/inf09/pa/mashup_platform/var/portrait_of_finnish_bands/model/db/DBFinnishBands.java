@@ -1,4 +1,4 @@
-package ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.model.db;
+package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.db;
 
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;

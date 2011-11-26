@@ -1,4 +1,4 @@
-package ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.model.db;
+package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.db;
 
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
@@ -20,7 +20,8 @@ public class DBPortraitOfFinnishBands extends DBGoogleSearch
 			ArrayList<Content> children = content.getChildren();
 			for (Content child: children)
 			{
-				child.addKeyWord(child.getCaption() + " finnish bands");
+				child.addKeyword(child.getCaption());
+				child.addKeyword("finnish band");
 			}
 			super.fillIn(content, 0, NUMBER_RESULTS);
 			storeToCache(content, identCache);

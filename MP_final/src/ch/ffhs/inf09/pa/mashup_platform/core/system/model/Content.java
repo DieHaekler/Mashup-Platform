@@ -9,7 +9,7 @@ public class Content implements Serializable
 {
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Content> children = new ArrayList<Content>();
-	private ArrayList<String> keyWords = new ArrayList<String>();
+	private ArrayList<String> keywords = new ArrayList<String>();
 	private String caption;
 	private String imgURL;
 	private String intro;
@@ -24,6 +24,52 @@ public class Content implements Serializable
 	public Content(String caption)
 	{
 		this.caption = caption;
+	}
+	
+	public String getJSON()
+	{
+		return toJSON(this);
+	}
+	
+	private String toJSON(Content content)
+	{
+		String k = "";
+		for (String keyword: content.getKeywords())
+		{
+			if (keyword != null && !keyword.equals(""))
+			{
+				k += "\"" + keyword + "\",";
+			}
+		}
+		if ( !k.equals("") ) k = k.substring(0, k.length() - 1);
+		String s = "{"
+			+ (content.getCaption() != null ? ("\"caption\":\"" + content.getCaption() + "\",") : "")
+			+ (content.getImgUrl() != null ? "\"imgURL\":\"" + content.getImgUrl() + "\"," : "")
+			+ (content.getIntro() != null ? "\"intro\":\"" + content.getIntro() + "\"," : "")
+			+ (content.getHeading() != null ? "\"heading\":\"" + content.getHeading() + "\"," : "")
+			+ (content.getBody() != null ? "\"body\":\"" + content.getBody() + "\"," : "")
+			+ (content.getFooter() != null ? "\"footer\":\"" + content.getFooter() + "\"," : "")
+			+ (content.getUrl() != null ? "\"url\":\"" + content.getUrl() + "\"," : "")
+			+ (content.getPublisher() != null ? "\"publisher\":\"" + content.getPublisher() + "\"," : "")
+			+ (content.getPublisherURL() != null ? "\"publisherURL\":\"" + content.getPublisherURL() + "\"," : "")
+			+ (content.getPublishedDate() != null ? "\"publishedDate\":\"" + content.getPublishedDate() + "\"," : "")
+			+ (!k.equals("") ? "\"keywords\":[" + k + "]," : "");
+		if (children.size() > 0)
+		{
+			String c = "";
+			for (Content child: content.getChildren())
+			{
+				String t = toJSON(child);
+				if ( !t.equals("{}") ) c += t + ",";
+			}
+			if ( !c.equals("") )
+			{
+				c = c.substring(0, c.length() - 1);
+				s += "\"child\":[" + c + "],";
+			}
+		}
+		if ( !s.equals("{") ) s = s.substring(0, s.length() - 1);
+		return s + "}";
 	}
 	
 	public String getHashCode() throws ExceptionMP
@@ -64,7 +110,7 @@ public class Content implements Serializable
 	public void update(Content content)
 	{
 		children = content.getChildren();
-		keyWords = content.getKeyWords();
+		keywords = content.getKeywords();
 		caption = content.getCaption();
 		imgURL = content.getImgUrl();
 		intro = content.getIntro();
@@ -77,14 +123,14 @@ public class Content implements Serializable
 		publishedDate = content.getPublishedDate();
 	}
 	
-	public void addKeyWord(String keyWord)
+	public void addKeyword(String keyword)
 	{
-		keyWords.add(keyWord);
+		keywords.add(keyword);
 	}
 	
-	public ArrayList<String> getKeyWords()
+	public ArrayList<String> getKeywords()
 	{
-		return keyWords;
+		return keywords;
 	}
 	
 	public void setImgURL(String imgURL)
