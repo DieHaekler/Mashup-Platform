@@ -24,7 +24,7 @@ public class FrontController extends HttpServlet
 
 	private enum Menu 
 	{ 
-		HOME, OVERVIEW, MASHUP, REPOSITORY, ACCOUNT;
+		HOME, OVERVIEW, MASHUP, ACCOUNT;
 	    // We know we'll never mutate this, so we can keep
 	    // a local copy.
 	    private static final Menu[] copyOfValues = values();
@@ -63,19 +63,35 @@ public class FrontController extends HttpServlet
 					menu = Menu.forName(menuParm);
 				}
 				
+				String formatParm = environment.getValuePost("format");
+				
 				switch(menu)
 	             {
 	               case HOME:
 	            	   controller = new ControllerMashupOverview(environment);
 	            	   break;
 	               case OVERVIEW:
-	            	   controller = new ControllerMashupOverview(environment);
+	            	   
+	            	   if (formatParm != null && formatParm.equals("json"))
+	            	   {
+	            		   controller = new ControllerMashupOverviewJSON(environment);
+	        
+	            	   }
+	            	   else 
+	            	   {
+	            		   controller = new ControllerMashupOverview(environment);
+	            	   }
 	            	   break;
-	               case REPOSITORY:
-	            	 controller = new ControllerViewMashups(environment);
-	            	 break;
-	               case MASHUP:
-	            	 controller = new ControllerViewMashup(environment);
+	               case MASHUP:      
+	            	   if (formatParm != null && formatParm.equals("json"))
+	            	   {
+	            		   controller = new ControllerMashupJSON(environment);
+	        
+	            	   }
+	            	   else 
+	            	   {
+	            		   controller = new ControllerMashup(environment);
+	            	   }
 	            	 break;
 	               case ACCOUNT:
 		       			if ( environment.isUserLoggedIn() )
