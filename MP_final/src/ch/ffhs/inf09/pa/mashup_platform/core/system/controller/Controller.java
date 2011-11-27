@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.lang.reflect.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
+import ch.ffhs.inf09.pa.mashup_platform.config.DBConfig;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.persistence.DBLocal;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.persistence.DBOrient;
 
 public class Controller
 {
@@ -48,4 +51,14 @@ public class Controller
 			throw new ExceptionMP("Could not store '" + filepath + "'", e);
 		}
 	}
+	
+	public void storeOutputDB() throws ExceptionMP
+	{
+		DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD, DBConfig.DB_FILE_PATH, DBConfig.DB_MASHUPS,
+				DBConfig.DB_MASHUPS_CLASS_NAME, DBConfig.DB_USERS, DBConfig.DB_USERS_CLASS_NAME);	
+		dbLocal.storeMashup(model.getContent());		
+		System.out.println(dbLocal.checkUsernameAndPassword("admin", "admin"));
+		System.out.println(dbLocal.getMashupAsJSON("Portrait of Finnish Bands"));
+	}
+		
 }
