@@ -26,7 +26,7 @@ public class FileMP
 	{
 		FileInputStream in = new FileInputStream(filepath);
 		DataInputStream in2 = new DataInputStream(in);
-		BufferedReader br = new BufferedReader(new InputStreamReader(in2));
+		BufferedReader br = new BufferedReader(new InputStreamReader(in2,"UTF8"));
 		String text = "";
 		String line;
 		while ( (line = br.readLine() ) != null)

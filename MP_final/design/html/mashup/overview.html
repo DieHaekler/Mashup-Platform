@@ -7,6 +7,58 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
+    /* Init table */
+	var oTable = $('#mashups').dataTable({
+		"bProcessing": true,
+		"bJQueryUI": true,
+        "bPaginate": true,
+        "bLengthChange": true,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": true,
+        "bAutoWidth": true,
+		"sAjaxDataProp": "mashups",
+        "sAjaxSource": '?menu=overview&format=json',
+        "aoColumns": [
+						  { 
+							"mDataProp": null,
+						  	"sDefaultContent": "<a class='show' href=''>Show</a>",
+						  	"bSortable": false,
+						  	"bSearchable": false,
+						  },
+						  { 
+								"mDataProp": null,
+							  	"sDefaultContent": "<a class='delete' href=''>Delete</a>",
+							  	"bSortable": false,
+							  	"bSearchable": false,
+						  },
+                          { "mDataProp": "id" },
+                          { "mDataProp": "creator" },
+                          { "mDataProp": "name" }
+                      ]
+    	
+	} );
+	
+    /* Add a click handler to the show href */
+	$('#mashups a.show').live('click', function (e) {
+        e.preventDefault();
+         
+        /* Get the row as a parent of the link that was clicked on */
+        var nRow = $(this).parents('tr')[0];
+        
+        /* Get the ID of the Mashup item */
+        var aData = oTable.fnGetData(nRow);
+        alert('Row '+aData[0])
+    }); 
+    
+    /* Add a click handler to the delete href */
+	$('#mashups a.delete').live('click', function (e) {
+        e.preventDefault();
+         
+        /* Get the row as a parent of the link that was clicked on */
+        var nRow = $(this).parents('tr')[0];
+        alert('Row '+nRow)
+    }); 
 	
 	/* Add a double-click handler to the rows */
     $("#mashups tbody").dblclick(function(event) {
@@ -27,28 +79,14 @@ $(document).ready(function() {
         oTable.fnDeleteRow( anSelected[0] );
     } );
     
-	/* Init table */
-	oTable = $('#mashups').dataTable({
-		"bProcessing": true,
-		"bJQueryUI": true,
-        "bPaginate": true,
-        "bLengthChange": true,
-        "bFilter": true,
-        "bSort": true,
-        "bInfo": true,
-        "bAutoWidth": true,
-		"sAjaxDataProp": "mashups",
-        "sAjaxSource": '?menu=overview&format=json',
-        "aoColumns": [
-                          { "mDataProp": "id" },
-                          { "mDataProp": "creator" },
-                          { "mDataProp": "name" }
-                      ]
-    } );
-	
+        
 	$("tfoot input").keyup( function () {
+        col = $("tfoot input").index(this);
+        /* Do not run on first & second column */ 
+        col = col + 2;
+		
         /* Filter on the column (the index) of this element */
-        oTable.fnFilter( this.value, $("tfoot input").index(this) );
+        oTable.fnFilter( this.value, col );
     } );
 	
     /*
@@ -100,6 +138,8 @@ function fnGetSelected( oTableLocal )
 <table class="display" id="mashups">
 	<thead>
 		<tr>
+			<th>Show</th>
+			<th>Delete</th>
 			<th>id</th>
 			<th>creator</th>
 			<th>name</th>
@@ -110,6 +150,8 @@ function fnGetSelected( oTableLocal )
 	</tbody>
 	<tfoot>
 		<tr>
+			<th></th>
+			<th></th>
 			<th><input type="text" name="search_id" value="Search id" class="search_init" /></th>
 			<th><input type="text" name="search_creator" value="Search creators" class="search_init" /></th>
 			<th><input type="text" name="search_name" value="Search names" class="search_init" /></th>

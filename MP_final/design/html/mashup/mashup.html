@@ -1,34 +1,54 @@
 <div id="main">
+<!-- HTML template -->
+<h1 id="topItem" class="caption">Title of Mashup</h1>
+  <ul id="treeItem">
+    <li>
+      	<h3>Portrait:
+      		<a class="caption" href="javascript:void(0)">caption</a>
+      	</h3>
+      	<p></p>	
+      	<div class="body">body</div>
+      	<p></p>
+      	<div class="child"></div>
+    </li>
+  </ul>
+</div>
 
+<!-- Script logic for template engine - needs to be at the end of this page -->
 <script type="text/javascript" charset="utf-8">
-	$(document).ready(function() {
-		var twitter = Tempo.prepare('tweets').notify(function(event) {
-			if (event.type === TempoEvent.Types.RENDER_STARTING || event.type === TempoEvent.Types.RENDER_COMPLETE) {
-				$('ul').toggleClass('loading');
-			}
-		});
-		twitter.starting();
-		$.getJSON("http://search.twitter.com/search.json?q='Schweiz'&rpp=50&callback=?", function(data) {
-			twitter.render(data.results);
-		});
-	});
+$(document).ready(function() {
+
+$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/json; charset=utf-8"});
+var jsonData = [];
+$.ajax({
+  url: '?menu=mashup&format=json',
+  contentType: "application/json; charset=utf-8",
+  async: false,
+  dataType: 'json',
+  success: function (json) {
+    jsonData = json;
+  }
+});
+
+// Render Mashup Title
+$('#topItem').autoRender(jsonData);
+
+// Render Mashup Content (manual directive)
+	    var directive = {
+	    	'li': {
+	        'childitem <- child': {
+	          'a.caption': 'childitem.caption',
+	          'div.body': 'childitem.body',
+	          'a@href':'childitem.url',
+	          'div.child': function(ctxt){
+	            return ctxt.childitem.item.child ? rfn(ctxt.childitem.item):'';
+	          }
+	        }
+	      }
+	    };
+	    var rfn = $('#treeItem').compile( directive );
+	    $('#treeItem').render( jsonData, rfn );    
+	   
+});
 </script>
 
-<h1>Mashup Twitter</h1>
-<!-- Example HTML Template -->
-<ul id="tweets">
-	<li class="row" data-template style="display: none;">
-		<div>
-			<h3>{{from_user}}</h3>
-			<img height="48" width="48" alt="{{from_user}}" src="images/tweeter.png" data-src="{{profile_image_url}}" />
-		</div>
-		<p>
-            {{text | replace '@([A-z0-9_]+)', '@<a href="http://twitter.com/$1">$1</a>'}}<span class="time">, {{created_at | date '\at HH:mm on EEEE' }}</span>
-        </p>
-	</li>
-    <li class="error" data-template-fallback>
-        Sorry, but you sort of need JavaScript for this one!
-    </li>
-</ul>
-
-</div>
