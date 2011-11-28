@@ -2,7 +2,7 @@ package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 
-abstract class DBLocal
+public abstract class DBLocal
 {
 	protected String dbUsername;
 	protected String dbPassword;
