@@ -17,7 +17,7 @@ public class DBPortraitOfFinnishBands extends DBGoogleSearch
 		{
 			DBFinnishBands db = new DBFinnishBands();
 			db.fillIn(content, start, number);
-			ArrayList<Content> children = content.getChildren();
+			ArrayList<Content> children = (ArrayList<Content>)content.getChildren();
 			for (Content child: children)
 			{
 				child.addKeyword(child.getCaption());

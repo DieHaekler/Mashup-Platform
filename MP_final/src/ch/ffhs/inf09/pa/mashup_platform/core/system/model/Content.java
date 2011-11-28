@@ -5,11 +5,21 @@ import java.util.*;
 import java.io.*;
 import java.security.*;
 
+import javax.persistence.Id;
+import javax.persistence.Version;
+
 public class Content implements Serializable
-{
+{  
+	
+	@Id   
+	private Object id;
+	
+	@Version   
+	private Object version;
+	
 	private static final long serialVersionUID = 1L;
-	private ArrayList<Content> children = new ArrayList<Content>();
-	private ArrayList<String> keywords = new ArrayList<String>();
+	private List<Content> children = new ArrayList<Content>();
+	private List<String> keywords = new ArrayList<String>();
 	private String caption;
 	private String imgURL;
 	private String intro;
@@ -21,16 +31,16 @@ public class Content implements Serializable
 	private String publisherURL;
 	private String publishedDate;
 	
-	public Content(String caption)
+	/*public Content()
 	{
 		this.caption = caption;
-	}
+	}*/
 	
 	public String getJSON()
 	{
 		return toJSON(this);
 	}
-	
+
 	private String toJSON(Content content)
 	{
 		String k = "";
@@ -99,7 +109,7 @@ public class Content implements Serializable
 			+ "_" + content.getHeading() + "_" + content.getBody()
 			+ "_" + content.getFooter() + "_" + content.getUrl()
 			+ "_" + content.getPublisher() + "_" + content.getPublisherURL();
-		ArrayList<Content> children = content.getChildren();
+		List<Content> children = content.getChildren();
 		for (Content child: children)
 		{
 			s += "_" + hash(child);
@@ -128,9 +138,13 @@ public class Content implements Serializable
 		keywords.add(keyword);
 	}
 	
-	public ArrayList<String> getKeywords()
+	public List<String> getKeywords()
 	{
 		return keywords;
+	}
+	
+	public void setCaption(String caption) {
+		this.caption = caption;
 	}
 	
 	public void setImgURL(String imgURL)
@@ -183,6 +197,15 @@ public class Content implements Serializable
 		this.publishedDate = date;
 	}
 	
+	public void setKeywords(ArrayList<String> keywords) {
+		this.keywords = keywords;
+	}
+	
+	public void setChildren(ArrayList<Content> children)
+	{
+		this.children = children;
+	}
+	
 	public String getCaption()
 	{
 		return caption;
@@ -228,18 +251,34 @@ public class Content implements Serializable
 		return publishedDate;
 	}
 	
-	public ArrayList<Content> getChildren()
+	public List<Content> getChildren()
 	{
 		return children;
-	}
-	
-	public void setChildren(ArrayList<Content> children)
-	{
-		this.children = children;
 	}
 	
 	public String getImgUrl()
 	{
 		return imgURL;
 	}
+
+	public String getImgURL() {
+		return imgURL;
+	}
+	
+	public Object getId() {
+		return id;
+	}
+
+	public void setId(Object id) {
+		this.id = id;
+	}
+
+	public Object getVersion() {
+		return version;
+	}
+
+	public void setVersion(Object version) {
+		this.version = version;
+	}
+
 }

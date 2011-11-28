@@ -25,10 +25,11 @@ public class DBFinnishBands extends DB
 			List<String> list = words.subList(start, end);
 			for (String word: list)
 			{
-				Content child = new Content(word);
+				Content child = new Content();
+				child.setCaption(word);
 				content.addChild(child);
 			}
-			storeToCache(content, identCache);
+			//storeToCache(content, identCache);
 		}
 		
 	}

@@ -1,748 +1,218 @@
 Trying to locate com/orientechnologies/orient/server/config/jaxb.properties  not foundChecking system property javax.xml.bind.JAXBContext  not foundChecking META-INF/servicesUnable to find: META-INF/services/javax.xml.bind.JAXBContextTrying to create the platform default providerTrying to load com.sun.xml.internal.bind.v2.ContextFactoryloaded com.sun.xml.internal.bind.v2.ContextFactory from jar:file:/C:/Program%20Files/Java/jre6/lib/rt.jar!/com/sun/xml/internal/bind/v2/ContextFactory.classProperty com.sun.xml.internal.bind.XmlAccessorFactoryis not active.  Using JAXB's implementationUsing optimized Accessor for public java.util.List com.orientechnologies.orient.server.config.OServerConfiguration.handlersUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerParameterConfiguration[] com.orientechnologies.orient.server.config.OServerHandlerConfiguration.parametersUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerParameterConfiguration.valueUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerParameterConfiguration.nameUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerHandlerConfiguration.clazzUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerNetworkConfiguration com.orientechnologies.orient.server.config.OServerConfiguration.networkUsing optimized Accessor for public java.util.List com.orientechnologies.orient.server.config.OServerNetworkConfiguration.protocolsUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerNetworkProtocolConfiguration.implementationUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerNetworkProtocolConfiguration.nameUsing optimized Accessor for public java.util.List com.orientechnologies.orient.server.config.OServerNetworkConfiguration.listenersUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerCommandConfiguration[] com.orientechnologies.orient.server.config.OServerNetworkListenerConfiguration.commandsUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerEntryConfiguration[] com.orientechnologies.orient.server.config.OServerCommandConfiguration.parametersUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerEntryConfiguration.valueUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerEntryConfiguration.nameUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerCommandConfiguration.implementationUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerCommandConfiguration.patternUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerParameterConfiguration[] com.orientechnologies.orient.server.config.OServerNetworkListenerConfiguration.parametersUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerNetworkListenerConfiguration.protocolUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerNetworkListenerConfiguration.portRangeUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerNetworkListenerConfiguration.ipAddressUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerStorageConfiguration[] com.orientechnologies.orient.server.config.OServerConfiguration.storagesUsing optimized TransducedAccessor for com.orientechnologies.orient.server.config.OServerStorageConfiguration#loadOnStartupUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerStorageConfiguration.userPasswordUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerStorageConfiguration.userNameUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerStorageConfiguration.pathUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerStorageConfiguration.nameUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerUserConfiguration[] com.orientechnologies.orient.server.config.OServerConfiguration.usersUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerUserConfiguration.resourcesUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerUserConfiguration.passwordUsing optimized Accessor for public java.lang.String com.orientechnologies.orient.server.config.OServerUserConfiguration.nameUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerSecurityConfiguration com.orientechnologies.orient.server.config.OServerConfiguration.securityUsing optimized Accessor for public java.util.List com.orientechnologies.orient.server.config.OServerSecurityConfiguration.usersUsing optimized Accessor for public java.util.List com.orientechnologies.orient.server.config.OServerSecurityConfiguration.resourcesUsing optimized Accessor for public com.orientechnologies.orient.server.config.OServerEntryConfiguration[] com.orientechnologies.orient.server.config.OServerConfiguration.properties
-2011-11-27 03:36:17:251 INFO [OServer] OrientDB Server v1.0rc6 (build 10760) is starting up...
-2011-11-27 03:36:17:532 INFO [OServer] -> Loaded memory database 'temp'
-2011-11-27 03:36:17:558 INFO [OServerNetworkListener] Listening distributed connections on 127.0.0.1:2424
-2011-11-27 03:36:17:563 INFO [OServerNetworkListener] Listening http connections on 127.0.0.1:2480
-2011-11-27 03:36:18:139 INFO [OServer] OrientDB Server v1.0rc6 is active.
-2011-11-27 03:36:18:141 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:36:21:138 WARN [ODistributedServerManager] Current node is the new cluster Leader of distributed nodes
-2011-11-27 03:36:21:142 INFO [ODistributedServerDiscoveryListener] Listening for distributed nodes on IP multicast /235.1.1.1:2424
-2011-11-27 03:36:21:456 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=1, source=?, since=1322361381455]
-2011-11-27 03:36:21:491 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/
-2011-11-27 03:36:21:514 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/jit/base.css
-2011-11-27 03:36:21:532 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /favicon.ico
-2011-11-27 03:36:21:538 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/jquery.tools.min.js
-2011-11-27 03:36:21:549 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/jquery.json-2.2.min.js
-2011-11-27 03:36:21:554 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-form.js
-2011-11-27 03:36:21:572 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-api.js
-2011-11-27 03:36:21:610 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-app.js
-2011-11-27 03:36:21:627 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-controller.js
-2011-11-27 03:36:21:635 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/orientdb-studio.js
-2011-11-27 03:36:21:642 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/jquery-ui-1.8.1.custom.min.js
-2011-11-27 03:36:21:919 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/i18n/grid.locale-en.js
-2011-11-27 03:36:21:926 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/jquery.jqGrid.min.js
-2011-11-27 03:36:22:504 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/autoresize.jquery.min.js
-2011-11-27 03:36:22:507 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/codemirror.js
-2011-11-27 03:36:22:529 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=2, source=?, since=1322361382529]
-2011-11-27 03:36:22:541 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/jquery-ui-1.8.1.custom.css
-2011-11-27 03:36:22:542 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=3, source=?, since=1322361382542]
-2011-11-27 03:36:22:547 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=4, source=?, since=1322361382547]
-2011-11-27 03:36:22:552 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=5, source=?, since=1322361382552]
-2011-11-27 03:36:22:559 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=6, source=?, since=1322361382559]
-2011-11-27 03:36:22:569 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/ui.jqgrid.css
-2011-11-27 03:36:22:583 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/borders.css
-2011-11-27 03:36:22:583 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/jquery-1.6.4.min.js
-2011-11-27 03:36:22:584 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/studio.css
-2011-11-27 03:36:22:843 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/orient_db.png
-2011-11-27 03:36:22:847 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-query.png
-2011-11-27 03:36:22:853 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-command.png
-2011-11-27 03:36:22:855 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/disconnect.png
-2011-11-27 03:36:22:857 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-database.png
-2011-11-27 03:36:22:861 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-document.png
-2011-11-27 03:36:22:864 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-graph.png
-2011-11-27 03:36:22:872 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelHome.htm
-2011-11-27 03:36:22:874 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-server.png
-2011-11-27 03:36:22:885 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-raw.png
-2011-11-27 03:36:22:887 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/connect.png
-2011-11-27 03:36:22:906 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /listDatabases
-2011-11-27 03:36:28:142 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:36:28:143 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:36:29:243 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/users
-2011-11-27 03:36:29:247 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:36:32:241 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/users
-2011-11-27 03:36:32:264 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.oda
-2011-11-27 03:36:32:266 FINE [OFileMMap] Checking file integrity of default.0.oda...
-2011-11-27 03:36:32:266 WARN [ODataLocal] Segment file default.0.oda was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:280 WARN [ODataLocal] OK
-2011-11-27 03:36:32:287 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.odh
-2011-11-27 03:36:32:288 FINE [OFileMMap] Checking file integrity of default.odh...
-2011-11-27 03:36:32:288 WARN [ODataLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.odh was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:292 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.0.ocl
-2011-11-27 03:36:32:293 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
-2011-11-27 03:36:32:293 WARN [OClusterLocal] Segment file internal.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:303 WARN [OClusterLocal] OK
-2011-11-27 03:36:32:305 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.och
-2011-11-27 03:36:32:306 FINE [OFileMMap] Checking file integrity of internal.och...
-2011-11-27 03:36:32:306 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.och was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:307 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\database.ocf
-2011-11-27 03:36:32:308 FINE [OFileMMap] Checking file integrity of database.ocf...
-2011-11-27 03:36:32:308 WARN [OSingleFileSegment] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\database.ocf was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:309 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.0.ocl
-2011-11-27 03:36:32:310 FINE [OFileMMap] Checking file integrity of index.0.ocl...
-2011-11-27 03:36:32:310 WARN [OClusterLocal] Segment file index.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:313 WARN [OClusterLocal] OK
-2011-11-27 03:36:32:313 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.och
-2011-11-27 03:36:32:314 FINE [OFileMMap] Checking file integrity of index.och...
-2011-11-27 03:36:32:314 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.och was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:315 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.ocl
-2011-11-27 03:36:32:316 FINE [OFileMMap] Checking file integrity of default.0.ocl...
-2011-11-27 03:36:32:316 WARN [OClusterLocal] Segment file default.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:316 WARN [OClusterLocal] OK
-2011-11-27 03:36:32:316 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.och
-2011-11-27 03:36:32:318 FINE [OFileMMap] Checking file integrity of default.och...
-2011-11-27 03:36:32:318 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.och was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:321 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.oda
-2011-11-27 03:36:32:322 FINE [OFileMMap] Checking file integrity of default.0.oda...
-2011-11-27 03:36:32:322 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.odh
-2011-11-27 03:36:32:323 FINE [OFileMMap] Checking file integrity of default.odh...
-2011-11-27 03:36:32:345 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.0.ocl
-2011-11-27 03:36:32:346 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
-2011-11-27 03:36:32:346 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.och
-2011-11-27 03:36:32:347 FINE [OFileMMap] Checking file integrity of internal.och...
-2011-11-27 03:36:32:350 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.0.ocl
-2011-11-27 03:36:32:351 FINE [OFileMMap] Checking file integrity of index.0.ocl...
-2011-11-27 03:36:32:352 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.och
-2011-11-27 03:36:32:352 FINE [OFileMMap] Checking file integrity of index.och...
-2011-11-27 03:36:32:353 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.ocl
-2011-11-27 03:36:32:354 FINE [OFileMMap] Checking file integrity of default.0.ocl...
-2011-11-27 03:36:32:354 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.och
-2011-11-27 03:36:32:355 FINE [OFileMMap] Checking file integrity of default.och...
-2011-11-27 03:36:32:355 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\orole.0.ocl
-2011-11-27 03:36:32:356 FINE [OFileMMap] Checking file integrity of orole.0.ocl...
-2011-11-27 03:36:32:356 WARN [OClusterLocal] Segment file orole.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:356 WARN [OClusterLocal] OK
-2011-11-27 03:36:32:357 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\orole.och
-2011-11-27 03:36:32:357 FINE [OFileMMap] Checking file integrity of orole.och...
-2011-11-27 03:36:32:357 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\orole.och was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:358 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\ouser.0.ocl
-2011-11-27 03:36:32:358 FINE [OFileMMap] Checking file integrity of ouser.0.ocl...
-2011-11-27 03:36:32:358 WARN [OClusterLocal] Segment file ouser.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:359 WARN [OClusterLocal] OK
-2011-11-27 03:36:32:360 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\ouser.och
-2011-11-27 03:36:32:361 FINE [OFileMMap] Checking file integrity of ouser.och...
-2011-11-27 03:36:32:361 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\ouser.och was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:361 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\user.0.ocl
-2011-11-27 03:36:32:362 FINE [OFileMMap] Checking file integrity of user.0.ocl...
-2011-11-27 03:36:32:362 WARN [OClusterLocal] Segment file user.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:362 WARN [OClusterLocal] OK
-2011-11-27 03:36:32:363 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\user.och
-2011-11-27 03:36:32:364 FINE [OFileMMap] Checking file integrity of user.och...
-2011-11-27 03:36:32:364 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\user.och was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:364 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\txlog.otx
-2011-11-27 03:36:32:365 FINE [OFileMMap] Checking file integrity of txlog.otx...
-2011-11-27 03:36:32:365 WARN [OTxSegment] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\txlog.otx was not closed correctly last time. Checking segments...
-2011-11-27 03:36:32:396 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:36:32:425 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/users
-2011-11-27 03:36:32:535 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/add.png
-2011-11-27 03:36:32:537 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/set.png
-2011-11-27 03:36:32:539 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/delete.png
-2011-11-27 03:36:32:542 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/execute.png
-2011-11-27 03:36:32:574 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png
-2011-11-27 03:36:32:582 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_glass_85_dfeffc_1x400.png
-2011-11-27 03:36:32:592 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png
-2011-11-27 03:36:32:600 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_inset-hard_100_f5f8f9_1x100.png
-2011-11-27 03:36:32:628 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_469bdd_256x240.png
-2011-11-27 03:36:32:828 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_6da8d5_256x240.png
-2011-11-27 03:36:32:848 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_d8e7f3_256x240.png
-2011-11-27 03:36:33:184 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:36:33:823 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_glass_75_d0e5f5_1x400.png
-2011-11-27 03:36:33:884 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_217bc0_256x240.png
-2011-11-27 03:36:34:702 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_flat_55_fbec88_40x100.png
-2011-11-27 03:36:36:496 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
-2011-11-27 03:36:36:552 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/graph.png
-2011-11-27 03:36:36:593 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/codemirror/sqlcolors.css
-2011-11-27 03:36:36:595 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/util.js
-2011-11-27 03:36:36:623 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/stringstream.js
-2011-11-27 03:36:36:624 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/select.js
-2011-11-27 03:36:36:631 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/tokenize.js
-2011-11-27 03:36:36:634 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/undo.js
-2011-11-27 03:36:36:657 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/editor.js
-2011-11-27 03:36:37:626 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=7, source=?, since=1322361397625]
-2011-11-27 03:36:37:627 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/parsesql.js
-2011-11-27 03:36:37:688 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/users/sql/select from User/20
-2011-11-27 03:36:37:689 FINE [ONetworkProtocolHttpDb] Caught exception
-No user and password received
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:119)
--> com.orientechnologies.orient.server.network.protocol.http.command.get.OServerCommandGetQuery.execute(OServerCommandGetQuery.java:56)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:36:37:692 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/users/sql/select from User/20
-2011-11-27 03:36:38:142 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:36:38:148 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:36:41:375 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:36:47:164 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:36:47:253 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:36:48:148 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:36:48:148 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:36:48:156 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:36:48:190 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:36:48:204 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:36:51:945 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:36:56:456 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=8, source=?, since=1322361416456]
-2011-11-27 03:36:56:458 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:36:58:148 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:36:58:150 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:36:59:448 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:37:03:068 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /disconnect
-2011-11-27 03:37:03:070 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:37:04:083 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=9, source=?, since=1322361424083]
-2011-11-27 03:37:04:087 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelHome.htm
-2011-11-27 03:37:04:193 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /listDatabases
-2011-11-27 03:37:08:149 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:37:08:149 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:37:09:812 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:37:09:818 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:37:14:024 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=10, source=?, since=1322361434024]
-2011-11-27 03:37:14:027 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:37:14:028 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.oda
-2011-11-27 03:37:14:029 FINE [OFileMMap] Checking file integrity of default.0.oda...
-2011-11-27 03:37:14:029 WARN [ODataLocal] Segment file default.0.oda was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:031 WARN [ODataLocal] OK
-2011-11-27 03:37:14:032 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.odh
-2011-11-27 03:37:14:033 FINE [OFileMMap] Checking file integrity of default.odh...
-2011-11-27 03:37:14:033 WARN [ODataLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.odh was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:039 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.0.ocl
-2011-11-27 03:37:14:039 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
-2011-11-27 03:37:14:039 WARN [OClusterLocal] Segment file internal.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:043 WARN [OClusterLocal] OK
-2011-11-27 03:37:14:044 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.och
-2011-11-27 03:37:14:044 FINE [OFileMMap] Checking file integrity of internal.och...
-2011-11-27 03:37:14:044 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.och was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:045 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\database.ocf
-2011-11-27 03:37:14:046 FINE [OFileMMap] Checking file integrity of database.ocf...
-2011-11-27 03:37:14:046 WARN [OSingleFileSegment] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\database.ocf was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:069 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.0.ocl
-2011-11-27 03:37:14:070 FINE [OFileMMap] Checking file integrity of index.0.ocl...
-2011-11-27 03:37:14:070 WARN [OClusterLocal] Segment file index.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:071 WARN [OClusterLocal] OK
-2011-11-27 03:37:14:071 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.och
-2011-11-27 03:37:14:072 FINE [OFileMMap] Checking file integrity of index.och...
-2011-11-27 03:37:14:072 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.och was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:072 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.ocl
-2011-11-27 03:37:14:073 FINE [OFileMMap] Checking file integrity of default.0.ocl...
-2011-11-27 03:37:14:073 WARN [OClusterLocal] Segment file default.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:074 WARN [OClusterLocal] OK
-2011-11-27 03:37:14:074 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.och
-2011-11-27 03:37:14:075 FINE [OFileMMap] Checking file integrity of default.och...
-2011-11-27 03:37:14:075 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.och was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:077 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.oda
-2011-11-27 03:37:14:077 FINE [OFileMMap] Checking file integrity of default.0.oda...
-2011-11-27 03:37:14:078 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.odh
-2011-11-27 03:37:14:078 FINE [OFileMMap] Checking file integrity of default.odh...
-2011-11-27 03:37:14:080 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.0.ocl
-2011-11-27 03:37:14:081 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
-2011-11-27 03:37:14:081 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.och
-2011-11-27 03:37:14:082 FINE [OFileMMap] Checking file integrity of internal.och...
-2011-11-27 03:37:14:083 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.0.ocl
-2011-11-27 03:37:14:084 FINE [OFileMMap] Checking file integrity of index.0.ocl...
-2011-11-27 03:37:14:085 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.och
-2011-11-27 03:37:14:085 FINE [OFileMMap] Checking file integrity of index.och...
-2011-11-27 03:37:14:087 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.ocl
-2011-11-27 03:37:14:087 FINE [OFileMMap] Checking file integrity of default.0.ocl...
-2011-11-27 03:37:14:088 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.och
-2011-11-27 03:37:14:088 FINE [OFileMMap] Checking file integrity of default.och...
-2011-11-27 03:37:14:090 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\orole.0.ocl
-2011-11-27 03:37:14:091 FINE [OFileMMap] Checking file integrity of orole.0.ocl...
-2011-11-27 03:37:14:091 WARN [OClusterLocal] Segment file orole.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:091 WARN [OClusterLocal] OK
-2011-11-27 03:37:14:092 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\orole.och
-2011-11-27 03:37:14:092 FINE [OFileMMap] Checking file integrity of orole.och...
-2011-11-27 03:37:14:092 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\orole.och was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:093 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\ouser.0.ocl
-2011-11-27 03:37:14:094 FINE [OFileMMap] Checking file integrity of ouser.0.ocl...
-2011-11-27 03:37:14:094 WARN [OClusterLocal] Segment file ouser.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:094 WARN [OClusterLocal] OK
-2011-11-27 03:37:14:094 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\ouser.och
-2011-11-27 03:37:14:095 FINE [OFileMMap] Checking file integrity of ouser.och...
-2011-11-27 03:37:14:095 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\ouser.och was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:096 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\mashup.0.ocl
-2011-11-27 03:37:14:096 FINE [OFileMMap] Checking file integrity of mashup.0.ocl...
-2011-11-27 03:37:14:096 WARN [OClusterLocal] Segment file mashup.0.ocl was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:097 WARN [OClusterLocal] OK
-2011-11-27 03:37:14:097 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\mashup.och
-2011-11-27 03:37:14:098 FINE [OFileMMap] Checking file integrity of mashup.och...
-2011-11-27 03:37:14:098 WARN [OClusterLocalHole] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\mashup.och was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:098 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\txlog.otx
-2011-11-27 03:37:14:099 FINE [OFileMMap] Checking file integrity of txlog.otx...
-2011-11-27 03:37:14:099 WARN [OTxSegment] File C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\txlog.otx was not closed correctly last time. Checking segments...
-2011-11-27 03:37:14:158 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:37:15:128 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=11, source=?, since=1322361435128]
-2011-11-27 03:37:15:131 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:37:15:178 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:37:17:060 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
-2011-11-27 03:37:17:285 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:37:18:149 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:37:18:149 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:37:27:572 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:37:27:808 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:37:28:150 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:37:28:150 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:37:38:151 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:37:38:151 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:37:48:151 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:37:48:156 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:37:58:152 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:37:58:152 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:38:01:368 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=12, source=?, since=1322361481368]
-2011-11-27 03:38:01:371 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:01:371 FINE [ONetworkProtocolHttpDb] Caught exception
-No user and password received
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:119)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:02:369 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=13, source=?, since=1322361482369]
-2011-11-27 03:38:02:371 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_f9bd01_256x240.png
-2011-11-27 03:38:05:323 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:05:323 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:05:331 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_glass_95_fef1ec_1x400.png
-2011-11-27 03:38:07:842 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:08:152 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:38:08:152 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:38:12:771 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:12:771 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:13:438 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:13:439 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:14:270 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:14:270 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:18:153 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:38:18:157 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:38:18:656 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:20:575 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:21:039 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:21:208 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:21:345 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:27:735 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:27:736 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:28:153 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:38:28:153 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:38:28:533 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:28:534 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:28:995 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:28:996 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:29:157 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:29:157 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:29:293 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:29:300 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:29:445 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:29:445 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:29:581 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:29:581 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:31:335 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:38:33:969 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
-2011-11-27 03:38:34:226 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:38:154 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:38:38:154 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:38:41:513 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:41:514 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:44:729 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:38:47:831 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:38:47:831 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:38:48:155 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:38:48:155 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:38:50:410 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:38:51:508 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:38:57:076 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:38:58:155 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:38:58:155 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:39:00:149 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /disconnect
-2011-11-27 03:39:00:150 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:39:01:163 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=14, source=?, since=1322361541163]
-2011-11-27 03:39:01:165 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelHome.htm
-2011-11-27 03:39:01:228 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/connect.png
-2011-11-27 03:39:01:274 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /listDatabases
-2011-11-27 03:39:07:991 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:07:992 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:39:08:156 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:39:08:156 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:39:11:855 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=15, source=?, since=1322361551855]
-2011-11-27 03:39:11:857 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:11:871 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:39:12:886 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=16, source=?, since=1322361552886]
-2011-11-27 03:39:12:888 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:12:928 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:39:18:156 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:39:18:156 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:39:18:296 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
-2011-11-27 03:39:18:478 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/codemirror/sqlcolors.css
-2011-11-27 03:39:18:478 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/util.js
-2011-11-27 03:39:18:506 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/stringstream.js
-2011-11-27 03:39:18:521 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/select.js
-2011-11-27 03:39:18:521 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/undo.js
-2011-11-27 03:39:19:549 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=17, source=?, since=1322361559549]
-2011-11-27 03:39:19:550 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=18, source=?, since=1322361559550]
-2011-11-27 03:39:19:552 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/tokenize.js
-2011-11-27 03:39:19:552 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=19, source=?, since=1322361559552]
-2011-11-27 03:39:19:562 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/editor.js
-2011-11-27 03:39:19:573 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/parsesql.js
-2011-11-27 03:39:19:701 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:39:24:084 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:39:24:085 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:25:285 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:39:25:285 FINE [ONetworkProtocolHttpDb] Caught exception
-No user and password received
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:119)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:28:157 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:39:28:157 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:39:29:250 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio//document
-2011-11-27 03:39:29:254 FINE [ONetworkProtocolHttpDb] Caught exception
-Database '' is not configured on server
--> com.orientechnologies.orient.server.OServer.getStoragePath(OServer.java:215)
--> com.orientechnologies.orient.server.db.OSharedDocumentDatabase.acquire(OSharedDocumentDatabase.java:28)
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:123)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:30:168 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:39:30:204 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:39:34:585 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:39:35:785 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:39:38:157 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:39:38:157 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:39:39:755 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:39:46:036 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=20, source=?, since=1322361586036]
-2011-11-27 03:39:46:038 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/delete from Mashup
-/20
-2011-11-27 03:39:46:038 FINE [ONetworkProtocolHttpDb] Caught exception
-Only SQL Select commands are valid using Query command
--> com.orientechnologies.orient.server.network.protocol.http.command.get.OServerCommandGetQuery.execute(OServerCommandGetQuery.java:49)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:48:158 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:39:48:158 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:39:48:529 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/delete from Mashup/20
-2011-11-27 03:39:48:529 FINE [ONetworkProtocolHttpDb] Caught exception
-Only SQL Select commands are valid using Query command
--> com.orientechnologies.orient.server.network.protocol.http.command.get.OServerCommandGetQuery.execute(OServerCommandGetQuery.java:49)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:48:743 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/delete from Mashup/20
-2011-11-27 03:39:48:743 FINE [ONetworkProtocolHttpDb] Caught exception
-Only SQL Select commands are valid using Query command
--> com.orientechnologies.orient.server.network.protocol.http.command.get.OServerCommandGetQuery.execute(OServerCommandGetQuery.java:49)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:48:919 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/delete from Mashup/20
-2011-11-27 03:39:48:919 FINE [ONetworkProtocolHttpDb] Caught exception
-Only SQL Select commands are valid using Query command
--> com.orientechnologies.orient.server.network.protocol.http.command.get.OServerCommandGetQuery.execute(OServerCommandGetQuery.java:49)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:49:071 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/delete from Mashup/20
-2011-11-27 03:39:49:071 FINE [ONetworkProtocolHttpDb] Caught exception
-Only SQL Select commands are valid using Query command
--> com.orientechnologies.orient.server.network.protocol.http.command.get.OServerCommandGetQuery.execute(OServerCommandGetQuery.java:49)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:39:50:366 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:39:53:351 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:54:301 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:54:757 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:55:012 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:55:204 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:55:397 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:39:58:159 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:39:58:159 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:39:58:223 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:40:00:359 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/
-2011-11-27 03:40:00:454 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/jit/base.css
-2011-11-27 03:40:00:478 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /favicon.ico
-2011-11-27 03:40:00:487 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/jquery.tools.min.js
-2011-11-27 03:40:00:496 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/jquery.json-2.2.min.js
-2011-11-27 03:40:00:500 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-form.js
-2011-11-27 03:40:00:517 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-api.js
-2011-11-27 03:40:00:549 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-app.js
-2011-11-27 03:40:00:565 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/orientdb-controller.js
-2011-11-27 03:40:00:573 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/orientdb-studio.js
-2011-11-27 03:40:00:578 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/jquery-ui-1.8.1.custom.min.js
-2011-11-27 03:40:00:861 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/i18n/grid.locale-en.js
-2011-11-27 03:40:00:866 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/jquery.jqGrid.min.js
-2011-11-27 03:40:01:440 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/autoresize.jquery.min.js
-2011-11-27 03:40:01:443 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/codemirror.js
-2011-11-27 03:40:01:455 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=21, source=?, since=1322361601455]
-2011-11-27 03:40:01:456 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=22, source=?, since=1322361601456]
-2011-11-27 03:40:01:457 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=23, source=?, since=1322361601457]
-2011-11-27 03:40:01:457 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/ui.jqgrid.css
-2011-11-27 03:40:01:476 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/borders.css
-2011-11-27 03:40:01:478 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /js/jquery-1.6.4.min.js
-2011-11-27 03:40:01:499 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=24, source=?, since=1322361601499]
-2011-11-27 03:40:01:500 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=25, source=?, since=1322361601500]
-2011-11-27 03:40:01:500 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/jquery-ui-1.8.1.custom.css
-2011-11-27 03:40:01:500 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/studio.css
-2011-11-27 03:40:01:744 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/disconnect.png
-2011-11-27 03:40:01:744 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/orient_db.png
-2011-11-27 03:40:01:746 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-database.png
-2011-11-27 03:40:01:746 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-query.png
-2011-11-27 03:40:01:755 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-command.png
-2011-11-27 03:40:01:755 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-document.png
-2011-11-27 03:40:01:760 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-graph.png
-2011-11-27 03:40:01:765 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-raw.png
-2011-11-27 03:40:01:768 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/menu-server.png
-2011-11-27 03:40:01:781 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelHome.htm
-2011-11-27 03:40:01:859 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /listDatabases
-2011-11-27 03:40:07:001 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:40:07:074 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:40:07:084 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:40:07:142 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/execute.png
-2011-11-27 03:40:07:143 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/set.png
-2011-11-27 03:40:07:144 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/add.png
-2011-11-27 03:40:07:145 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/delete.png
-2011-11-27 03:40:07:170 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png
-2011-11-27 03:40:07:176 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_glass_85_dfeffc_1x400.png
-2011-11-27 03:40:07:179 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_inset-hard_100_f5f8f9_1x100.png
-2011-11-27 03:40:07:182 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png
-2011-11-27 03:40:07:206 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_469bdd_256x240.png
-2011-11-27 03:40:07:371 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_6da8d5_256x240.png
-2011-11-27 03:40:07:391 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_d8e7f3_256x240.png
-2011-11-27 03:40:07:704 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:40:08:159 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:40:08:160 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:40:08:467 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_glass_75_d0e5f5_1x400.png
-2011-11-27 03:40:09:639 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_flat_55_fbec88_40x100.png
-2011-11-27 03:40:17:715 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:40:17:880 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:40:17:899 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:40:18:161 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:40:18:161 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:40:18:257 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:40:18:969 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:40:20:141 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:40:28:161 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:40:28:161 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:40:38:162 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:40:38:162 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:40:48:162 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:40:48:162 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:40:58:163 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:40:58:163 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:40:59:028 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=26, source=?, since=1322361659028]
-2011-11-27 03:40:59:030 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_217bc0_256x240.png
-2011-11-27 03:41:08:164 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:41:08:164 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:41:09:552 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:41:18:164 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:41:18:164 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:41:28:165 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:41:28:165 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:41:38:165 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:41:38:165 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:41:48:166 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:41:48:166 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:41:58:166 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:41:58:167 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:42:08:167 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:42:08:167 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:42:18:168 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:42:18:170 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:42:28:170 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:42:28:172 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:42:38:171 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:42:38:171 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:42:48:171 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:42:48:171 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:42:57:859 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=27, source=?, since=1322361777859]
-2011-11-27 03:42:57:861 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
-2011-11-27 03:42:57:915 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/graph.png
-2011-11-27 03:42:57:969 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/codemirror/sqlcolors.css
-2011-11-27 03:42:58:172 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:42:58:172 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:42:58:970 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=28, source=?, since=1322361778970]
-2011-11-27 03:42:58:972 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/util.js
-2011-11-27 03:42:58:985 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/stringstream.js
-2011-11-27 03:42:58:988 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/select.js
-2011-11-27 03:42:59:989 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=29, source=?, since=1322361779989]
-2011-11-27 03:42:59:991 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=30, source=?, since=1322361779991]
-2011-11-27 03:42:59:994 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=31, source=?, since=1322361779994]
-2011-11-27 03:42:59:996 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=32, source=?, since=1322361779996]
-2011-11-27 03:43:00:000 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/tokenize.js
-2011-11-27 03:43:00:007 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/editor.js
-2011-11-27 03:43:00:008 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/parsesql.js
-2011-11-27 03:43:00:009 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/undo.js
-2011-11-27 03:43:00:158 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:43:00:158 FINE [ONetworkProtocolHttpDb] Caught exception
-No user and password received
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:119)
--> com.orientechnologies.orient.server.network.protocol.http.command.get.OServerCommandGetQuery.execute(OServerCommandGetQuery.java:56)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:43:00:160 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:43:06:129 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio/mashups/document
-2011-11-27 03:43:06:129 FINE [ONetworkProtocolHttpDb] Caught exception
-No user and password received
--> com.orientechnologies.orient.server.network.protocol.http.command.OServerCommandAuthenticatedDbAbstract.getProfiledDatabaseInstance(OServerCommandAuthenticatedDbAbstract.java:119)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:50)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:43:06:130 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-icons_f9bd01_256x240.png
-2011-11-27 03:43:06:148 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio/mashups/document
-2011-11-27 03:43:06:149 FINE [OClusterLocalHole] Pushed new hole at #1 containing the position #5:0
-2011-11-27 03:43:06:152 FINE [ONetworkProtocolHttpDb] Caught exception
-Error during loading of record with id : #5:0
--> com.orientechnologies.orient.core.index.OClassIndexManager.checkForLoading(OClassIndexManager.java:241)
--> com.orientechnologies.orient.core.index.OClassIndexManager.onRecordAfterDelete(OClassIndexManager.java:151)
--> com.orientechnologies.orient.core.hook.ODocumentHookAbstract.onTrigger(ODocumentHookAbstract.java:86)
--> com.orientechnologies.orient.core.db.record.ODatabaseRecordAbstract.callbackHooks(ODatabaseRecordAbstract.java:735)
--> com.orientechnologies.orient.core.db.record.ODatabaseRecordAbstract.executeDeleteRecord(ODatabaseRecordAbstract.java:625)
--> com.orientechnologies.orient.core.tx.OTransactionNoTx.deleteRecord(OTransactionNoTx.java:84)
--> com.orientechnologies.orient.core.db.record.ODatabaseRecordTx.delete(ODatabaseRecordTx.java:216)
--> com.orientechnologies.orient.core.db.record.ODatabaseRecordTx.delete(ODatabaseRecordTx.java:1)
--> com.orientechnologies.orient.core.db.ODatabaseRecordWrapperAbstract.delete(ODatabaseRecordWrapperAbstract.java:176)
--> com.orientechnologies.orient.core.db.ODatabaseRecordWrapperAbstract.delete(ODatabaseRecordWrapperAbstract.java:1)
--> com.orientechnologies.orient.core.record.ORecordAbstract.delete(ORecordAbstract.java:291)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.executeDocument(OServerCommandPostStudio.java:275)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:85)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:43:06:157 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/redmond/images/ui-bg_glass_95_fef1ec_1x400.png
-2011-11-27 03:43:07:150 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: POST /studio/mashups/document
-2011-11-27 03:43:07:151 FINE [ONetworkProtocolHttpDb] Caught exception
-The record with id '#5:0' was not found
--> com.orientechnologies.orient.core.record.ORecordAbstract.load(ORecordAbstract.java:238)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.executeDocument(OServerCommandPostStudio.java:274)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:85)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-The record with id '#5:0' was not found
--> com.orientechnologies.orient.core.record.ORecordAbstract.load(ORecordAbstract.java:238)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.executeDocument(OServerCommandPostStudio.java:274)
--> com.orientechnologies.orient.server.network.protocol.http.command.post.OServerCommandPostStudio.execute(OServerCommandPostStudio.java:85)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.service(ONetworkProtocolHttpAbstract.java:131)
--> com.orientechnologies.orient.server.network.protocol.http.ONetworkProtocolHttpAbstract.execute(ONetworkProtocolHttpAbstract.java:441)
--> com.orientechnologies.common.thread.OSoftThread.run(OSoftThread.java:48)
-2011-11-27 03:43:08:172 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:43:08:172 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:43:10:663 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:43:12:089 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Mashup/20
-2011-11-27 03:43:16:310 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
-2011-11-27 03:43:16:653 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:43:16:659 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:43:17:653 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:43:18:173 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:43:18:173 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:43:19:461 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
-2011-11-27 03:43:26:869 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:43:28:174 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:43:28:174 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:43:29:966 FINE [ONetworkProtocolHttpDb] Connection shutdowned
-2011-11-27 03:43:38:174 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:43:38:174 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
-2011-11-27 03:43:48:175 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
-2011-11-27 03:43:48:175 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:64984
+2011-11-28 08:51:54:559 INFO [OServer] OrientDB Server v1.0rc6 (build 10760) is starting up...
+2011-11-28 08:51:54:832 INFO [OServer] -> Loaded memory database 'temp'
+2011-11-28 08:51:54:858 INFO [OServerNetworkListener] Listening distributed connections on 127.0.0.1:2424
+2011-11-28 08:51:54:863 INFO [OServerNetworkListener] Listening http connections on 127.0.0.1:2480
+2011-11-28 08:51:55:578 INFO [OServer] OrientDB Server v1.0rc6 is active.
+2011-11-28 08:51:55:578 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:51:58:576 WARN [ODistributedServerManager] Current node is the new cluster Leader of distributed nodes
+2011-11-28 08:51:58:584 INFO [ODistributedServerDiscoveryListener] Listening for distributed nodes on IP multicast /235.1.1.1:2424
+2011-11-28 08:52:05:579 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:52:05:580 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:52:05:765 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=1, source=?, since=1322509925764]
+2011-11-28 08:52:05:790 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.oda
+2011-11-28 08:52:06:601 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=2, source=/127.0.0.1:58908, since=1322509926601]
+2011-11-28 08:52:15:580 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:52:15:582 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:52:25:582 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:52:25:582 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:52:35:583 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:52:35:583 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:52:38:333 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=3, source=?, since=1322509958333]
+2011-11-28 08:52:38:337 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.oda
+2011-11-28 08:52:38:339 FINE [OFileMMap] Checking file integrity of default.0.oda...
+2011-11-28 08:52:38:340 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.odh
+2011-11-28 08:52:38:348 FINE [OFileMMap] Checking file integrity of default.odh...
+2011-11-28 08:52:38:358 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.0.ocl
+2011-11-28 08:52:38:364 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
+2011-11-28 08:52:38:365 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.och
+2011-11-28 08:52:38:365 FINE [OFileMMap] Checking file integrity of internal.och...
+2011-11-28 08:52:38:366 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\database.ocf
+2011-11-28 08:52:38:367 FINE [OFileMMap] Checking file integrity of database.ocf...
+2011-11-28 08:52:38:378 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.0.ocl
+2011-11-28 08:52:38:379 FINE [OFileMMap] Checking file integrity of index.0.ocl...
+2011-11-28 08:52:38:388 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.och
+2011-11-28 08:52:38:390 FINE [OFileMMap] Checking file integrity of index.och...
+2011-11-28 08:52:38:390 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.ocl
+2011-11-28 08:52:38:391 FINE [OFileMMap] Checking file integrity of default.0.ocl...
+2011-11-28 08:52:38:393 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.och
+2011-11-28 08:52:38:393 FINE [OFileMMap] Checking file integrity of default.och...
+2011-11-28 08:52:38:395 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.oda
+2011-11-28 08:52:38:395 FINE [OFileMMap] Checking file integrity of default.0.oda...
+2011-11-28 08:52:38:396 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.odh
+2011-11-28 08:52:38:396 FINE [OFileMMap] Checking file integrity of default.odh...
+2011-11-28 08:52:38:398 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.0.ocl
+2011-11-28 08:52:38:398 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
+2011-11-28 08:52:38:398 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\internal.och
+2011-11-28 08:52:38:399 FINE [OFileMMap] Checking file integrity of internal.och...
+2011-11-28 08:52:38:401 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.0.ocl
+2011-11-28 08:52:38:402 FINE [OFileMMap] Checking file integrity of index.0.ocl...
+2011-11-28 08:52:38:402 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\index.och
+2011-11-28 08:52:38:402 FINE [OFileMMap] Checking file integrity of index.och...
+2011-11-28 08:52:38:405 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.0.ocl
+2011-11-28 08:52:38:406 FINE [OFileMMap] Checking file integrity of default.0.ocl...
+2011-11-28 08:52:38:409 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\default.och
+2011-11-28 08:52:38:409 FINE [OFileMMap] Checking file integrity of default.och...
+2011-11-28 08:52:38:410 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\orole.0.ocl
+2011-11-28 08:52:38:410 FINE [OFileMMap] Checking file integrity of orole.0.ocl...
+2011-11-28 08:52:38:411 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\orole.och
+2011-11-28 08:52:38:412 FINE [OFileMMap] Checking file integrity of orole.och...
+2011-11-28 08:52:38:413 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\ouser.0.ocl
+2011-11-28 08:52:38:413 FINE [OFileMMap] Checking file integrity of ouser.0.ocl...
+2011-11-28 08:52:38:414 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\ouser.och
+2011-11-28 08:52:38:414 FINE [OFileMMap] Checking file integrity of ouser.och...
+2011-11-28 08:52:38:415 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\txlog.otx
+2011-11-28 08:52:38:416 FINE [OFileMMap] Checking file integrity of txlog.otx...
+2011-11-28 08:52:38:553 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=4, source=/127.0.0.1:58909, since=1322509958553]
+2011-11-28 08:52:38:554 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.oda
+2011-11-28 08:52:38:555 FINE [OFileMMap] Checking file integrity of default.0.oda...
+2011-11-28 08:52:38:556 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.odh
+2011-11-28 08:52:38:557 FINE [OFileMMap] Checking file integrity of default.odh...
+2011-11-28 08:52:38:558 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.0.ocl
+2011-11-28 08:52:38:558 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
+2011-11-28 08:52:38:559 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.och
+2011-11-28 08:52:38:560 FINE [OFileMMap] Checking file integrity of internal.och...
+2011-11-28 08:52:38:561 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\database.ocf
+2011-11-28 08:52:38:561 FINE [OFileMMap] Checking file integrity of database.ocf...
+2011-11-28 08:52:38:562 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.0.ocl
+2011-11-28 08:52:38:563 FINE [OFileMMap] Checking file integrity of index.0.ocl...
+2011-11-28 08:52:38:564 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.och
+2011-11-28 08:52:38:565 FINE [OFileMMap] Checking file integrity of index.och...
+2011-11-28 08:52:38:566 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.ocl
+2011-11-28 08:52:38:567 FINE [OFileMMap] Checking file integrity of default.0.ocl...
+2011-11-28 08:52:38:568 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.och
+2011-11-28 08:52:38:568 FINE [OFileMMap] Checking file integrity of default.och...
+2011-11-28 08:52:38:570 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.oda
+2011-11-28 08:52:38:571 FINE [OFileMMap] Checking file integrity of default.0.oda...
+2011-11-28 08:52:38:571 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.odh
+2011-11-28 08:52:38:571 FINE [OFileMMap] Checking file integrity of default.odh...
+2011-11-28 08:52:38:572 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.0.ocl
+2011-11-28 08:52:38:573 FINE [OFileMMap] Checking file integrity of internal.0.ocl...
+2011-11-28 08:52:38:573 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\internal.och
+2011-11-28 08:52:38:574 FINE [OFileMMap] Checking file integrity of internal.och...
+2011-11-28 08:52:38:575 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.0.ocl
+2011-11-28 08:52:38:575 FINE [OFileMMap] Checking file integrity of index.0.ocl...
+2011-11-28 08:52:38:575 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\index.och
+2011-11-28 08:52:38:576 FINE [OFileMMap] Checking file integrity of index.och...
+2011-11-28 08:52:38:578 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.0.ocl
+2011-11-28 08:52:38:578 FINE [OFileMMap] Checking file integrity of default.0.ocl...
+2011-11-28 08:52:38:579 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\default.och
+2011-11-28 08:52:38:579 FINE [OFileMMap] Checking file integrity of default.och...
+2011-11-28 08:52:38:579 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\orole.0.ocl
+2011-11-28 08:52:38:580 FINE [OFileMMap] Checking file integrity of orole.0.ocl...
+2011-11-28 08:52:38:581 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\orole.och
+2011-11-28 08:52:38:581 FINE [OFileMMap] Checking file integrity of orole.och...
+2011-11-28 08:52:38:582 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\ouser.0.ocl
+2011-11-28 08:52:38:583 FINE [OFileMMap] Checking file integrity of ouser.0.ocl...
+2011-11-28 08:52:38:584 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\ouser.och
+2011-11-28 08:52:38:584 FINE [OFileMMap] Checking file integrity of ouser.och...
+2011-11-28 08:52:38:585 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\txlog.otx
+2011-11-28 08:52:38:585 FINE [OFileMMap] Checking file integrity of txlog.otx...
+2011-11-28 08:52:38:604 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\user.0.ocl
+2011-11-28 08:52:38:619 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\users\user.och
+2011-11-28 08:52:38:690 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\content.0.ocl
+2011-11-28 08:52:38:692 FINE [OFileMMap] [OFile.openChannel] Opening channel for file: C:\Users\User01\git\Mashup-Platform\MP_final\db\orientdb-1.0rc6\databases\mashups\content.och
+2011-11-28 08:52:38:779 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=5, source=/127.0.0.1:58909, since=1322509958779]
+2011-11-28 08:52:38:857 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=6, source=?, since=1322509958857]
+2011-11-28 08:52:45:584 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:52:45:584 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:52:55:584 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:52:55:584 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:53:05:585 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:53:05:585 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:53:13:458 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=7, source=?, since=1322509993458]
+2011-11-28 08:53:13:482 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/users
+2011-11-28 08:53:13:501 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:53:15:585 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:53:15:585 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:53:17:279 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=8, source=?, since=1322509997279]
+2011-11-28 08:53:17:292 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/users
+2011-11-28 08:53:17:382 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
+2011-11-28 08:53:18:337 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=9, source=?, since=1322509998337]
+2011-11-28 08:53:18:344 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/users
+2011-11-28 08:53:18:383 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
+2011-11-28 08:53:20:299 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
+2011-11-28 08:53:20:351 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/images/graph.png
+2011-11-28 08:53:20:590 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/styles/codemirror/sqlcolors.css
+2011-11-28 08:53:20:590 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/util.js
+2011-11-28 08:53:20:625 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/stringstream.js
+2011-11-28 08:53:20:629 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/select.js
+2011-11-28 08:53:21:631 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=10, source=?, since=1322510001631]
+2011-11-28 08:53:21:633 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=11, source=?, since=1322510001633]
+2011-11-28 08:53:21:634 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/editor.js
+2011-11-28 08:53:21:634 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=12, source=?, since=1322510001634]
+2011-11-28 08:53:21:636 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=13, source=?, since=1322510001636]
+2011-11-28 08:53:21:638 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/undo.js
+2011-11-28 08:53:21:675 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/parsesql.js
+2011-11-28 08:53:21:675 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/js/codemirror/tokenize.js
+2011-11-28 08:53:21:791 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/users/sql/select from User/20
+2011-11-28 08:53:24:395 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
+2011-11-28 08:53:25:586 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:53:25:588 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:53:29:649 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /disconnect
+2011-11-28 08:53:29:650 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:53:29:683 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelHome.htm
+2011-11-28 08:53:29:792 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /listDatabases
+2011-11-28 08:53:32:258 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:53:32:294 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:53:34:263 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
+2011-11-28 08:53:34:265 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:53:35:586 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:53:35:586 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:53:36:894 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
+2011-11-28 08:53:36:932 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
+2011-11-28 08:53:36:941 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
+2011-11-28 08:53:37:328 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelDatabase.htm
+2011-11-28 08:53:45:587 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:53:45:587 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:53:46:907 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=14, source=?, since=1322510026907]
+2011-11-28 08:53:47:060 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=15, source=/127.0.0.1:58927, since=1322510027060]
+2011-11-28 08:53:47:152 FINE [OClusterLocalHole] Pushed new hole at #0 containing the position #5:0
+2011-11-28 08:53:47:158 FINE [OClusterLocalHole] Pushed new hole at #1 containing the position #5:15
+2011-11-28 08:53:47:165 FINE [OClusterLocalHole] Pushed new hole at #2 containing the position #5:30
+2011-11-28 08:53:47:170 FINE [OClusterLocalHole] Pushed new hole at #3 containing the position #5:45
+2011-11-28 08:53:47:172 FINE [OClusterLocalHole] Pushed new hole at #4 containing the position #5:60
+2011-11-28 08:53:47:186 FINE [OClusterLocalHole] Pushed new hole at #5 containing the position #5:75
+2011-11-28 08:53:47:191 FINE [OClusterLocalHole] Pushed new hole at #6 containing the position #5:90
+2011-11-28 08:53:47:195 FINE [OClusterLocalHole] Pushed new hole at #7 containing the position #5:105
+2011-11-28 08:53:47:200 FINE [OClusterLocalHole] Pushed new hole at #8 containing the position #5:120
+2011-11-28 08:53:47:202 FINE [OClusterLocalHole] Pushed new hole at #9 containing the position #5:135
+2011-11-28 08:53:47:211 FINE [OClusterLocalHole] Pushed new hole at #10 containing the position #5:150
+2011-11-28 08:53:47:216 FINE [OClusterLocalHole] Pushed new hole at #11 containing the position #5:165
+2011-11-28 08:53:47:220 FINE [OClusterLocalHole] Pushed new hole at #12 containing the position #5:180
+2011-11-28 08:53:47:227 FINE [OClusterLocalHole] Pushed new hole at #13 containing the position #5:195
+2011-11-28 08:53:47:229 FINE [OClusterLocalHole] Pushed new hole at #14 containing the position #5:210
+2011-11-28 08:53:47:230 FINE [OClusterLocalHole] Pushed new hole at #15 containing the position #5:225
+2011-11-28 08:53:47:254 FINE [OClusterLocalHole] Recycling hole cluster #15 containing the position #5:225
+2011-11-28 08:53:47:257 FINE [OClusterLocalHole] Recycling hole cluster #14 containing the position #5:210
+2011-11-28 08:53:47:258 FINE [OClusterLocalHole] Recycling hole cluster #13 containing the position #5:195
+2011-11-28 08:53:47:260 FINE [OClusterLocalHole] Recycling hole cluster #12 containing the position #5:180
+2011-11-28 08:53:47:265 FINE [OClusterLocalHole] Recycling hole cluster #11 containing the position #5:165
+2011-11-28 08:53:47:267 FINE [OClusterLocalHole] Recycling hole cluster #10 containing the position #5:150
+2011-11-28 08:53:47:269 FINE [OClusterLocalHole] Recycling hole cluster #9 containing the position #5:135
+2011-11-28 08:53:47:270 FINE [OClusterLocalHole] Recycling hole cluster #8 containing the position #5:120
+2011-11-28 08:53:47:272 FINE [OClusterLocalHole] Recycling hole cluster #7 containing the position #5:105
+2011-11-28 08:53:47:273 FINE [OClusterLocalHole] Recycling hole cluster #6 containing the position #5:90
+2011-11-28 08:53:47:274 FINE [OClusterLocalHole] Recycling hole cluster #5 containing the position #5:75
+2011-11-28 08:53:47:276 FINE [OClusterLocalHole] Recycling hole cluster #4 containing the position #5:60
+2011-11-28 08:53:47:277 FINE [OClusterLocalHole] Recycling hole cluster #3 containing the position #5:45
+2011-11-28 08:53:47:278 FINE [OClusterLocalHole] Recycling hole cluster #2 containing the position #5:30
+2011-11-28 08:53:47:280 FINE [OClusterLocalHole] Recycling hole cluster #1 containing the position #5:15
+2011-11-28 08:53:47:281 FINE [OClusterLocalHole] Recycling hole cluster #0 containing the position #5:0
+2011-11-28 08:53:47:282 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=16, source=/127.0.0.1:58927, since=1322510027282]
+2011-11-28 08:53:47:497 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:53:47:877 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:53:51:673 CONF [OClientConnectionManager] Remote client connected from: OClientConnection [id=17, source=?, since=1322510031673]
+2011-11-28 08:53:51:677 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /connect/mashups
+2011-11-28 08:53:54:058 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
+2011-11-28 08:53:54:227 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /studio/panelQuery.htm
+2011-11-28 08:53:54:426 FINE [ONetworkProtocolHttpDb] [ONetworkProtocolHttpAbstract.execute] Requested: GET /query/mashups/sql/select from Content/20
+2011-11-28 08:53:55:588 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:53:55:588 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:54:04:952 FINE [ONetworkProtocolHttpDb] Connection shutdowned
+2011-11-28 08:54:05:588 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:54:05:588 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:54:15:589 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:54:15:589 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786
+2011-11-28 08:54:25:589 FINE [ODistributedServerDiscoverySignaler] Sending node presence signal over the network against IP Multicast /235.1.1.1:2424...
+2011-11-28 08:54:25:589 FINE [ODistributedServerDiscoveryListener] Received multicast packet 48 bytes from /192.168.0.19:62786

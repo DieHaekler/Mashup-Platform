@@ -1,4 +1,4 @@
-package ch.ffhs.inf09.pa.mashup_platform.web.view;
+ package ch.ffhs.inf09.pa.mashup_platform.web.view;
 
 import ch.ffhs.inf09.pa.mashup_platform.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;

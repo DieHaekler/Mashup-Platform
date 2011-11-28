@@ -14,7 +14,7 @@ public class DBGoogleSearch extends DB
 		String identCache = DB.identCache(DB_IDENT, content, start, number);
 		if ( !fillInFromCache(content, identCache) )
 		{
-			ArrayList<Content> children = content.getChildren();
+			ArrayList<Content> children = (ArrayList<Content>)content.getChildren();
 			if (start < 0) start = 0;
 			int end = start + number;
 			if (end > children.size()) end = children.size();
@@ -23,10 +23,11 @@ public class DBGoogleSearch extends DB
 			for (Content child: list)
 			{
 				ArrayList<ResultGoogleSearch> results
-					= FetcherGoogleSearch.fetchResults(child.getKeywords());
+					= FetcherGoogleSearch.fetchResults((ArrayList<String>)child.getKeywords());
 				for (ResultGoogleSearch result: results)
 				{
-					Content contentResult = new Content(result.getTitle());
+					Content contentResult = new Content();	
+					contentResult.setCaption(result.getTitle());
 					contentResult.setUrl(result.getURL());
 					contentResult.setBody(result.getContent());
 					child.addChild(contentResult);

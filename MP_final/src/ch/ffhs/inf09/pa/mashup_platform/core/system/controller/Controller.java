@@ -56,9 +56,11 @@ public class Controller
 	{
 		DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD, DBConfig.DB_FILE_PATH, DBConfig.DB_MASHUPS,
 				DBConfig.DB_MASHUPS_CLASS_NAME, DBConfig.DB_USERS, DBConfig.DB_USERS_CLASS_NAME);	
-		dbLocal.storeMashup(model.getContent());		
-		System.out.println(dbLocal.checkUsernameAndPassword("admin", "admin"));
-		System.out.println(dbLocal.getMashupAsJSON("Portrait of Finnish Bands"));
+		dbLocal.storeMashup(model.getContent());
+		System.out.println(dbLocal.getMashupJSON("Portrait of Finnish Bands"));
+		System.out.println(dbLocal.getMashupsFromUserJSON(DBConfig.DB_USERNAME));
+		System.out.println(dbLocal.getMashupsFromUser(DBConfig.DB_USERNAME).get(0).getJSON());
+		dbLocal.closeConnections();
 	}
 		
 }
