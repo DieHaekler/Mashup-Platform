@@ -7,8 +7,21 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
+
+	/*$('#mashups tbody tr').each( function() {
+        var sTitle;
+        var nTds = $('td', $('#mashups tbody tr'));
+        var sBrowser = $(nTds[2]).text();
+        var sGrade = $(nTds[2]).text();
+
+            sTitle =  sBrowser+' will provide a first class (A) level of CSS support.';
+
+        alert( sTitle )
+    } );*/
+
+
     /* Init table */
-	var oTable = $('#mashups').dataTable({
+	oTable = $('#mashups').dataTable({
 		"bProcessing": true,
 		"bJQueryUI": true,
         "bPaginate": true,
@@ -19,16 +32,56 @@ $(document).ready(function() {
         "bAutoWidth": true,
 		"sAjaxDataProp": "mashups",
         "sAjaxSource": '?menu=overview&format=json',
+        "fnInitComplete": function(oSettings, json) {
+        	
+        	
+        	//var aoData = oTable.fnSettings().aoData;
+        	//var aiPos = oTable.fnGetPosition();
+        	//var nTd = aoData[ aiPos[0] ]._anHidden[ aiPos[1] ];
+        	
+        	
+        	/* Add a click handler to the delete href */
+        	$('#mashups a.delete').live('click', function (event) {
+        	    event.preventDefault();
+        	     
+	        	/* Get the nodes from the table */
+        	    var aTrs = oTable.fnGetNodes(); 
+	        	
+	     		/* Get current row from the table */
+        	    var nRow = $(this).parents('tr')[0];
+	     		/* Get content from current row */
+        	    var aData=oTable.fnGetData(nRow);  
+        	    //console.log(aData.id);
+        	    
+        	    /* Delete current row and redraw */
+        	    oTable.fnDeleteRow( nRow );
+              });
+        	
+        	/* Add a click handler to the show href */
+        	$('#mashups a.show').live('click', function (event) {
+        	    event.preventDefault();
+        	    
+	        	/* Get the nodes from the table */
+        	    var aTrs = oTable.fnGetNodes(); 
+	        	
+	     		/* Get current row from the table */
+        	    var nRow = $(this).parents('tr')[0];
+	     		/* Get content from current row */
+        	    var aData=oTable.fnGetData(nRow);  
+        	    alert("Show ID: "+aData.id)
+        	    //console.log(aData.id);
+              });
+        },
         "aoColumns": [
 						  { 
 							"mDataProp": null,
-						  	"sDefaultContent": "<a class='show' href=''>Show</a>",
+						  	"sDefaultContent": "<a class='show' href='javascript:void(0)'>Show</a>",
 						  	"bSortable": false,
 						  	"bSearchable": false,
 						  },
 						  { 
 								"mDataProp": null,
-							  	"sDefaultContent": "<a class='delete' href=''>Delete</a>",
+							  	"sDefaultContent": "<a class='delete' href='javascript:void(0)'>Delete</a>",
 							  	"bSortable": false,
 							  	"bSearchable": false,
 						  },
@@ -39,27 +92,7 @@ $(document).ready(function() {
     	
 	} );
 	
-    /* Add a click handler to the show href */
-	$('#mashups a.show').live('click', function (e) {
-        e.preventDefault();
-         
-        /* Get the row as a parent of the link that was clicked on */
-        var nRow = $(this).parents('tr')[0];
-        
-        /* Get the ID of the Mashup item */
-        var aData = oTable.fnGetData(nRow);
-        alert('Row '+aData[0])
-    }); 
-    
-    /* Add a click handler to the delete href */
-	$('#mashups a.delete').live('click', function (e) {
-        e.preventDefault();
-         
-        /* Get the row as a parent of the link that was clicked on */
-        var nRow = $(this).parents('tr')[0];
-        alert('Row '+nRow)
-    }); 
-	
+    	
 	/* Add a double-click handler to the rows */
     $("#mashups tbody").dblclick(function(event) {
     	window.location = "?menu=mashup"; 
@@ -73,8 +106,8 @@ $(document).ready(function() {
         $(event.target.parentNode).addClass('row_selected');
     });
      
-    /* Add a click handler for the delete row */
-    $('#delete').click( function() {
+    /* Add a click handler for the selected row */
+    $('#button_selected').click( function() {
         var anSelected = fnGetSelected( oTable );
         oTable.fnDeleteRow( anSelected[0] );
     } );
@@ -134,7 +167,6 @@ function fnGetSelected( oTableLocal )
 </script>
 <h1>Mashup Overview</h1>
 
-<a href="javascript:void(0)" id="delete">Delete selected row</a>
 <table class="display" id="mashups">
 	<thead>
 		<tr>

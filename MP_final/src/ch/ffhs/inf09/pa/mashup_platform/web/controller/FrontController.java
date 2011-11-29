@@ -25,8 +25,7 @@ public class FrontController extends HttpServlet
 	private enum Menu 
 	{ 
 		HOME, OVERVIEW, MASHUP, ACCOUNT;
-	    // We know we'll never mutate this, so we can keep
-	    // a local copy.
+
 	    private static final Menu[] copyOfValues = values();
 
 	    public static Menu forName(String name) {
