@@ -1,0 +1,46 @@
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".topMenuAction").click( function() {
+			if ($("#openCloseIdentifier").is(":hidden")) {
+				$("#slider").animate({ 
+					marginTop: "-148px"
+					}, 500 );
+				$("#topMenuText").html('Menu');
+				$("#openCloseIdentifier").show();
+			} else {
+				$("#slider").animate({ 
+					marginTop: "-100px"
+					}, 500 );
+				$("#topMenuText").html('Close');
+				$("#openCloseIdentifier").hide();
+			}
+		});  
+	});
+	</script>
+	
+	<div id="sliderWrap">
+		<div id="openCloseIdentifier"></div>
+		<div id="slider">
+				<ul id="nav">
+					<li class="current"><a href="?menu=home">Home</a></li>
+					<li><a href="?menu=overview">Mashups</a>
+						<ul>
+							<li><a href="?menu=mashup">Example</a></li>
+						</ul>
+					</li>
+					<!-- Section logged in -->
+					<li><a href="#">Account</a>
+						<ul>
+							<li><a href="?menu=account">My Account</a></li>
+							<li><a href="?logout=1">Logout</a></li>
+						</ul>
+					</li>
+				</ul>
+			<div id="openCloseWrap">
+				<a href="#" class="topMenuAction" id="topMenuText">
+					Menu
+				</a>
+			</div>
+		</div>
+	</div>

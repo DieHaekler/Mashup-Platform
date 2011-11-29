@@ -2,7 +2,7 @@ package ch.ffhs.inf09.pa.mashup_platform.config;
 
 public class Config
 {
-	public static final String FILE_PATH_SYSTEM = "E:/git2/Mashup-Platform/MP_final/";
+	public static final String FILE_PATH_SYSTEM = "C:/Users/jwild/git/Mashup-Platform/MP_final/";
 	public static final String WEB_PATH_ROOT = "/MP_final/";
 	public static final String FILE_PATH_OUTPUT = FILE_PATH_SYSTEM + "output/";
 	public static final String FILE_PATH_CACHE = FILE_PATH_SYSTEM + "cache/";

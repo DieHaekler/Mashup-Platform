@@ -1,0 +1,13 @@
+{
+	"id": "0001",
+	"type": "mashup",
+	"name": "Mashup Inventory",
+	"version": 0.55,
+	"mashups":
+				[
+					{ "id": "1001", "creator": "Mike", "name": "YahooMix" },
+					{ "id": "1002", "creator": "Steve", "name": "GoogleTest12" },
+					{ "id": "1003", "creator": "Christopher", "name": "Face3Book" },
+					{ "id": "1004", "creator": "Brad", "name": "BestMashup312" }
+				]
+}

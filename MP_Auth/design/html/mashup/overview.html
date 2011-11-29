@@ -1,0 +1,38 @@
+<div id="main">
+
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+	$('#mashups').dataTable({
+		"bProcessing": true,
+		"bJQueryUI": true,
+        "bPaginate": false,
+        "bLengthChange": false,
+        "bFilter": true,
+        "bSort": true,
+        "bInfo": false,
+        "bAutoWidth": true,
+		"sAjaxDataProp": "mashups",
+        "sAjaxSource": '?menu=repository',
+        "aoColumns": [
+                          { "mDataProp": "id" },
+                          { "mDataProp": "creator" },
+                          { "mDataProp": "name" }
+                      ]
+    } );
+} );
+</script>
+
+<table id="mashups">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>creator</th>
+			<th>name</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+	</tbody>
+</table>
+
+</div>

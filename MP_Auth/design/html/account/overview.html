@@ -1,0 +1,38 @@
+<script>
+   
+    function validate()
+    {
+        if(document.filesForm.file.value=="")
+        {
+          alert("No file chosen");
+          document.filesForm.file.focus();
+          return false;
+        }
+    }
+    
+</script>
+
+<div id="main">
+	<form name="filesForm" enctype="multipart/form-data" onSubmit="return validate();" action="[___WEB_PATH_ROOT__]main" method="post">
+    	<fieldset><legend>Upload Mashup</legend>
+				
+				<p class="first">
+					<label for="fileName">File:</label>
+					<input type="file" name="file" size="40"/>
+					<button class="submit" type="submit">Upload Mashup</button>
+					[__IO_OUTPUT__]
+				</p>
+					<input type="hidden" name="menu" id="menu" value="account"/>
+			</fieldset>				
+
+    </form>
+
+	<br>
+
+	<fieldset><legend>Uploaded Mashups</legend>
+	
+		[__DIRECTORY__]
+	
+	</fieldset>
+        
+</div>
