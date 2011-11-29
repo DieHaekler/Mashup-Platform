@@ -1,6 +1,7 @@
 package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
 import java.util.*;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 
 public class Mashup
 {
@@ -9,7 +10,7 @@ public class Mashup
 	private String username;
 	private Date lastUpdated;
 	private Date createdAt;
-	private String content;
+	private Content content;
 	private int totalRecords;
 	private int start;
 	private int number;
@@ -50,7 +51,7 @@ public class Mashup
 		this.createdAt = createdAt;
 	}
 	
-	public void setContent(String content)
+	public void setContent(Content content)
 	{
 		this.content = content;
 	}
@@ -63,5 +64,5 @@ public class Mashup
 	public String getUsername() { return username; }
 	public Date getLastUpdated() { return lastUpdated; }
 	public Date getCreatedAt() { return createdAt; }
-	public String getContent() { return content; }
+	public Content getContent() { return content; }
 }
