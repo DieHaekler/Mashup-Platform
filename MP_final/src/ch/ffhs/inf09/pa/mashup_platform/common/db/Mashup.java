@@ -1,10 +1,20 @@
 package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
 import java.util.*;
+
+import javax.persistence.Id;
+import javax.persistence.Version;
+
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 
 public class Mashup
 {
+	@Id   
+	private Object id;
+	
+	@Version   
+	private Object version;
+	
 	private String ident;
 	private String name;
 	private String username;
@@ -15,12 +25,25 @@ public class Mashup
 	private int start;
 	private int number;
 	
-	public Mashup(String ident, String name)
+	/*public Mashup(String ident, String name
+			)
 	{
 		this.ident = ident;
 		this.name = name;
-	}
+	}*/
 	
+	public int getTotalRecords() {
+		return totalRecords;
+	}
+
+	public void setIdent(String ident) {
+		this.ident = ident;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public void setTotalRecords(int totalRecords)
 	{
 		this.totalRecords = totalRecords;

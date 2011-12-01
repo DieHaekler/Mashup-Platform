@@ -7,5 +7,6 @@ public class DBConfig {
 	public static final String DB_USERS = "users";
 	public static final String DB_MASHUPS = "mashups";
 	public static final String DB_USERS_CLASS_NAME = "User";
-	public static final String DB_MASHUPS_CLASS_NAME = "Content";	
+	public static final String DB_MASHUPS_CONTENT_CLASS_NAME = "Content";
+	public static final String DB_MASHUPS_MASHUP_CLASS_NAME = "Mashup";
 }  

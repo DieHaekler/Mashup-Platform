@@ -2,12 +2,16 @@ package ch.ffhs.inf09.pa.mashup_platform.core.system.controller;
 
 import java.io.IOException;
 import java.lang.reflect.*;
+import java.util.Date;
+
+import ch.ffhs.inf09.pa.mashup_platform.common.db.DBLocal;
+import ch.ffhs.inf09.pa.mashup_platform.common.db.DBOrient;
+import ch.ffhs.inf09.pa.mashup_platform.common.db.Mashup;
+import ch.ffhs.inf09.pa.mashup_platform.common.db.Mashups;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
 import ch.ffhs.inf09.pa.mashup_platform.config.DBConfig;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.persistence.DBLocal;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.persistence.DBOrient;
 
 public class Controller
 {
@@ -54,13 +58,34 @@ public class Controller
 	
 	public void storeOutputDB() throws ExceptionMP
 	{
-		DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD, DBConfig.DB_FILE_PATH, DBConfig.DB_MASHUPS,
-				DBConfig.DB_MASHUPS_CLASS_NAME, DBConfig.DB_USERS, DBConfig.DB_USERS_CLASS_NAME);	
-		dbLocal.storeMashup(model.getContent());
-		System.out.println(dbLocal.getMashupJSON("Portrait of Finnish Bands"));
+		DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD);		
+		Mashup mashup = new Mashup();
+		mashup.setIdent("0001");
+		mashup.setName("Portrait of Finnish Bands (4 Entries)");
+		mashup.setContent(model.getContent());		
+		mashup.setStart(start);
+		mashup.setNumber(number);
+		mashup.setUsername(DBConfig.DB_USERNAME);
+		mashup.setCreatedAt(new Date());
+		dbLocal.setMashup(mashup);
+		
+		System.out.println(dbLocal.getMashup("0001", 0, 2).getContent().getJSON());
+		System.out.println(dbLocal.getMashup("0001", 0, 1).getContent().getJSON());
+		
+		Mashups mashups = dbLocal.getMashups(0, 50, Mashups.SORTED_BY_DATE_DESC, Mashups.STATUS_ALL, "admin");
+		for(Mashup mash: mashups.getList()){
+			System.out.println(mash.getCreatedAt());
+		}
+		
+		dbLocal.close();
+		
+		
+		/*DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD, DBConfig.DB_FILE_PATH, DBConfig.DB_MASHUPS,
+		DBConfig.DB_MASHUPS_CLASS_NAME, DBConfig.DB_USERS, DBConfig.DB_USERS_CLASS_NAME);	*/
+		//dbLocal.storeMashup(model.getContent());
+		/*System.out.println(dbLocal.getMashupJSON("Portrait of Finnish Bands"));
 		System.out.println(dbLocal.getMashupsFromUserJSON(DBConfig.DB_USERNAME));
-		System.out.println(dbLocal.getMashupsFromUser(DBConfig.DB_USERNAME).get(0).getJSON());
-		dbLocal.closeConnections();
+		System.out.println(dbLocal.getMashupsFromUser(DBConfig.DB_USERNAME).get(0).getJSON());*/
 	}
 		
 }
