@@ -4,7 +4,6 @@ import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import java.util.*;
 import java.io.*;
 import java.security.*;
-
 import javax.persistence.Id;
 import javax.persistence.Version;
 
@@ -18,7 +17,7 @@ public class Content implements Serializable
 	private Object version;
 	
 	private static final long serialVersionUID = 1L;
-	private List<Content> children = new ArrayList<Content>();
+	private HashMap<String, ContentSection> sections = new HashMap<String, ContentSection>();
 	private List<String> keywords = new ArrayList<String>();
 	private String caption;
 	private String imgURL;
@@ -31,10 +30,10 @@ public class Content implements Serializable
 	private String publisherURL;
 	private String publishedDate;
 	
-	/*public Content()
+	public void clearKeywords()
 	{
-		this.caption = caption;
-	}*/
+		keywords = new ArrayList<String>();
+	}
 	
 	public String getJSON()
 	{
@@ -64,18 +63,39 @@ public class Content implements Serializable
 			+ (content.getPublisherURL() != null ? "\"publisherURL\":\"" + content.getPublisherURL() + "\"," : "")
 			+ (content.getPublishedDate() != null ? "\"publishedDate\":\"" + content.getPublishedDate() + "\"," : "")
 			+ (!k.equals("") ? "\"keywords\":[" + k + "]," : "");
-		if (children.size() > 0)
+		HashMap<String, ContentSection> sections = content.getSections();
+		if (sections.size() > 0)
 		{
-			String c = "";
-			for (Content child: content.getChildren())
+			for (String ident: sections.keySet())
 			{
-				String t = toJSON(child);
-				if ( !t.equals("{}") ) c += t + ",";
-			}
-			if ( !c.equals("") )
-			{
-				c = c.substring(0, c.length() - 1);
-				s += "\"child\":[" + c + "],";
+				s += "\"" + ident + "\":{";
+				ContentSection section = sections.get(ident);
+				List<Content> parts = section.getParts();
+				String caption = section.getCaption();
+				String q = "";
+				if (caption != null && !caption.equals(""))
+				{
+					q = "\"caption\":\"" + caption + "\",";
+				}
+				if (parts.size() > 0)
+				{
+					String p = "";
+					for (Content part: parts)
+					{
+						String t = toJSON(part);
+						if ( !t.equals("{}") ) p += t + ",";
+					}
+					if ( !p.equals("") )
+					{
+						p = p.substring(0, p.length() - 1);
+						q += "\"parts\":[" + p + "],";
+					}
+				}
+				if ( !q.equals("") )
+				{
+					q = q.substring(0, q.length() - 1);
+				}
+				s += q + "},";
 			}
 		}
 		if ( !s.equals("{") ) s = s.substring(0, s.length() - 1);
@@ -109,17 +129,28 @@ public class Content implements Serializable
 			+ "_" + content.getHeading() + "_" + content.getBody()
 			+ "_" + content.getFooter() + "_" + content.getUrl()
 			+ "_" + content.getPublisher() + "_" + content.getPublisherURL();
-		List<Content> children = content.getChildren();
-		for (Content child: children)
+		HashMap<String, ContentSection> sections = content.getSections();
+		for (String ident: sections.keySet())
 		{
-			s += "_" + hash(child);
+			ContentSection section = sections.get(ident);
+			s += "_" + section.getCaption();
+			List<Content> parts = section.getParts();
+			for (Content part: parts)
+			{
+				s += "_" + hash(part);
+			}
 		}
 		return s;
 	}
 	
+	public HashMap<String, ContentSection> getSections()
+	{
+		return sections;
+	}
+	
 	public void update(Content content)
 	{
-		children = content.getChildren();
+		sections = content.getSections();
 		keywords = content.getKeywords();
 		caption = content.getCaption();
 		imgURL = content.getImgUrl();
@@ -201,9 +232,9 @@ public class Content implements Serializable
 		this.keywords = keywords;
 	}
 	
-	public void setChildren(ArrayList<Content> children)
+	public void setSections(HashMap<String, ContentSection> sections)
 	{
-		this.children = children;
+		this.sections = sections;
 	}
 	
 	public String getCaption()
@@ -236,9 +267,9 @@ public class Content implements Serializable
 		return url;
 	}
 	
-	public void addChild(Content content)
+	public void addSection(String ident, ContentSection section)
 	{
-		children.add(content);
+		sections.put(ident, section);
 	}
 	
 	public String getPublisher()
@@ -251,9 +282,9 @@ public class Content implements Serializable
 		return publishedDate;
 	}
 	
-	public List<Content> getChildren()
+	public ContentSection getSection(String ident)
 	{
-		return children;
+		return sections.get(ident);
 	}
 	
 	public String getImgUrl()

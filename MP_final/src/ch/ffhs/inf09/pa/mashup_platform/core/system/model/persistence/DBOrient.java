@@ -68,6 +68,7 @@ public class DBOrient implements DBLocal {
 			return;
 		}
 		
+		/*
 		List<Content> results = dbMashups.query(new OSQLSynchQuery<Content>(
 				"select * from " + this.dbMashupsClassName
 						+ " where caption = '" + content.getCaption() + "'"));
@@ -81,6 +82,7 @@ public class DBOrient implements DBLocal {
 		for (int i = 0; i < results.size(); i++) {
 			dbMashups.delete(results.get(i));
 		}
+		*/
 
 	}
 
