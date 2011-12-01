@@ -4,9 +4,9 @@ import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
 
 public class ModelMashups extends ModelApplication
 {	
-	public ModelMashups(DBLocal db)
+	public ModelMashups()
 	{
-		super(db);
+		super();
 	}
 	
 	public Mashups get(int start, int number, int sortedBy, int status,

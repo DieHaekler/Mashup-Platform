@@ -6,10 +6,10 @@ public class ModelUser extends ModelApplication
 {
 	private User user;
 	
-	public ModelUser(DBLocal db, String username, String password)
+	public ModelUser(String username, String password)
 	{
-		super(db);
-		user = db.getUser(username, password);
+		super();
+		//user = db.getUser(username, password);
 	}
 	
 	public boolean doesExist()

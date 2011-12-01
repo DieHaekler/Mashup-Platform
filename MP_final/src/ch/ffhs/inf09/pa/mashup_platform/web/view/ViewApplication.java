@@ -3,6 +3,7 @@
 import ch.ffhs.inf09.pa.mashup_platform.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.web.Environment;
+import ch.ffhs.inf09.pa.mashup_platform.web.model.*;
 
 public abstract class ViewApplication
 {
@@ -15,6 +16,7 @@ public abstract class ViewApplication
 	
 	protected String content;
 	protected String contentType = CONTENT_TYPE_HTML;
+	protected ModelApplication model;
 	
 	public ViewApplication(Environment environment) throws ExceptionMP
 	{
@@ -64,6 +66,11 @@ public abstract class ViewApplication
 	public void setContent(String templatePath) throws ExceptionMP
 	{
 		content = getTemplate(templatePath);
+	}
+	
+	public void setModel(ModelApplication model)
+	{
+		this.model = model;
 	}
 	
 	private static String stripPlaceholders(String content)

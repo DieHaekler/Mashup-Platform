@@ -1,22 +1,35 @@
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$(".topMenuAction").click( function() {
-			if ($("#openCloseIdentifier").is(":hidden")) {
-				$("#slider").animate({ 
-					marginTop: "-148px"
-					}, 500 );
-				$("#topMenuText").html('Menu');
-				$("#openCloseIdentifier").show();
-			} else {
-				$("#slider").animate({ 
-					marginTop: "-100px"
-					}, 500 );
-				$("#topMenuText").html('Close');
-				$("#openCloseIdentifier").hide();
-			}
-		});  
-	});
+$(document).ready(function() {
+	//Check if user has menu opened
+	if ($.cookie('cookie_name') == 'menu_show') {
+		$("#slider").css("marginTop", "-100px");
+		$("#topMenuText").html('Close');
+		$("#openCloseIdentifier").hide();
+	};
+	
+	$(".topMenuAction").click( function() {
+		if ($("#openCloseIdentifier").is(":hidden")) {
+					
+			$("#slider").animate({ 
+				marginTop: "-148px"
+				}, 500 );
+			$("#topMenuText").html('Menu');
+			$("#openCloseIdentifier").show();
+			
+			$.cookie('cookie_name', 'menu_hide');
+			
+		} else {
+			$("#slider").animate({ 
+				marginTop: "-100px"
+				}, 400 );
+			$("#topMenuText").html('Close');
+			$("#openCloseIdentifier").hide();
+			
+			$.cookie('cookie_name', 'menu_show');
+		}
+	});  
+});
 	</script>
 	
 	<div id="sliderWrap">

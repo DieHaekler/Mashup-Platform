@@ -4,6 +4,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
+
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.web.view.*;
 import ch.ffhs.inf09.pa.mashup_platform.web.*;
@@ -48,6 +49,7 @@ public class FrontController extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 		Environment environment = initEnvironment(request);
+		
 		ControllerApplication controller = null;
 		try
 		{	
@@ -85,7 +87,6 @@ public class FrontController extends HttpServlet
 	            	   if (formatParm != null && formatParm.equals("json"))
 	            	   {
 	            		   controller = new ControllerMashupJSON(environment);
-	        
 	            	   }
 	            	   else 
 	            	   {

@@ -4,9 +4,9 @@ import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
 
 public class ModelMashup extends ModelApplication
 {	
-	public ModelMashup(DBLocal db)
+	public ModelMashup()
 	{
-		super(db);
+		super();
 	}
 	
 	public Mashup get(String ident, int start, int number)
