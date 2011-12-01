@@ -1,0 +1,1 @@
+This folder is used as cache for the virtual DBs.
