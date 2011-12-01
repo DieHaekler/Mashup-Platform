@@ -1,15 +1,33 @@
+<style type="text/css">
+body { color: black; background-color: #FFF }     
+ul
+{
+display: inline;
+list-style-type: none;
+}     
+</style>
+
 <div id="main">
 <!-- HTML template -->
 <h1 id="topItem" class="caption">Title of Mashup</h1>
   <ul id="treeItem">
-    <li>
+    <li class="bands">
       	<h3>Portrait:
       		<a class="caption" href="javascript:void(0)">caption</a>
       	</h3>
       	<p></p>	
-      	<div class="body">body</div>
-      	<p></p>
-      	<div class="child"></div>
+
+	    <ul id="flickr" class="flickr">
+	      	<a class="url" href="javascript:void(0)"><img class="imgURL" src="url" alt="alt"></a>
+		</ul>
+		<p></p>
+	    <ul id="google" class="google">
+		    <div class="google_caption">caption</div>
+		    <hr>
+		    <a class="google_body" href="javascript:void(0)">body</a>
+		    <p></p>
+		</ul>
+      	<div class="parts"></div>
     </li>
   </ul>
 </div>
@@ -36,12 +54,22 @@ $('#topItem').autoRender(jsonData);
 // Render Mashup Content (manual directive)
 	    var directive = {
 	    	'li': {
-	        'childitem <- child': {
-	          'a.caption': 'childitem.caption',
-	          'div.body': 'childitem.body',
-	          'a@href':'childitem.url',
-	          'div.child': function(ctxt){
-	            return ctxt.childitem.item.child ? rfn(ctxt.childitem.item):'';
+	        'part <- finnish_bands.parts': {
+	         	'a.caption': 'part.caption',
+	        	 'ul.google': { 
+	  				       'google <- part.google_search.parts': {
+	  				       'div.google_caption':'google.caption',
+	  				       'a.google_body': 'google.body',
+	  				       'a.google_body@href': 'google.url'},
+	  	         			},
+	  	         'ul.flickr': {
+		  				    'flickr <- part.flickr.parts': {
+							'img.imgURL@src':'flickr.imgURL',
+							'img.imgURL@alt': 'flickr.imgURL',
+							'a.url@href':'flickr.url'}
+	  	         			},
+	          'div.parts': function(ctxt){
+	            return ctxt.part.item.parts ? rfn(ctxt.part.item):'';
 	          }
 	        }
 	      }

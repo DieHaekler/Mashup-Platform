@@ -1,0 +1,54 @@
+<div id="main">
+<!-- HTML template -->
+<h1 id="topItem" class="caption">Title of Mashup</h1>
+  <ul id="treeItem">
+    <li>
+      	<h3>Portrait:
+      		<a class="caption" href="javascript:void(0)">caption</a>
+      	</h3>
+      	<p></p>	
+      	<div class="body">body</div>
+      	<p></p>
+      	<div class="child"></div>
+    </li>
+  </ul>
+</div>
+
+<!-- Script logic for template engine - needs to be at the end of this page -->
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+
+$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/json; charset=utf-8"});
+var jsonData = [];
+$.ajax({
+  url: '?menu=mashup&format=json',
+  contentType: "application/json; charset=utf-8",
+  async: false,
+  dataType: 'json',
+  success: function (json) {
+    jsonData = json;
+  }
+});
+
+// Render Mashup Title
+$('#topItem').autoRender(jsonData);
+
+// Render Mashup Content (manual directive)
+	    var directive = {
+	    	'li': {
+	        'childitem <- child': {
+	          'a.caption': 'childitem.caption',
+	          'div.body': 'childitem.body',
+	          'a@href':'childitem.url',
+	          'div.child': function(ctxt){
+	            return ctxt.childitem.item.child ? rfn(ctxt.childitem.item):'';
+	          }
+	        }
+	      }
+	    };
+	    var rfn = $('#treeItem').compile( directive );
+	    $('#treeItem').render( jsonData, rfn );    
+	   
+});
+</script>
+
