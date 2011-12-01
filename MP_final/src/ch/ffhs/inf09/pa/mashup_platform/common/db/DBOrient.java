@@ -117,6 +117,7 @@ public class DBOrient extends DBLocal
 			List<Mashup> mashups = dbMashups.query(new OSQLSynchQuery<Mashup>("select from " + DBConfig.DB_MASHUPS_MASHUP_CLASS_NAME + " where ident = '" +
 					ident + "'"));
 			
+			/*
 			if(mashups.size()>0){
 				mashup = mashups.get(0);				
 				Content content = mashup.getContent();
@@ -129,6 +130,7 @@ public class DBOrient extends DBLocal
 				}
 				mashup.getContent().getChildren().removeAll(contentsToRemove);
 			}
+			*/
 		}
 	
 		return mashup;
