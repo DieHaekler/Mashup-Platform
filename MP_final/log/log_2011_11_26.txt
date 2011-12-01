@@ -1,0 +1,46 @@
+16:58:31 --- mashup platform started for input params: portrait_of_finnish_bands, html, 0, 3
+16:58:31 --- model instantiated (ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.model.ModelMain)
+16:58:31 --- cache entry found (ident: 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3, age: 74851 sec)
+16:58:31 --- cache entry 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3' has expired
+16:58:31 --- cache entry found (ident: 'portrait_of_finnish_bands___DBFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3, age: 74851 sec)
+16:58:31 --- cache entry 'portrait_of_finnish_bands___DBFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3' has expired
+16:58:31 --- cache entry found (ident: 'system___DBGoogleSearch_fbc8fa6ba0a98cc55760c2a1f43c4872_0_5, age: 74851 sec)
+16:58:31 --- cache entry 'system___DBGoogleSearch_fbc8fa6ba0a98cc55760c2a1f43c4872_0_5' has expired
+16:58:32 --- view instantiated (ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.view.html.ViewMain)
+16:58:32 --- main controller instantiated
+16:58:32 --- mashup platform finished for input params: portrait_of_finnish_bands, html, 0, 3
+16:58:51 --- mashup platform started for input params: portrait_of_finnish_bands, html, 0, 3
+16:58:51 --- model instantiated (ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.model.ModelMain)
+16:58:51 --- cache entry found (ident: 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3, age: 19 sec)
+16:58:51 --- cache entry 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3' is still valid
+16:58:51 --- view instantiated (ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.view.html.ViewMain)
+16:58:51 --- main controller instantiated
+16:58:51 --- mashup platform finished for input params: portrait_of_finnish_bands, html, 0, 3
+17:00:55 --- mashup platform started for input params: portrait_of_finnish_bands, html, 0, 3
+17:00:55 --- model instantiated (ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.model.ModelMain)
+17:00:55 --- cache entry found (ident: 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3, age: 143 sec)
+17:00:55 --- cache entry 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3' is still valid
+17:00:55 --- view instantiated (ch.ffhs.inf09.pa.mashup_platform.core.var.portrait_of_finnish_bands.view.html.ViewMain)
+17:00:55 --- main controller instantiated
+17:00:55 --- mashup platform finished for input params: portrait_of_finnish_bands, html, 0, 3
+17:03:25 --- mashup platform started for input params: portrait_of_finnish_bands, 0, 3
+17:03:25 --- model instantiated (ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.ModelMain)
+17:03:25 --- cache entry found (ident: 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3, age: 24 sec)
+17:03:25 --- cache entry 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3' is still valid
+17:03:25 --- main controller instantiated
+17:03:25 --- output stored
+17:03:25 --- mashup platform finished for input params: portrait_of_finnish_bands, 0, 3
+17:09:25 --- mashup platform started for input params: portrait_of_finnish_bands, 0, 3
+17:09:25 --- model instantiated (ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.ModelMain)
+17:09:25 --- cache entry found (ident: 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3, age: 384 sec)
+17:09:25 --- cache entry 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3' is still valid
+17:09:25 --- main controller instantiated
+17:09:25 --- output stored
+17:09:25 --- mashup platform finished for input params: portrait_of_finnish_bands, 0, 3
+17:11:37 --- mashup platform started for input params: portrait_of_finnish_bands, 0, 3
+17:11:37 --- model instantiated (ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.ModelMain)
+17:11:37 --- cache entry found (ident: 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3, age: 516 sec)
+17:11:37 --- cache entry 'portrait_of_finnish_bands___DBPortraitOfFinnishBands_bf12b862f0b5b236783d31a0ec862d47_0_3' is still valid
+17:11:37 --- main controller instantiated
+17:11:37 --- output stored
+17:11:37 --- mashup platform finished for input params: portrait_of_finnish_bands, 0, 3
