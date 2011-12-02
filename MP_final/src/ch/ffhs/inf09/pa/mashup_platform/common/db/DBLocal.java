@@ -18,7 +18,7 @@ public abstract class DBLocal
 	public abstract void close();
 	public abstract Mashups getMashups(int start, int number, int sortedBy,
 			int status, String username);
-	public abstract Mashup getMashup(String ident, int start, int number);
+	public abstract Mashup getMashup(String ident, int pagenr);
 	public abstract void setMashup(Mashup mashup);
 	public abstract User getUser(String username, String password);
 	public abstract void setUser(User user);

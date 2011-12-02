@@ -27,8 +27,7 @@ public class Test3
 				for (Mashup mashup: list)
 				{
 					System.out.println(mashup.getIdent());
-					Content content = mashup.getContent();
-					System.out.println(content.getCaption());
+					System.out.println(mashup.getName());
 				}
 			}
 		}

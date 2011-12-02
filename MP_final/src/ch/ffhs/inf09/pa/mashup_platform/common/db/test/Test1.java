@@ -11,11 +11,11 @@ public class Test1
 	{
 		Mashup mashup = new Mashup();
 		mashup.setIdent("portrait_of_finnish_bands");
-		mashup.setStart(0);
-		mashup.setNumber(3);
+		MashupPage page = new MashupPage();
 		Content content = new Content();
 		content.setCaption("Portrait of Finnish Bands");
-		mashup.setContent(content);
+		page.setContent(content, 12);
+		mashup.setPage(page);
 		
 		DBLocal db = null;
 		try

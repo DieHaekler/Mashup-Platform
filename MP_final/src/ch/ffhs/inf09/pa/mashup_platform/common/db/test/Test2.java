@@ -19,11 +19,18 @@ public class Test2
 		}
 		if (db != null)
 		{
-			Mashup mashup = db.getMashup("portrait_of_finnish_bands", 0, 3);
+			Mashup mashup = db.getMashup("portrait_of_finnish_bands", 12);
 			if (mashup != null)
 			{
-				Content content = mashup.getContent();
-				System.out.println(content.getCaption());
+				MashupPage page = mashup.getPage();
+				if (page != null)
+				{
+					Content content = page.getContent();
+					if (content != null)
+					{
+						System.out.println(content.getCaption());
+					}
+				}
 			}
 		}
 	}

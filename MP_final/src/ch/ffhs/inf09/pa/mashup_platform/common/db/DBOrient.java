@@ -55,7 +55,6 @@ public class DBOrient extends DBLocal
 			int status, String username)
 	{
 		Mashups mashups = new Mashups(status, sortedBy);
-		mashups.setUsername(username);
 		if (dbMashups.getClusterType(DBConfig.DB_MASHUPS_MASHUP_CLASS_NAME) != null){
 			String query = "select * from " + DBConfig.DB_MASHUPS_MASHUP_CLASS_NAME;
 			
@@ -108,7 +107,7 @@ public class DBOrient extends DBLocal
 	}
 		
 	
-	public Mashup getMashup(String ident, int start, int number)
+	public Mashup getMashup(String ident, int pagenr)
 	{
 		dbMashups.getLevel1Cache().clear();
 		dbMashups.getLevel2Cache().clear();

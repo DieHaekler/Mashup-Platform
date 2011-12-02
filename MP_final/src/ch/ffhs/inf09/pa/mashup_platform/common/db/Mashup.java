@@ -5,10 +5,13 @@ import java.util.*;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
-
 public class Mashup
 {
+	public static final int STATUS_PENDING = 1;
+	public static final int STATUS_ACTIVE = 2;
+	public static final int STATUS_INACTIVE = 3;
+	public static final int STATUS_REJECTED = 4;
+	
 	@Id   
 	private Object id;
 	
@@ -20,21 +23,11 @@ public class Mashup
 	private String username;
 	private Date lastUpdated;
 	private Date createdAt;
-	private Content content;
-	private int totalRecords;
-	private int start;
-	private int number;
+	private int totalPages;
+	private int status;
 	
-	/*public Mashup(String ident, String name
-			)
-	{
-		this.ident = ident;
-		this.name = name;
-	}*/
-	
-	public int getTotalRecords() {
-		return totalRecords;
-	}
+	// the requested page
+	private MashupPage page;
 
 	public void setIdent(String ident) {
 		this.ident = ident;
@@ -43,20 +36,35 @@ public class Mashup
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public void setTotalRecords(int totalRecords)
+	
+	public void setStatus(int status)
 	{
-		this.totalRecords = totalRecords;
+		this.status = status;
 	}
 	
-	public void setStart(int start)
+	public int getStatus()
 	{
-		this.start = start;
+		return status;
 	}
 	
-	public void setNumber(int number)
+	public void setTotalPages(int total)
 	{
-		this.number = number;
+		totalPages = total;
+	}
+	
+	public void setPage(MashupPage page)
+	{
+		this.page = page;
+	}
+	
+	public int getTotalPages()
+	{
+		return totalPages;
+	}
+	
+	public MashupPage getPage()
+	{
+		return page;
 	}
 	
 	public void setUsername(String username)
@@ -74,18 +82,9 @@ public class Mashup
 		this.createdAt = createdAt;
 	}
 	
-	public void setContent(Content content)
-	{
-		this.content = content;
-	}
-	
-	public int getTotalRecord() { return totalRecords; }
-	public int getStart() { return start; }
-	public int getNumber() { return number; }
 	public String getIdent() { return ident; }
 	public String getName() { return name; }
 	public String getUsername() { return username; }
 	public Date getLastUpdated() { return lastUpdated; }
 	public Date getCreatedAt() { return createdAt; }
-	public Content getContent() { return content; }
 }

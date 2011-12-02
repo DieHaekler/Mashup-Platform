@@ -58,6 +58,7 @@ public class Controller
 	
 	public void storeOutputDB() throws ExceptionMP
 	{
+		/*
 		DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD);		
 		Mashup mashup = new Mashup();
 		mashup.setIdent("0001");
@@ -78,7 +79,7 @@ public class Controller
 		}
 		
 		dbLocal.close();
-		
+		*/
 		
 		/*DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD, DBConfig.DB_FILE_PATH, DBConfig.DB_MASHUPS,
 		DBConfig.DB_MASHUPS_CLASS_NAME, DBConfig.DB_USERS, DBConfig.DB_USERS_CLASS_NAME);	*/

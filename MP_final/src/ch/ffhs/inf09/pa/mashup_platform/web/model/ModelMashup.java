@@ -9,8 +9,8 @@ public class ModelMashup extends ModelApplication
 		super();
 	}
 	
-	public Mashup get(String ident, int start, int number)
+	public Mashup get(String ident, int pagenr)
 	{
-		return db.getMashup(ident, start, number);
+		return db.getMashup(ident, pagenr);
 	}
 }

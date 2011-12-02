@@ -2,9 +2,6 @@ package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
 import java.util.*;
 
-import javax.persistence.Id;
-import javax.persistence.Version;
-
 public class Mashups
 {	
 	public static final int STATUS_ALL = 1;
@@ -18,18 +15,12 @@ public class Mashups
 	public static final int SORTED_BY_DATE_DESC = 4;
 	private int status;
 	private int sortedBy;
-	private String username;
 	private ArrayList<Mashup> list = new ArrayList<Mashup>();
 	
 	public Mashups(int status, int sortedBy)
 	{
 		this.status = status;
 		this.sortedBy = sortedBy;
-	}
-	
-	public void setUsername(String username)
-	{
-		this.username = username;
 	}
 	
 	public void setStatus(int status) {
@@ -53,5 +44,4 @@ public class Mashups
 	
 	public int getStatus() { return status; }
 	public int getSortedBy() { return sortedBy; }
-	public String getUsername() { return username; }
 }
