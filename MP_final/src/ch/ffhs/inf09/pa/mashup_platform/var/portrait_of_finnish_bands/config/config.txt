@@ -1,0 +1,3 @@
+URL: http://en.wikipedia.org/wiki/List_of_bands_from_Finland
+REGEX: <li><a href=\"[^\"]+\"[^>]*>([^<]+)</a>.*?</li>
+CAPTION: Bands from Finland

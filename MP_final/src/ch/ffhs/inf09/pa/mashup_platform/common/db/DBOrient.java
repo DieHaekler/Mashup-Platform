@@ -10,27 +10,31 @@ import com.orientechnologies.orient.core.db.object.ODatabaseObjectTx;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 
 import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
-import ch.ffhs.inf09.pa.mashup_platform.config.DBConfig;
+import ch.ffhs.inf09.pa.mashup_platform.config.Config;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.Content;
 
 public class DBOrient extends DBLocal
 {
 	private ODatabaseObjectTx dbMashups;
 	private ODatabaseObjectTx dbUsers;
+	private Config config;
 	
 	public DBOrient(String dbUsername, String dbPassword) throws ExceptionMP
 	{
 		super(dbUsername, dbPassword);
+		config = Config.getInstance();
 	}
 	
 	public void connect() throws ExceptionMP
 	{
 		Orient.instance().registerEngine(new OEngineRemote());
-		createObjectDatabase(DBConfig.DB_MASHUPS);
-		createObjectDatabase(DBConfig.DB_USERS);
+		createObjectDatabase(config.getValue(Config.PARAM_DB_MASHUPS));
+		createObjectDatabase(config.getValue(Config.PARAM_DB_USERS));
 	
-		dbMashups = ODatabaseObjectPool.global().acquire("remote:localhost/" + DBConfig.DB_MASHUPS, this.dbUsername, this.dbPassword); 
-		dbUsers = ODatabaseObjectPool.global().acquire("remote:localhost/" + DBConfig.DB_USERS, this.dbUsername, this.dbPassword);
+		dbMashups = ODatabaseObjectPool.global().acquire("remote:localhost/"
+			+ config.getValue(Config.PARAM_DB_MASHUPS), this.dbUsername, this.dbPassword); 
+		dbUsers = ODatabaseObjectPool.global().acquire("remote:localhost/"
+			+ config.getValue(Config.PARAM_DB_USERS), this.dbUsername, this.dbPassword);
 		
 		dbMashups.getEntityManager().registerEntityClass(Content.class);
 		dbMashups.getEntityManager().registerEntityClass(Mashup.class);
@@ -39,8 +43,8 @@ public class DBOrient extends DBLocal
 		
 		if(getUserCount() == 0){
 			User user = new User();
-			user.setUsername(DBConfig.DB_USERNAME);
-			user.setPassword(DBConfig.DB_PASSWORD);
+			user.setUsername(config.getValue(Config.PARAM_DB_USERNAME));
+			user.setPassword(config.getValue(Config.PARAM_DB_PASSWORD));
 			setUser(user);
 		}
 	}
@@ -55,8 +59,8 @@ public class DBOrient extends DBLocal
 			int status, String username)
 	{
 		Mashups mashups = new Mashups(status, sortedBy);
-		if (dbMashups.getClusterType(DBConfig.DB_MASHUPS_MASHUP_CLASS_NAME) != null){
-			String query = "select * from " + DBConfig.DB_MASHUPS_MASHUP_CLASS_NAME;
+		if (dbMashups.getClusterType(config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME)) != null){
+			String query = "select * from " + config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME);
 			
 			if(username!=null){
 				query += " where username = '" + username + "'";
@@ -113,8 +117,9 @@ public class DBOrient extends DBLocal
 		dbMashups.getLevel2Cache().clear();
 		
 		Mashup mashup = null;
-		if (dbMashups.getClusterType(DBConfig.DB_MASHUPS_MASHUP_CLASS_NAME) != null){
-			List<Mashup> mashups = dbMashups.query(new OSQLSynchQuery<Mashup>("select from " + DBConfig.DB_MASHUPS_MASHUP_CLASS_NAME + " where ident = '" +
+		if (dbMashups.getClusterType(config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME)) != null){
+			List<Mashup> mashups = dbMashups.query(new OSQLSynchQuery<Mashup>("select from "
+				+ config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME) + " where ident = '" +
 					ident + "'"));
 			
 			/*
@@ -146,9 +151,9 @@ public class DBOrient extends DBLocal
 	public User getUser(String username, String password)
 	{
 		User user = null;
-		if (dbUsers.getClusterType(DBConfig.DB_USERS_CLASS_NAME) != null){
+		if (dbUsers.getClusterType(config.getValue(Config.PARAM_DB_USERS_CLASS_NAME)) != null){
 			List<User> results = dbUsers.query(new OSQLSynchQuery<Content>(
-					"select * from " + DBConfig.DB_USERS_CLASS_NAME
+					"select * from " + config.getValue(Config.PARAM_DB_USERS_CLASS_NAME)
 							+ " where username = '" + username + "' and password = '" + password + "'"));
 			if(results.size()>0){
 				user = results.get(0);
@@ -174,7 +179,9 @@ public class DBOrient extends DBLocal
 	}*/
 
 	private void createObjectDatabase(String dbName) {
-		ODatabaseObjectTx db = new ODatabaseObjectTx(DBConfig.DB_FILE_PATH + dbName);
+		String filepath = config.getValue(Config.PARAM_FILE_PATH_SYSTEM)
+			+ "/" + config.getValue(Config.PARAM_DB_FOLDER_PATH);
+		ODatabaseObjectTx db = new ODatabaseObjectTx(filepath + dbName);
 		if (!db.exists()) {
 			db.create();
 		}
@@ -183,8 +190,8 @@ public class DBOrient extends DBLocal
 	
 	private long getUserCount(){
 		long userNumber = 0;
-		if(dbUsers.getClusterType(DBConfig.DB_USERS_CLASS_NAME) != null){
-			 userNumber = dbUsers.countClusterElements(DBConfig.DB_USERS_CLASS_NAME);
+		if(dbUsers.getClusterType(config.getValue(Config.PARAM_DB_USERS_CLASS_NAME)) != null){
+			 userNumber = dbUsers.countClusterElements(config.getValue(Config.PARAM_DB_USERS_CLASS_NAME));
 		}
 		
 		return userNumber;

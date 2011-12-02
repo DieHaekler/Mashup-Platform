@@ -3,7 +3,7 @@ package ch.ffhs.inf09.pa.mashup_platform.web.model;
 import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
 //import ch.ffhs.inf09.pa.mashup_platform.core.system.model.persistence.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
-import ch.ffhs.inf09.pa.mashup_platform.config.DBConfig;
+import ch.ffhs.inf09.pa.mashup_platform.config.*;
 
 public abstract class ModelApplication
 {
@@ -21,8 +21,9 @@ public abstract class ModelApplication
 
 	private void initDBLocal()
 	{
+		Config config = Config.getInstance();
 		try {
-			db = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD);
+			db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME), config.getValue(Config.PARAM_DB_PASSWORD));
 		} catch (ExceptionMP e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

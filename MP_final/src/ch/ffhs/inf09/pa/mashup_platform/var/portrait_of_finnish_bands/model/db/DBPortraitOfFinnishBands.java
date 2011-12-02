@@ -11,6 +11,12 @@ public class DBPortraitOfFinnishBands extends DB
 	private static final int NUMBER_FLICKR_RESULTS = 3;
 	private static final int NUMBER_GOOGLE_SEARCH_RESULTS = 5;
 	
+	public DBPortraitOfFinnishBands()
+	{
+		super();
+		maxCacheAge = 3600;
+	}
+	
 	public void fillIn(Content content, int start, int number) throws ExceptionMP
 	{
 		String identCache = DB.identCache(DB_IDENT, content, start, number);

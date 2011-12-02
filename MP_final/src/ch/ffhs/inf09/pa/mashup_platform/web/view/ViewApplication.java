@@ -17,9 +17,11 @@ public abstract class ViewApplication
 	protected String content;
 	protected String contentType = CONTENT_TYPE_HTML;
 	protected ModelApplication model;
+	protected Environment environment;
 	
 	public ViewApplication(Environment environment) throws ExceptionMP
 	{
+		this.environment = environment;
 		content = getTemplate("html/main.html");
 				
 		//Add global menu
@@ -39,7 +41,8 @@ public abstract class ViewApplication
 	
 	protected String getTemplate(String name) throws ExceptionMP
 	{
-		String filepath = Config.FILE_PATH_DESIGN + name;
+		String filepath = Config.getInstance().getValue(Config.PARAM_FILE_PATH_SYSTEM)
+			+ "/design/" + name;
 		if ( FileMP.exists(filepath) )
 		{
 			try
@@ -80,7 +83,8 @@ public abstract class ViewApplication
 	
 	protected void complete()
 	{
-		content = content.replace(PLACEHOLDER_WEB_PATH_ROOT, Config.WEB_PATH_ROOT);
+		content = content.replace(PLACEHOLDER_WEB_PATH_ROOT,
+			Config.getInstance().getValue(Config.PARAM_WEB_PATH_ROOT));
 		content = stripPlaceholders(content);
 	}
 }

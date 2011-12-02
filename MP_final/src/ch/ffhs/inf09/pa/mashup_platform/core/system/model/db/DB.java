@@ -8,6 +8,7 @@ import java.io.*;
 public abstract class DB
 {
 	private static Cache cache = new CacheFile();
+	protected int maxCacheAge = 3600;
 	
 	public abstract void fillIn(Content content, int start, int number)
 		throws ExceptionMP;
@@ -22,7 +23,7 @@ public abstract class DB
 	{
 		try
 		{
-			Content contentCache = (Content)cache.getRecord(identCache);
+			Content contentCache = (Content)cache.getRecord(identCache, maxCacheAge);
 			if (contentCache == null)
 			{
 				return false;

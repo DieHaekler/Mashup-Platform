@@ -10,7 +10,6 @@ import ch.ffhs.inf09.pa.mashup_platform.common.db.Mashup;
 import ch.ffhs.inf09.pa.mashup_platform.common.db.Mashups;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
-import ch.ffhs.inf09.pa.mashup_platform.config.DBConfig;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 
 public class Controller
@@ -45,7 +44,8 @@ public class Controller
 	
 	public void storeOutput() throws ExceptionMP
 	{
-		String filepath = Config.FILE_PATH_OUTPUT + mashupName + "_" + start + "_" + number + ".json";
+		String filepath = Config.getInstance().getValue(Config.PARAM_FILE_PATH_SYSTEM)
+			+ "/output/" + mashupName + "_" + start + "_" + number + ".json";
 		String output = model.getContent().getJSON();
 		try
 		{

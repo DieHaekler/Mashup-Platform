@@ -8,7 +8,8 @@ public class CacheFile extends Cache
 {
 	private String filepath(String ident)
 	{
-		return Config.FILE_PATH_CACHE + ident + ".cache";
+		return Config.getInstance().getValue(Config.PARAM_FILE_PATH_SYSTEM) + "/cache/"
+			+ ident + ".cache";
 	}
 	
 	public void put(String ident, Object obj) throws IOException

@@ -29,7 +29,8 @@ public class LoggerMP
 	{
 		Calendar cal = Calendar.getInstance();
 		DateFormat df = new SimpleDateFormat("yyyy_MM_dd");
-		String filepath = Config.FILE_PATH_LOG + prefix + "_"
+		String filepath = Config.getInstance().getValue(
+			Config.PARAM_FILE_PATH_SYSTEM) + "/log/" + prefix + "_"
 			+ df.format(cal.getTime()) + ".txt";
 		df = new SimpleDateFormat("HH:mm:ss");
 		msg = df.format(cal.getTime()) + " --- " + msg + "\n";
