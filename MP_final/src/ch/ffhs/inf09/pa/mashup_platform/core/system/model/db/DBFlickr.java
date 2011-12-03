@@ -9,6 +9,12 @@ public class DBFlickr extends DB
 {
 	public static final String DB_IDENT = "system___DBFlickr";
 	public static final String SECTION_IDENT = "flickr";
+	public static String PARAM_URL_API = "URL_API";
+	
+	public DBFlickr(String filepath) throws ExceptionMP
+	{
+		super(filepath);
+	}
 	
 	public void fillIn(Content content, int start, int number) throws ExceptionMP
 	{
@@ -16,7 +22,8 @@ public class DBFlickr extends DB
 		if ( !fillInFromCache(content, identCache) )
 		{
 			List<ResultFlickr> results =
-				FetcherFlickr.fetchResults((ArrayList<String>)content.getKeywords());
+				FetcherFlickr.fetchResults(config.getValue(PARAM_URL_API),
+					(ArrayList<String>)content.getKeywords());
 			if (start < 0) start = 0;
 			int end = start + number;
 			if (end > results.size()) end = results.size();

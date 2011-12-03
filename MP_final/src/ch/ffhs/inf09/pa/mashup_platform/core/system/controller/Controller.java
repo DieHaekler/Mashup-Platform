@@ -1,38 +1,41 @@
 package ch.ffhs.inf09.pa.mashup_platform.core.system.controller;
 
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.*;
-import java.util.Date;
-
-import ch.ffhs.inf09.pa.mashup_platform.common.db.DBLocal;
-import ch.ffhs.inf09.pa.mashup_platform.common.db.DBOrient;
-import ch.ffhs.inf09.pa.mashup_platform.common.db.Mashup;
-import ch.ffhs.inf09.pa.mashup_platform.common.db.Mashups;
+import java.util.*;
+import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.config.Config;
+import ch.ffhs.inf09.pa.mashup_platform.config.*;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 
 public class Controller
 {
 	private Model model;
 	private String mashupName;
-	private int start;
-	private int number;
+	private int pagenr;
 	
-	public Controller(String mashupName, int start, int number) throws ExceptionMP
+	public Controller(String mashupName, int pagenr) throws ExceptionMP
 	{
 		this.mashupName = mashupName;
-		this.start = start;
-		this.number = number;
+		this.pagenr = pagenr;
 		String pathVar = "ch.ffhs.inf09.pa.mashup_platform.var";
+		
+		// instantiate mashup config
+		String filepath = Config.getFilepathVar() + "/" + mashupName
+			+ "/config/config.properties";
+		ConfigMashup config = new ConfigMashup(filepath);
+		
+		// instantiate mashup model
 		String pathModel = pathVar + "." + mashupName + ".model.ModelMain";
 		try
 		{
 			Class<?> c = (Class<?>)Class.forName(pathModel);
-			Constructor<?> ct = c.getConstructor();
-			model = (Model)ct.newInstance();
+			Class<?>[] args = new Class[] {ConfigMashup.class};
+			Constructor<?> ct = c.getConstructor(args);
+			model = (Model)ct.newInstance(config);
 			LoggerMP.writeNotice("model instantiated (" + pathModel + ")");
-			model.setRange(start, number);
+			model.setPageNr(pagenr);
 		} catch (ClassNotFoundException e)
 		{
 			throw new ExceptionMP("Couldn't find " + pathModel, e);
@@ -45,8 +48,11 @@ public class Controller
 	public void storeOutput() throws ExceptionMP
 	{
 		String filepath = Config.getInstance().getValue(Config.PARAM_FILE_PATH_SYSTEM)
-			+ "/output/" + mashupName + "_" + start + "_" + number + ".json";
-		String output = model.getContent().getJSON();
+			+ "/output/" + mashupName + "_" + pagenr + ".json";
+		Mashup mashup = model.getMashup();
+		MashupPage page = mashup.getPage();
+		Content content = page.getContent();
+		String output = content.getJSON();
 		try
 		{
 			if (output != null) FileMP.write(filepath, output, false);

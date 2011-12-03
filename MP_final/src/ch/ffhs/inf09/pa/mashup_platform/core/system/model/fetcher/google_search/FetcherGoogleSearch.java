@@ -8,11 +8,8 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 public class FetcherGoogleSearch extends Fetcher
-{
-	private static final String URL =
-			"http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=";
-	
-	public static ArrayList<ResultGoogleSearch> fetchResults(ArrayList<String> keyWords)
+{	
+	public static ArrayList<ResultGoogleSearch> fetchResults(String urlAPI, ArrayList<String> keyWords)
 			throws ExceptionMP
 	{
 		ArrayList<ResultGoogleSearch> results = new ArrayList<ResultGoogleSearch>();
@@ -25,7 +22,7 @@ public class FetcherGoogleSearch extends Fetcher
 		{
 			throw new ExceptionMP("Couldn't encode " + query, e);
 		}
-		String url = URL + query;
+		String url = urlAPI + query;
 		String text = Fetcher.fetch(url);
 		JsonParser parser = new JsonParser();
 		JsonObject obj = parser.parse(text).getAsJsonObject();

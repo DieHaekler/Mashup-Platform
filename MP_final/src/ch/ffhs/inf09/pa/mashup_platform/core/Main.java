@@ -9,17 +9,15 @@ public class Main
 	{
 		// input params
 		String mashupName = "portrait_of_finnish_bands";
-		int start = 0;
-		int number = 3;
+		int pagenr = 0;
 		
-		String inputParams = mashupName + ", " + start + ", " + number;
+		String inputParams = mashupName + ", " + pagenr;
 		LoggerMP.writeNotice("mashup platform started for input params: " + inputParams);
 		try
 		{
-			Controller controller = new Controller(mashupName, start, number);
+			Controller controller = new Controller(mashupName, pagenr);
 			LoggerMP.writeNotice("main controller instantiated");
 			controller.storeOutput();
-			//controller.storeOutputDB();
 			LoggerMP.writeNotice("output stored");
 		} catch (ExceptionMP e)
 		{

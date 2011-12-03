@@ -1,20 +1,30 @@
 package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model;
 
+import ch.ffhs.inf09.pa.mashup_platform.core.system.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.DB;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.db.*;
+import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
+import ch.ffhs.inf09.pa.mashup_platform.config.Config;
 
 public class ModelMain extends Model
 {	
-	public ModelMain()
+	public ModelMain(ConfigMashup config)
 	{
-		super("Portrait of Finnish Bands");
+		super(config);
 	}
 	
-	public void setRange(int start, int number) throws ExceptionMP
+	public void setPageNr(int pagenr) throws ExceptionMP
 	{
-		DB db = new DBPortraitOfFinnishBands();
-		db.fillIn(content, start, number);
+		int start = pagenr * numberRecordsPerPage;
+		Content content = new Content();
+		String filepath = Config.getFilepathVar()
+			+ "/portrait_of_finnish_bands/config/db/DBFinnishBands.properties";
+		DB db = new DBPortraitOfFinnishBands(filepath);
+		db.fillIn(content, start, numberRecordsPerPage);
+		MashupPage page = new MashupPage();
+		page.setContent(content, pagenr);
+		mashup.setPage(page);
 	}
 }

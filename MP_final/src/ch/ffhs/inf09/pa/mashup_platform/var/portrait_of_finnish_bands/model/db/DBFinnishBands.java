@@ -3,10 +3,9 @@ package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.db;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.fetcher.*;
-import java.io.*;
 import java.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.config.*;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.config.*;
 
 public class DBFinnishBands extends DB
 {
@@ -15,28 +14,10 @@ public class DBFinnishBands extends DB
 	public static final String PARAM_URL = "URL";
 	public static final String PARAM_REGEX = "REGEX";
 	public static final String PARAM_CAPTION = "CAPTION";
-	private HashMap<String, String> map = new HashMap<String, String>();
 	
-	public DBFinnishBands()
+	public DBFinnishBands(String filepath) throws ExceptionMP
 	{
-		super();
-		maxCacheAge = 864000; // 10 days
-		
-		String filepath = Config.getInstance().getValue(Config.PARAM_FILE_PATH_SYSTEM)
-			+ "/src/ch/ffhs/inf09/pa/mashup_platform/var/portrait_of_finnish_bands/config/config.txt";
-		try
-		{
-			String settings = FileMP.getContent(filepath);
-			map.put(PARAM_URL, Config.value(PARAM_URL, settings));
-			map.put(PARAM_REGEX, Config.value(PARAM_REGEX, settings));
-			map.put(PARAM_CAPTION, Config.value(PARAM_CAPTION, settings));
-		} catch (FileNotFoundException e)
-		{
-			LoggerMP.writeError("[DBFinnishBands] Couldn't find " + filepath);
-		} catch (IOException e)
-		{
-			LoggerMP.writeError("[DBFinnishBands] Couldn't open " + filepath);
-		}
+		super(filepath);
 	}
 	
 	public void fillIn(Content content, int start, int number) throws ExceptionMP
@@ -44,12 +25,13 @@ public class DBFinnishBands extends DB
 		String identCache = DB.identCache(DB_IDENT, content, start, number);
 		if ( !fillInFromCache(content, identCache) )
 		{
-			ArrayList<String> words = Fetcher.fetch(map.get(PARAM_URL), map.get(PARAM_REGEX));
+			ArrayList<String> words = Fetcher.fetch(config.getValue(PARAM_URL),
+				config.getValue(PARAM_REGEX));
 			int end = start + number;
 			if (end >= words.size()) end = words.size() - 1;
 			List<String> list = words.subList(start, end);
 			ContentSection section = new ContentSection();
-			section.setCaption(map.get(PARAM_CAPTION));
+			section.setCaption(config.getValue(PARAM_CAPTION));
 			for (String word: list)
 			{
 				Content part = new Content();

@@ -16,7 +16,7 @@ public class Environment
 		session = request.getSession(true);
 		ServletContext context = session.getServletContext();
 		String filepath = context.getRealPath("");
-		config = Config.getInstance(filepath + "/config/");
+		config = Config.getInstance(filepath + "/config/config.properties");
 	}
 	
 	public boolean login(String username, String password)

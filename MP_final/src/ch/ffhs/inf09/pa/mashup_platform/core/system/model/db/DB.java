@@ -3,12 +3,26 @@ package ch.ffhs.inf09.pa.mashup_platform.core.system.model.db;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.cache.*;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.config.*;
 import java.io.*;
 
 public abstract class DB
 {
+	public static String PARAM_MAX_CACHE_AGE = "MAX_CACHE_AGE";
+	
 	private static Cache cache = new CacheFile();
+	protected ConfigDB config;
 	protected int maxCacheAge = 3600;
+	
+	public DB(String filepath) throws ExceptionMP
+	{
+		config = new ConfigDB(filepath);
+		String temp = config.getValue(PARAM_MAX_CACHE_AGE);
+		if (temp != null)
+		{
+			maxCacheAge = Integer.parseInt(temp);
+		}
+	}
 	
 	public abstract void fillIn(Content content, int start, int number)
 		throws ExceptionMP;

@@ -9,10 +9,7 @@ import java.net.URLEncoder;
 
 public class FetcherFlickr extends Fetcher
 {
-	private static final String URL =
-			"http://www.flickr.com/services/feeds/photos_public.gne?format=json&nojsoncallback=1&tags=";
-	
-	public static ArrayList<ResultFlickr> fetchResults(ArrayList<String> keyWords) throws ExceptionMP
+	public static ArrayList<ResultFlickr> fetchResults(String urlAPI, ArrayList<String> keyWords) throws ExceptionMP
 	{
 		ArrayList<ResultFlickr> results = new ArrayList<ResultFlickr>();
 		String query = "";
@@ -24,7 +21,7 @@ public class FetcherFlickr extends Fetcher
 		{
 			throw new ExceptionMP("Couldn't encode " + query, e);
 		}
-		String url = URL + query;
+		String url = urlAPI + query;
 		String text = Fetcher.fetch(url);
 		JsonParser parser = new JsonParser();
 		JsonObject obj = parser.parse(text).getAsJsonObject();
