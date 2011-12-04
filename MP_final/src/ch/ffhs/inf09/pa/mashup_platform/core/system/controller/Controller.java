@@ -64,35 +64,15 @@ public class Controller
 	
 	public void storeOutputDB() throws ExceptionMP
 	{
-		/*
-		DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD);		
-		Mashup mashup = new Mashup();
-		mashup.setIdent("0001");
-		mashup.setName("Portrait of Finnish Bands (4 Entries)");
-		mashup.setContent(model.getContent());		
-		mashup.setStart(start);
-		mashup.setNumber(number);
-		mashup.setUsername(DBConfig.DB_USERNAME);
-		mashup.setCreatedAt(new Date());
+		Config config = Config.getInstance();
+		
+		Mashup mashup = model.getMashup();
+		DBLocal dbLocal = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME), config.getValue(Config.PARAM_DB_PASSWORD));
 		dbLocal.setMashup(mashup);
-		
-		System.out.println(dbLocal.getMashup("0001", 0, 2).getContent().getJSON());
-		System.out.println(dbLocal.getMashup("0001", 0, 1).getContent().getJSON());
-		
-		Mashups mashups = dbLocal.getMashups(0, 50, Mashups.SORTED_BY_DATE_DESC, Mashups.STATUS_ALL, "admin");
-		for(Mashup mash: mashups.getList()){
-			System.out.println(mash.getCreatedAt());
-		}
-		
-		dbLocal.close();
-		*/
-		
-		/*DBLocal dbLocal = new DBOrient(DBConfig.DB_USERNAME, DBConfig.DB_PASSWORD, DBConfig.DB_FILE_PATH, DBConfig.DB_MASHUPS,
-		DBConfig.DB_MASHUPS_CLASS_NAME, DBConfig.DB_USERS, DBConfig.DB_USERS_CLASS_NAME);	*/
-		//dbLocal.storeMashup(model.getContent());
-		/*System.out.println(dbLocal.getMashupJSON("Portrait of Finnish Bands"));
-		System.out.println(dbLocal.getMashupsFromUserJSON(DBConfig.DB_USERNAME));
-		System.out.println(dbLocal.getMashupsFromUser(DBConfig.DB_USERNAME).get(0).getJSON());*/
+		Mashup dbMashup = dbLocal.getMashup("portrait_of_finnish_bands", 0);
+		System.out.println(dbMashup.getIdent());
+		System.out.println(dbMashup.getPage().getPageNr());
+		System.out.println(dbMashup.getPage().getContent().getJSON());
 	}
 		
 }

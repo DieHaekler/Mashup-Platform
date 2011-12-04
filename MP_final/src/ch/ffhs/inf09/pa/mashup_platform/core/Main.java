@@ -18,6 +18,7 @@ public class Main
 			Controller controller = new Controller(mashupName, pagenr);
 			LoggerMP.writeNotice("main controller instantiated");
 			controller.storeOutput();
+			controller.storeOutputDB();
 			LoggerMP.writeNotice("output stored");
 		} catch (ExceptionMP e)
 		{
