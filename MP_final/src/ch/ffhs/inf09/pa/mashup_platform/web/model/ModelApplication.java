@@ -11,7 +11,7 @@ public abstract class ModelApplication
 	
 	public ModelApplication()
 	{
-		//initDBLocal();
+		initDBLocal();
 	}
 	
 	public void setDB(DBLocal db)
@@ -28,5 +28,6 @@ public abstract class ModelApplication
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 }
