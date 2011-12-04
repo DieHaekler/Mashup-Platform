@@ -4,11 +4,11 @@ import java.util.*;
 
 public class Mashups
 {	
-	public static final int STATUS_ALL = 1;
-	public static final int STATUS_PENDING = 2;
-	public static final int STATUS_ACTIVE = 3;
-	public static final int STATUS_INACTIVE = 4;
-	public static final int STATUS_REJECTED = 5;
+	//public static final int STATUS_ALL = 1;
+	public static final int STATUS_PENDING = 1;
+	public static final int STATUS_ACTIVE = 2;
+	public static final int STATUS_INACTIVE = 3;
+	public static final int STATUS_REJECTED = 4;
 	public static final int SORTED_BY_NAME_ASC = 1;
 	public static final int SORTED_BY_NAME_DESC = 2;
 	public static final int SORTED_BY_DATE_ASC = 3;

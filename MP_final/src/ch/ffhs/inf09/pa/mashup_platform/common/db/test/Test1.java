@@ -11,9 +11,14 @@ public class Test1
 	{
 		Mashup mashup = new Mashup();
 		mashup.setIdent("portrait_of_finnish_bands");
+		mashup.setStatus(Mashup.STATUS_ACTIVE);
+		mashup.setName("Portrait of Finnish Bands, Page 12");
 		MashupPage page = new MashupPage();
 		Content content = new Content();
 		content.setCaption("Portrait of Finnish Bands");
+		ContentSection section = new ContentSection();
+		section.setCaption("ASDFSDFSDF");
+		content.addSection("KLKLKL", section);
 		page.setContent(content, 12);
 		mashup.setPage(page);
 		
@@ -30,7 +35,9 @@ public class Test1
 		if (db != null)
 		{
 			db.setMashup(mashup);
+			System.out.println(db.getMashup("portrait_of_finnish_bands", 12).getPage().getContent().getSection("KLKLKL").getCaption());
 			System.out.println("mashup has been stored to OrientDB");
 		}
 	}
 }
+

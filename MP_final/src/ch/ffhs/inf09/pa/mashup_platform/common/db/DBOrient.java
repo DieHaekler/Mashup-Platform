@@ -17,23 +17,23 @@ import ch.ffhs.inf09.pa.mashup_platform.core.system.model.ContentSection;
 public class DBOrient extends DBLocal {
 	private ODatabaseObjectTx dbMashups;
 	private ODatabaseObjectTx dbUsers;
-	private Config config = Config.getInstance();
+	private Config config;
 
 	public DBOrient(String dbUsername, String dbPassword) throws ExceptionMP {
 		super(dbUsername, dbPassword);
 	}
 
 	public void connect() {
+		config = Config.getInstance();
 		Orient.instance().registerEngine(new OEngineRemote());
-
 		createObjectDatabase(config.getValue(Config.PARAM_DB_MASHUPS));
 		createObjectDatabase(config.getValue(Config.PARAM_DB_USERS));
 
 		dbMashups = ODatabaseObjectPool.global().acquire(
-				config.getValue(Config.PARAM_DB_FOLDER_PATH) + config.getValue(Config.PARAM_DB_MASHUPS), this.dbUsername,
+				"local:" + config.getValue(Config.PARAM_FILE_PATH_SYSTEM) + config.getValue(Config.PARAM_DB_FOLDER_PATH) + config.getValue(Config.PARAM_DB_MASHUPS), this.dbUsername,
 				this.dbPassword);
 		dbUsers = ODatabaseObjectPool.global().acquire(
-				config.getValue(Config.PARAM_DB_FOLDER_PATH) + config.getValue(Config.PARAM_DB_USERS), this.dbUsername,
+				"local:" + config.getValue(Config.PARAM_FILE_PATH_SYSTEM) + config.getValue(Config.PARAM_DB_FOLDER_PATH) + config.getValue(Config.PARAM_DB_USERS), this.dbUsername,
 				this.dbPassword);
 
 		dbMashups.getEntityManager().registerEntityClass(Content.class);
@@ -131,17 +131,18 @@ public class DBOrient extends DBLocal {
 
 	public void setMashup(Mashup mashup) {
 		List<Mashup> existingMashups = null;
-		if (mashup != null
-				&& dbMashups
-						.getClusterType(config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME)) != null) {
-			existingMashups = dbMashups.query(new OSQLSynchQuery<Mashup>(
-					"select from " + config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME)
-							+ " where ident = '" + mashup.getIdent() + "'"));
-			for (Mashup m : existingMashups) {
-				dbMashups.delete(m.getPage().getContent());
-				dbMashups.delete(m.getPage());
-				dbMashups.delete(m);
-			}
+		if (mashup != null) {
+			if(dbMashups
+						.getClusterType(config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME)) != null){
+				existingMashups = dbMashups.query(new OSQLSynchQuery<Mashup>(
+						"select from " + config.getValue(Config.PARAM_DB_MASHUPS_MASHUP_CLASS_NAME)
+								+ " where ident = '" + mashup.getIdent() + "'"));
+				for (Mashup m : existingMashups) {
+					dbMashups.delete(m.getPage().getContent());
+					dbMashups.delete(m.getPage());
+					dbMashups.delete(m);
+				}
+			}			
 			dbMashups.save(mashup);
 		}
 		
@@ -184,10 +185,8 @@ public class DBOrient extends DBLocal {
 	 */
 
 	private void createObjectDatabase(String dbName) {
-		System.out.println(config.getValue(Config.PARAM_DB_FOLDER_PATH) + config.getValue(Config.PARAM_DB_MASHUPS));
-		ODatabaseObjectTx db = new ODatabaseObjectTx(config.getValue(Config.PARAM_DB_FOLDER_PATH)
+		ODatabaseObjectTx db = new ODatabaseObjectTx("local:" + config.getValue(Config.PARAM_FILE_PATH_SYSTEM) + config.getValue(Config.PARAM_DB_FOLDER_PATH)
 				+ dbName);
-
 		if (!db.exists()) {
 			db.create();
 		}
