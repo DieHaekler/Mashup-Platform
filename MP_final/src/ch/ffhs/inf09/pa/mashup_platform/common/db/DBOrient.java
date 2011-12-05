@@ -1,9 +1,24 @@
 package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+ 
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
 import com.orientechnologies.orient.client.remote.OEngineRemote;
+import com.orientechnologies.orient.client.remote.OServerAdmin;
 import com.orientechnologies.orient.core.Orient;
 import com.orientechnologies.orient.core.db.object.ODatabaseObjectPool;
 import com.orientechnologies.orient.core.db.object.ODatabaseObjectTx;
@@ -20,20 +35,20 @@ public class DBOrient extends DBLocal {
 	private Config config;
 
 	public DBOrient(String dbUsername, String dbPassword) throws ExceptionMP {
-		super(dbUsername, dbPassword);
+		super(dbUsername, dbPassword);		
 	}
 
-	public void connect() {
+	public void connect() {			
 		config = Config.getInstance();
 		Orient.instance().registerEngine(new OEngineRemote());
 		createObjectDatabase(config.getValue(Config.PARAM_DB_MASHUPS));
 		createObjectDatabase(config.getValue(Config.PARAM_DB_USERS));
 
 		dbMashups = ODatabaseObjectPool.global().acquire(
-				"local:" + config.getValue(Config.PARAM_FILE_PATH_SYSTEM) + config.getValue(Config.PARAM_DB_FOLDER_PATH) + config.getValue(Config.PARAM_DB_MASHUPS), this.dbUsername,
+				"remote:localhost/" + config.getValue(Config.PARAM_DB_MASHUPS), this.dbUsername,
 				this.dbPassword);
 		dbUsers = ODatabaseObjectPool.global().acquire(
-				"local:" + config.getValue(Config.PARAM_FILE_PATH_SYSTEM) + config.getValue(Config.PARAM_DB_FOLDER_PATH) + config.getValue(Config.PARAM_DB_USERS), this.dbUsername,
+				"remote:localhost/" + config.getValue(Config.PARAM_DB_USERS), this.dbUsername,
 				this.dbPassword);
 
 		dbMashups.getEntityManager().registerEntityClass(Content.class);
@@ -185,13 +200,15 @@ public class DBOrient extends DBLocal {
 	 */
 
 	private void createObjectDatabase(String dbName) {
-		ODatabaseObjectTx db = new ODatabaseObjectTx("local:" + config.getValue(Config.PARAM_FILE_PATH_SYSTEM) + config.getValue(Config.PARAM_DB_FOLDER_PATH)
-				+ dbName);
-		if (!db.exists()) {
-			db.create();
+		OServerAdmin oServer = null;
+		try {
+			oServer = new OServerAdmin("remote:localhost/" + dbName).connect("root", getRootPassword());
+			if(!oServer.existsDatabase()){
+				oServer.createDatabase("local").close();
+			}
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
-		db.close();
-
 	}
 
 	private long getUserCount() {
@@ -202,4 +219,31 @@ public class DBOrient extends DBLocal {
 		}
 		return userNumber;
 	}
+	
+	private String getRootPassword(){
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        factory.setNamespaceAware(true); 
+        DocumentBuilder builder;
+        String password = null;
+        try {
+            builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(config.getValue(Config.PARAM_FILE_PATH_SYSTEM) + config.getValue(Config.PARAM_DB_FOLDER_PATH_CONFIG) + "orientdb-server-config.xml");
+            XPathFactory factoryX = XPathFactory.newInstance();
+            XPath xpath = factoryX.newXPath();
+            XPathExpression expr = xpath.compile("/orient-server/users/user[@name='root']/@password");
+            Object result = expr.evaluate(doc, XPathConstants.NODESET);
+            NodeList nodes = (NodeList) result;            
+            password = nodes.item(0).getNodeValue(); 
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (XPathExpressionException e) {
+            e.printStackTrace();
+        }       
+        return password;
+    }
+ 	
 }

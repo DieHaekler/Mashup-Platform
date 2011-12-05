@@ -10,6 +10,7 @@ public class Config
 	public static final String PARAM_FILE_PATH_SYSTEM = "FILE_PATH_SYSTEM";
 	public static final String PARAM_WEB_PATH_ROOT = "WEB_PATH_ROOT";
 	public static final String PARAM_DB_FOLDER_PATH = "DB_FOLDER_PATH";
+	public static final String PARAM_DB_FOLDER_PATH_CONFIG = "DB_FOLDER_PATH_CONFIG";
 	public static final String PARAM_DB_USERNAME = "DB_USERNAME";
 	public static final String PARAM_DB_PASSWORD = "DB_PASSWORD";
 	public static final String PARAM_DB_USERS = "DB_USERS";

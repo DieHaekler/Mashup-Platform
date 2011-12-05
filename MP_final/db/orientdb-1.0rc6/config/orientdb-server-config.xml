@@ -101,7 +101,7 @@
     
 <users>
         
-<user name="root" password="FAFF343DD54DKFJFKDA95F05A033A6A59E2F57CDF35058E4D4AF7AE12910B508384C47" resources="*"/>
+<user name="root" password="admin" resources="*"/>
         
 <user name="guest" password="guest" resources="connect,server.listDatabases"/>
     
