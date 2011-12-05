@@ -20,7 +20,7 @@ public abstract class DB
 		String temp = config.getValue(PARAM_MAX_CACHE_AGE);
 		if (temp != null)
 		{
-			maxCacheAge = Integer.parseInt(temp);
+			maxCacheAge = Integer.parseInt(temp.trim());
 		}
 	}
 	

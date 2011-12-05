@@ -25,7 +25,7 @@ public class CacheFile extends Cache
 			return FileMP.get(filepath(ident));
 		} catch (ClassNotFoundException e)
 		{
-			throw new IOException("corrupted file: " + filepath(ident), e);
+			throw new IOException("[CacheFile] corrupted file: " + filepath(ident), e);
 		}
 	}
 	

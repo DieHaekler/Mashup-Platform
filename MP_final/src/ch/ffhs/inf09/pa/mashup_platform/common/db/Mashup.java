@@ -1,12 +1,13 @@
 package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
 import java.util.*;
-
+import java.io.*;
 import javax.persistence.Id;
 import javax.persistence.Version;
 
-public class Mashup
+public class Mashup implements Serializable
 {
+	private static final long serialVersionUID = 1L;
 	public static final int STATUS_PENDING = 1;
 	public static final int STATUS_ACTIVE = 2;
 	public static final int STATUS_INACTIVE = 3;
@@ -23,7 +24,6 @@ public class Mashup
 	private String username;
 	private Date lastUpdated;
 	private Date createdAt;
-	private int totalPages;
 	private int status;
 	
 	// the requested page
@@ -47,19 +47,9 @@ public class Mashup
 		return status;
 	}
 	
-	public void setTotalPages(int total)
-	{
-		totalPages = total;
-	}
-	
 	public void setPage(MashupPage page)
 	{
 		this.page = page;
-	}
-	
-	public int getTotalPages()
-	{
-		return totalPages;
 	}
 	
 	public MashupPage getPage()

@@ -65,7 +65,7 @@ public class Config
 	
 	public static String getFilepathSystem()
 	{
-		if (instance == null) return null;
+		if (instance == null) instance = getInstance();
 		return instance.getValue(Config.PARAM_FILE_PATH_SYSTEM);
 	}
 }

@@ -1,7 +1,6 @@
 package ch.ffhs.inf09.pa.mashup_platform.core.system.model.cache;
 
 import java.io.*;
-import ch.ffhs.inf09.pa.mashup_platform.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 
 public abstract class Cache
