@@ -17,8 +17,10 @@ public class DBFeeder extends Task
 	
 	public void run()
 	{
+		cleanup();
 		LoggerMP.writeNotice("[DBFeeder] DB Feeder started");
 		int sleepTime = parseInt( properties.getProperty(PARAM_SLEEP_TIME) );
+		if (sleepTime <= 0) sleepTime = 10000;
 		while ( !isKilled() )
 		{
 			process();
@@ -29,8 +31,8 @@ public class DBFeeder extends Task
 			{
 			}
 		}
-		cleanup();
 		LoggerMP.writeNotice("[DBFeeder] DB Feeder killed");
+		cleanup();
 	}
 	
 	private static synchronized void process()

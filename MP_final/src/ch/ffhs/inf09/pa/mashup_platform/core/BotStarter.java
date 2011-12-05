@@ -3,7 +3,7 @@ package ch.ffhs.inf09.pa.mashup_platform.core;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.controller.background.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 
-public class Main
+public class BotStarter
 {
 	public static void main(String[] args)
 	{

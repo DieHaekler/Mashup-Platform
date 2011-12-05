@@ -16,11 +16,12 @@ public class Bot extends Task
 	
 	public void run()
 	{
+		cleanup();
 		LoggerMP.writeNotice("[Bot] bot started");
-		int sleepTime = 5000;
-		int minTimeInterval = 60;
-		sleepTime = parseInt( properties.getProperty(PARAM_SLEEP_TIME) );
-		minTimeInterval = parseInt( properties.getProperty(PARAM_MIN_TIME_INTERVAL_PER_MASHUP) );
+		int sleepTime = parseInt( properties.getProperty(PARAM_SLEEP_TIME) );
+		if (sleepTime <= 0) sleepTime = 5000;
+		int minTimeInterval = parseInt( properties.getProperty(PARAM_MIN_TIME_INTERVAL_PER_MASHUP) );
+		if (minTimeInterval <= 0) minTimeInterval = 60;
 		while ( !isKilled() )
 		{
 			process(minTimeInterval);
@@ -31,8 +32,8 @@ public class Bot extends Task
 			{
 			}
 		}
-		cleanup();
 		LoggerMP.writeNotice("[Bot] killed");
+		cleanup();
 	}
 	
 	private static synchronized void process(int minTimeInterval)

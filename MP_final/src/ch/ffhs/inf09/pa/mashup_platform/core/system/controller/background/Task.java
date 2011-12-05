@@ -32,9 +32,20 @@ public abstract class Task implements Runnable
 		return FileMP.exists(filepathKill);
 	}
 	
+	public void kill() throws ExceptionMP
+	{
+		try
+		{
+			FileMP.write(filepathKill, "", false);
+		} catch (IOException e)
+		{
+			throw new ExceptionMP("[Task] couldn't create " + filepathKill, e);
+		}
+	}
+	
 	protected void cleanup()
 	{
-		FileMP.remove(filepathKill);
+		if (FileMP.exists(filepathKill)) FileMP.remove(filepathKill);
 	}
 	
 	protected static int parseInt(String text)
