@@ -47,12 +47,12 @@ public class DBOrient extends DBLocal {
 		dbUsers.close();
 	}
 	
-	public synchronized MashupOverview getOverview(int start, int number, int sortedBy)
+	public MashupOverview getOverview(int start, int number, int sortedBy)
 	{
 		MashupOverview overview = new MashupOverview(sortedBy);
 		if (dbMashups.getClusterType("MashupPage") != null)
 		{
-			String query = "select distinct(mashupIdent) from MashupPage limit";
+			String query = "select distinct(mashupIdent) from MashupPage";
 			List<ODocument> r1 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
 			for (ODocument d1: r1)
 			{
@@ -100,8 +100,7 @@ public class DBOrient extends DBLocal {
 	public void setPage(MashupPage page) {
 		List<MashupPage> existingPages = null;
 		if (page != null) {
-			if(dbMashups
-						.getClusterType("MashupPage") != null){
+			if(dbMashups.getClusterType("MashupPage") != null) {
 				String query = "select from MashupPage where mashupIdent = '"
 					+ page.getMashupIdent() + "' and pageNr = '" + page.getPageNr() + "'";
 				existingPages = dbMashups.query(new OSQLSynchQuery<MashupPage>(query));
@@ -120,11 +119,8 @@ public class DBOrient extends DBLocal {
 			List<User> results = dbUsers.query(new OSQLSynchQuery<Content>(
 					"select from User where username = '" + username
 							+ "' and password = '" + password + "'"));
-			if (results.size() > 0) {
-				user = results.get(0);
-			}
+			if (results.size() > 0) user = results.get(0);
 		}
-
 		return user;
 	}
 
@@ -138,15 +134,16 @@ public class DBOrient extends DBLocal {
 		}
 	}
 
-	private void createObjectDatabase(String dbName) {
+	private void createObjectDatabase(String dbName) throws ExceptionMP {
 		OServerAdmin oServer = null;
 		try {
-			oServer = new OServerAdmin("remote:localhost/" + dbName).connect("root", getRootPassword());
+			oServer = new OServerAdmin("remote:localhost/"
+				+ dbName).connect("root", getRootPassword());
 			if(!oServer.existsDatabase()){
 				oServer.createDatabase("local").close();
 			}
-		} catch (IOException e1) {
-			e1.printStackTrace();
+		} catch (IOException e) {
+			throw new ExceptionMP("[DBOrient] could'nt create " + dbName, e);
 		}
 	}
 
@@ -158,15 +155,16 @@ public class DBOrient extends DBLocal {
 		return userNumber;
 	}
 	
-	private String getRootPassword(){
+	private String getRootPassword() throws ExceptionMP {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setNamespaceAware(true); 
         DocumentBuilder builder;
         String password = null;
+        String filepath = config.getValue(Config.PARAM_FILE_PATH_SYSTEM)
+            + config.getValue(Config.PARAM_DB_FOLDER_PATH_CONFIG) + "orientdb-server-config.xml";
         try {
             builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(config.getValue(Config.PARAM_FILE_PATH_SYSTEM)
-            	+ config.getValue(Config.PARAM_DB_FOLDER_PATH_CONFIG) + "orientdb-server-config.xml");
+            Document doc = builder.parse(filepath);
             XPathFactory factoryX = XPathFactory.newInstance();
             XPath xpath = factoryX.newXPath();
             XPathExpression expr = xpath.compile("/orient-server/users/user[@name='root']/@password");
@@ -174,13 +172,13 @@ public class DBOrient extends DBLocal {
             NodeList nodes = (NodeList) result;            
             password = nodes.item(0).getNodeValue(); 
         } catch (ParserConfigurationException e) {
-            e.printStackTrace();
+            throw new ExceptionMP("[DBOrient] couldn't parse " + filepath, e);
         } catch (SAXException e) {
-            e.printStackTrace();
+        	throw new ExceptionMP("[DBOrient] invalid XML: " + filepath, e);
         } catch (IOException e) {
-            e.printStackTrace();
+        	throw new ExceptionMP("[DBOrient] couldn't open " + filepath, e);
         } catch (XPathExpressionException e) {
-            e.printStackTrace();
+        	throw new ExceptionMP("[DBOrient] invalid XML: " + filepath, e);
         }       
         return password;
     }
