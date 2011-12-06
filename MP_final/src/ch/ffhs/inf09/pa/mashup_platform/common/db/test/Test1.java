@@ -9,34 +9,49 @@ public class Test1
 {
 	public static void main(String[] args)
 	{
-		for (int i = 0; i < 10; i++)
+		// test double connections
+		DBLocal db1 = null;
+		DBLocal db2 = null;
+		Config config = Config.getInstance();
+		try
 		{
-			Mashup mashup = new Mashup();
-			String ident = "portrait_" + i;
-			mashup.setIdent(ident);
-			mashup.setStatus(Mashup.STATUS_ACTIVE);
-			MashupPage page = new MashupPage();
-			Content content = new Content();
-			content.setCaption("Portrait of Finnish Bands");
-			page.setContent(content, i);
-			mashup.setPage(page);
-			
-			DBLocal db = null;
-			Config config = Config.getInstance();
-			try
-			{
-				db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
+			db1 = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
+				config.getValue(Config.PARAM_DB_PASSWORD));
+			db2 = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
 					config.getValue(Config.PARAM_DB_PASSWORD));
-			} catch (ExceptionMP e)
+		} catch (ExceptionMP e)
+		{
+			e.printStackTrace();
+		}
+		if ((db1 != null) && (db2 != null))
+		{
+			for (int i = 0; i < 10; i++)
 			{
-				e.printStackTrace();
+				MashupPage page = new MashupPage();
+				page.setPageNr(i * 2);
+				page.setMashupIdent("portrait");
+				Content content = new Content();
+				content.setCaption("p_" + page.getPageNr());
+				page.setContent(content);
+				if (db1 != null)
+				{
+					db1.setPage(page);
+					System.out.println("page " + page.getPageNr() + " has been stored to OrientDB");
+				}
+				page = new MashupPage();
+				page.setPageNr(i * 2 + 1);
+				page.setMashupIdent("portrait");
+				content = new Content();
+				content.setCaption("p" + page.getPageNr());
+				page.setContent(content);
+				if (db2 != null)
+				{
+					db2.setPage(page);
+					System.out.println("page " + page.getPageNr() + " has been stored to OrientDB");
+				}
 			}
-			if (db != null)
-			{
-				db.setMashup(mashup);
-				System.out.println("mashup " + ident + " has been stored to OrientDB");
-				//db.close();
-			}
+			db1.close();
+			db2.close();
 		}
 	}
 }

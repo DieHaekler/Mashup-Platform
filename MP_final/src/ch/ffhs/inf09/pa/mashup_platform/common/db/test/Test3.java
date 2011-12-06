@@ -4,8 +4,6 @@ import java.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
-import ch.ffhs.inf09.pa.mashup_platform.config.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 
 public class Test3
 {
@@ -23,14 +21,13 @@ public class Test3
 		}
 		if (db != null)
 		{
-			Mashups mashups = db.getMashups(0, 100);
-			if (mashups != null)
+			MashupOverview overview = db.getOverview(0, 100);
+			if (overview != null)
 			{
-				List<Mashup> list = mashups.getList();
-				for (Mashup mashup: list)
+				List<MashupInfo> list = overview.getList();
+				for (MashupInfo info: list)
 				{
-					System.out.println(mashup.getIdent());
-					System.out.println(mashup.getName());
+					System.out.println(info.getNumberPages());
 				}
 			}
 		}

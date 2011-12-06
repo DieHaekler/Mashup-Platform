@@ -11,30 +11,17 @@ public abstract class DBLocal
 	{
 		this.dbUsername = dbUsername;
 		this.dbPassword = dbPassword;
-		connect();
 	}
 	
-	protected abstract void connect() throws ExceptionMP;
 	public abstract void close();
-	public abstract Mashups getMashups(int start, int number, int sortedBy,
-			int status, String username);
-	public abstract Mashup getMashup(String ident, int pagenr);
-	public abstract void setMashup(Mashup mashup);
+	public abstract MashupOverview getOverview(int start, int number, int sortedBy);
+	public abstract MashupPage getPage(String mashupIdent, int pageNr);
+	public abstract void setPage(MashupPage page);
 	public abstract User getUser(String username, String password);
 	public abstract void setUser(User user);
 	
-	public Mashups getMashups(int start, int number, int sortedBy, int status)
+	public synchronized MashupOverview getOverview(int start, int number)
 	{
-		return getMashups(start, number, sortedBy, status, null);
-	}
-	
-	public Mashups getMashups(int start, int number, int sortedBy)
-	{
-		return getMashups(start, number, sortedBy, Mashups.STATUS_ACTIVE);
-	}
-	
-	public Mashups getMashups(int start, int number)
-	{
-		return getMashups(start, number, Mashups.SORTED_BY_NAME_ASC);
+		return getOverview(start, number, MashupOverview.SORTED_BY_NAME_ASC);
 	}
 }

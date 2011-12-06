@@ -6,9 +6,9 @@ import ch.ffhs.inf09.pa.mashup_platform.web.model.*;
 
 public class ViewMashupOverviewJSON extends ViewApplication
 {
-	private ModelMashups model;
+	private ModelMashupOverview model;
 	
-	public ViewMashupOverviewJSON(Environment environment, ModelMashups model) throws ExceptionMP
+	public ViewMashupOverviewJSON(Environment environment, ModelMashupOverview model) throws ExceptionMP
 	{
 		super(environment);
 		this.model = model;

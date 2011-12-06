@@ -9,6 +9,6 @@ public class ControllerMashupOverviewJSON extends ControllerApplication
 {
 	public ControllerMashupOverviewJSON(Environment environment) throws ExceptionMP
 	{
-		super(environment, new ViewMashupOverviewJSON(environment, new ModelMashups()));
+		super(environment, new ViewMashupOverviewJSON(environment, new ModelMashupOverview()));
 	}
 }
