@@ -21,15 +21,29 @@ public class MashupOverview
 		list.add(info);
 	}
 	
-	public ArrayList<MashupInfo> getList()
-	{
-		return list;
-	}
-	
 	public void addInfo(MashupInfo info)
 	{
 		list.add(info);
 	}
 	
 	public int getSortedBy() { return sortedBy; }
+	
+	public ArrayList<MashupInfo> getList()
+	{
+		return list;
+	}
+	
+	public String getJSON()
+	{
+		String s = "";
+		for(MashupInfo info: list)
+		{
+			s += "{\"id\":\"" + info.getMashupIdent() + "\","
+				+ "\"name\":\"" + info.getName() + "\","
+				+ "\"username\":\"" + info.getUsername() + "\""
+				+ "},";
+		}
+		if ( !s.equals("") ) s = s.substring(0, s.length() - 1);
+		return "{\"mashups\":[" + s + "]}";
+	}
 }

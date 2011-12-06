@@ -9,6 +9,7 @@ public class ControllerLogin extends ControllerApplication
 {
 	public ControllerLogin(Environment environment) throws ExceptionMP
 	{
-		super(environment, new ViewLogin(environment, new ModelUser("admin","admin")));
+		super(environment);
+		setView(new ViewLogin(new ModelUser(environment, "admin","admin")));
 	}
 }

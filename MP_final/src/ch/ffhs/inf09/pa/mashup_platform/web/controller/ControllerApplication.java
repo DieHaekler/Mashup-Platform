@@ -9,9 +9,13 @@ public abstract class ControllerApplication
 	protected ViewApplication view;
 	protected Environment environment;
 	
-	public ControllerApplication(Environment environment, ViewApplication view) throws ExceptionMP
+	public ControllerApplication(Environment environment) throws ExceptionMP
 	{
 		this.environment = environment;
+	}
+	
+	public void setView(ViewApplication view)
+	{
 		this.view = view;
 	}
 	

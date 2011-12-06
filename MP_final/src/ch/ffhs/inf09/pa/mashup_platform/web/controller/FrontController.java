@@ -14,15 +14,6 @@ public class FrontController extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
-	public static <T extends Enum<T>> boolean isMember(Class<T> enumType, String name) {
-	    for (Enum<T> constant : enumType.getEnumConstants()) {
-	        if (constant.toString().equals(name)) {
-	            return true;
-	        }
-	    }
-	    return false;
-	}
-
 	private enum Menu 
 	{ 
 		HOME, OVERVIEW, MASHUP, ACCOUNT;
@@ -47,64 +38,47 @@ public class FrontController extends HttpServlet
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{
-		Environment environment = initEnvironment(request);
-		
+	{	
 		ControllerApplication controller = null;
+		Environment environment = null;
 		try
-		{	
-				//Default Menu
-				Menu menu = Menu.HOME;
-				
-				//Menu navigation
-				if (environment.getValuePost("menu") != null)
-				{
-					String menuParm = environment.getValuePost("menu");
-					menuParm = menuParm.toUpperCase();
-					menu = Menu.forName(menuParm);
-				}
-				
-				String formatParm = environment.getValuePost("format");
-				
-				switch(menu)
-	             {
-	               case HOME:
-	            	   controller = new ControllerMashupOverview(environment);
-	            	   break;
-	               case OVERVIEW:
-	            	   
-	            	   if (formatParm != null && formatParm.equals("json"))
-	            	   {
-	            		   controller = new ControllerMashupOverviewJSON(environment);
-	        
-	            	   }
-	            	   else 
-	            	   {
-	            		   controller = new ControllerMashupOverview(environment);
-	            	   }
-	            	   break;
-	               case MASHUP:      
-	            	   if (formatParm != null && formatParm.equals("json"))
-	            	   {
-	            		   controller = new ControllerMashupJSON(environment);
-	            	   }
-	            	   else 
-	            	   {
-	            		   controller = new ControllerMashup(environment);
-	            	   }
-	            	 break;
-	               case ACCOUNT:
-		       			if ( environment.isUserLoggedIn() )
-		    			{
-		    				controller = new ControllerAccount(environment);
-		    			} else
-		    			{
-		    				controller = new ControllerLogin(environment);
-		    			}
-		       			break;
-	               default:
-	            	   controller = new ControllerMashupOverview(environment);
-	             }
+		{
+			environment = initEnvironment(request);
+			
+			//Default Menu
+			Menu menu = Menu.HOME;
+			
+			//Menu navigation
+			if (environment.getValuePost("menu") != null)
+			{
+				String menuParm = environment.getValuePost("menu");
+				menuParm = menuParm.toUpperCase();
+				menu = Menu.forName(menuParm);
+			}
+			
+			switch(menu)
+             {
+               case HOME:
+            	   controller = new ControllerMashupOverview(environment);
+            	   break;
+               case OVERVIEW:
+            	   controller = new ControllerMashupOverview(environment);
+            	   break;
+               case MASHUP:
+            	   controller = new ControllerMashup(environment);
+            	 break;
+               case ACCOUNT:
+	       			if ( environment.isUserLoggedIn() )
+	    			{
+	    				controller = new ControllerAccount(environment);
+	    			} else
+	    			{
+	    				controller = new ControllerLogin(environment);
+	    			}
+	       			break;
+               default:
+            	   controller = new ControllerMashupOverview(environment);
+             }
 		} catch (ExceptionMP e)
 		{
 			LoggerMP.writeError(e);
@@ -117,14 +91,16 @@ public class FrontController extends HttpServlet
 			PrintWriter out = response.getWriter();
 			out.println(view.getContent());
 		}
+		if (environment != null) environment.close();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException, IOException
 	{
 		doGet(request, response);
 	}
 	
-	private Environment initEnvironment(HttpServletRequest request)
+	private Environment initEnvironment(HttpServletRequest request) throws ExceptionMP
 	{
 		Environment environment = new Environment(request);
 		if ( environment.isUserLoggedIn() )

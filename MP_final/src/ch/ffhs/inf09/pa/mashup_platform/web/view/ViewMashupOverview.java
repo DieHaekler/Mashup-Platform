@@ -8,14 +8,11 @@ public class ViewMashupOverview extends ViewApplication
 {
 	private ModelMashupOverview model;
 	
-	public ViewMashupOverview(Environment environment, ModelMashupOverview model) throws ExceptionMP
+	public ViewMashupOverview(ModelMashupOverview model) throws ExceptionMP
 	{
-		super(environment);
-		this.model = model;
-		
+		super(model);
 		String part = getTemplate("html/mashup/overview.html");
 		content = content.replace(PLACEHOLDER_VIEW_APPLICATION, part);
-		
 		complete();
 	}
 }
