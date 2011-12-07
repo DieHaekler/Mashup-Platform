@@ -5,7 +5,7 @@
     <type>com.umlet.element.Actor</type>
     <coordinates>
       <x>110</x>
-      <y>210</y>
+      <y>260</y>
       <w>100</w>
       <h>120</h>
     </coordinates>
@@ -17,8 +17,8 @@
     <coordinates>
       <x>90</x>
       <y>50</y>
-      <w>300</w>
-      <h>300</h>
+      <w>310</w>
+      <h>340</h>
     </coordinates>
     <panel_attributes>use case Mashup Plattform</panel_attributes>
     <additional_attributes/>
@@ -27,7 +27,7 @@
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>250</x>
-      <y>170</y>
+      <y>220</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -38,7 +38,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>160</x>
-      <y>160</y>
+      <y>210</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -49,7 +49,7 @@
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>250</x>
-      <y>220</y>
+      <y>270</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -60,7 +60,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>160</x>
-      <y>210</y>
+      <y>260</y>
       <w>110</w>
       <h>50</h>
     </coordinates>
@@ -71,7 +71,7 @@
     <type>com.umlet.element.UseCase</type>
     <coordinates>
       <x>250</x>
-      <y>270</y>
+      <y>320</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -82,7 +82,7 @@
     <type>com.umlet.element.Relation</type>
     <coordinates>
       <x>160</x>
-      <y>220</y>
+      <y>270</y>
       <w>110</w>
       <h>90</h>
     </coordinates>
@@ -108,7 +108,7 @@
       <w>120</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Mashup benutzen</panel_attributes>
+    <panel_attributes>Mashup betrachten</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -121,5 +121,16 @@
     </coordinates>
     <panel_attributes/>
     <additional_attributes>90;30;30;30</additional_attributes>
+  </element>
+  <element>
+    <type>com.umlet.element.Relation</type>
+    <coordinates>
+      <x>130</x>
+      <y>150</y>
+      <w>50</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>30;30;30;100</additional_attributes>
   </element>
 </diagram>
