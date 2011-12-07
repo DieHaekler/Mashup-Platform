@@ -1,16 +1,22 @@
 package ch.ffhs.inf09.pa.mashup_platform.web.model;
 
 import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
+import ch.ffhs.inf09.pa.mashup_platform.web.*;
 
 public class ModelMashup extends ModelApplication
-{	
-	public ModelMashup()
+{
+	private String ident;
+	private int pageNr;
+	
+	public ModelMashup(Environment environment, String ident, int pageNr)
 	{
-		super();
+		super(environment);
+		this.ident = ident;
+		this.pageNr = pageNr;
 	}
 	
-	public Mashup get(String ident, int pagenr)
+	public MashupPage getPage()
 	{
-		return db.getMashup(ident, pagenr);
+		return environment.getDB().getPage(ident, pageNr);
 	}
 }

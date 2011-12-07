@@ -39,5 +39,5 @@ public class Controller
 		}
 	}
 	
-	public Mashup getMashup() { return model.getMashup(); }
+	public MashupPage getPage() { return model.getPage(); }
 }

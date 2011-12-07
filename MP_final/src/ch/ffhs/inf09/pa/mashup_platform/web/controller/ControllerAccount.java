@@ -9,6 +9,7 @@ public class ControllerAccount extends ControllerApplication
 {
 	public ControllerAccount(Environment environment) throws ExceptionMP
 	{
-		super(environment, new ViewAccount(environment,new ModelUser("admin","admin")));
+		super(environment);
+		setView(new ViewAccount(new ModelUser(environment, "admin","admin")));
 	}
 }

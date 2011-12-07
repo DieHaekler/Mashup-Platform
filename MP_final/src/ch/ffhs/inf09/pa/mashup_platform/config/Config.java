@@ -15,9 +15,6 @@ public class Config
 	public static final String PARAM_DB_PASSWORD = "DB_PASSWORD";
 	public static final String PARAM_DB_USERS = "DB_USERS";
 	public static final String PARAM_DB_MASHUPS = "DB_MASHUPS";
-	public static final String PARAM_DB_USERS_CLASS_NAME = "DB_USERS_CLASS_NAME";
-	public static final String PARAM_DB_MASHUPS_CONTENT_CLASS_NAME = "DB_MASHUPS_CONTENT_CLASS_NAME";
-	public static final String PARAM_DB_MASHUPS_MASHUP_CLASS_NAME = "DB_MASHUPS_MASHUP_CLASS_NAME";
 	
 	private Properties properties = new Properties();
 	private static Config instance;

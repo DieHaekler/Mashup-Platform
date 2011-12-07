@@ -53,7 +53,7 @@ public class Bot extends Task
 				{
 					Controller controller = new Controller(ident, pagenr);
 					LoggerMP.writeNotice("[Bot] main controller instantiated");
-					MashupManager.store(controller.getMashup());
+					MashupManager.store(controller.getPage());
 				} catch (ExceptionMP e)
 				{
 					LoggerMP.writeError(e);

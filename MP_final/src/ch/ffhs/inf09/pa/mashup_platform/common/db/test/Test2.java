@@ -3,7 +3,6 @@ package ch.ffhs.inf09.pa.mashup_platform.common.db.test;
 import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
-import ch.ffhs.inf09.pa.mashup_platform.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 
 public class Test2
@@ -22,19 +21,16 @@ public class Test2
 		}
 		if (db != null)
 		{
-			Mashup mashup = db.getMashup("portrait_of_finnish_bands", 12);
-			if (mashup != null)
+			MashupPage page = db.getPage("portrait_of_finnish_bands", 1);
+			if (page != null)
 			{
-				MashupPage page = mashup.getPage();
-				if (page != null)
+				Content content = page.getContent();
+				if (content != null)
 				{
-					Content content = page.getContent();
-					if (content != null)
-					{
-						System.out.println(content.getCaption());
-					}
+					System.out.println(content.getJSON());
 				}
 			}
+			db.close();
 		}
 	}
 }

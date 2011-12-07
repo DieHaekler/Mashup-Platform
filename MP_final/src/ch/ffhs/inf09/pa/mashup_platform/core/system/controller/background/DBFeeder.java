@@ -48,31 +48,26 @@ public class DBFeeder extends Task
 			{
 				try
 				{
-					Mashup mashup = (Mashup)FileMP.get(filepathQueue);
-					if (mashup != null)
+					MashupPage page = (MashupPage)FileMP.get(filepathQueue);
+					if (page != null)
 					{
-						MashupPage page = mashup.getPage();
-						if (page != null)
+						DBLocal db = null;
+						Config config = Config.getInstance();
+						try
 						{
-							DBLocal db = null;
-							Config config = Config.getInstance();
-							try
-							{
-								db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
-									config.getValue(Config.PARAM_DB_PASSWORD));
-							} catch (ExceptionMP e)
-							{
-								LoggerMP.writeError(e);
-							}
-							if (db != null)
-							{
-								String ident = mashup.getIdent() + "_" + page.getPageNr();
-								mashup.setIdent(ident);
-								db.setMashup(mashup);
-								LoggerMP.writeNotice("[DBFeeder] Mashup '" + ident + "' stored to DB");
-								FileMP.move(filepathQueue, filepathDone, true);
-								//db.close();
-							}
+							db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
+								config.getValue(Config.PARAM_DB_PASSWORD));
+						} catch (ExceptionMP e)
+						{
+							LoggerMP.writeError(e);
+						}
+						if (db != null)
+						{
+							db.setPage(page);
+							LoggerMP.writeNotice("[DBFeeder] Mashup '" + page.getMashupIdent()
+								+ "' (page: " + page.getPageNr() + ") stored to DB");
+							FileMP.move(filepathQueue, filepathDone, true);
+							//db.close();
 						}
 					}
 				} catch (IOException e)

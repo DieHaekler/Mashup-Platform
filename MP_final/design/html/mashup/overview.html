@@ -39,24 +39,6 @@ $(document).ready(function() {
         	//var aiPos = oTable.fnGetPosition();
         	//var nTd = aoData[ aiPos[0] ]._anHidden[ aiPos[1] ];
         	
-        	
-        	/* Add a click handler to the delete href */
-        	$('#mashups a.delete').live('click', function (event) {
-        	    event.preventDefault();
-        	     
-	        	/* Get the nodes from the table */
-        	    var aTrs = oTable.fnGetNodes(); 
-	        	
-	     		/* Get current row from the table */
-        	    var nRow = $(this).parents('tr')[0];
-	     		/* Get content from current row */
-        	    var aData=oTable.fnGetData(nRow);  
-        	    //console.log(aData.id);
-        	    
-        	    /* Delete current row and redraw */
-        	    oTable.fnDeleteRow( nRow );
-              });
-        	
         	/* Add a click handler to the show href */
         	$('#mashups a.show').live('click', function (event) {
         	    event.preventDefault();
@@ -67,8 +49,9 @@ $(document).ready(function() {
 	     		/* Get current row from the table */
         	    var nRow = $(this).parents('tr')[0];
 	     		/* Get content from current row */
-        	    var aData=oTable.fnGetData(nRow);  
-        	    alert("Show ID: "+aData.id)
+        	    var aData=oTable.fnGetData(nRow);
+	     		window.location = "?menu=mashup&id=" + aData.id;
+        	    //alert("Show ID: "+aData.id)
         	    //console.log(aData.id);
               });
         },
@@ -79,24 +62,19 @@ $(document).ready(function() {
 						  	"bSortable": false,
 						  	"bSearchable": false,
 						  },
-						  { 
-								"mDataProp": null,
-							  	"sDefaultContent": "<a class='delete' href='javascript:void(0)'>Delete</a>",
-							  	"bSortable": false,
-							  	"bSearchable": false,
-						  },
-                          { "mDataProp": "id" },
-                          { "mDataProp": "creator" },
-                          { "mDataProp": "name" }
+                          { "mDataProp": "name" },
+                          { "mDataProp": "username" }
                       ]
     	
 	} );
 	
     	
 	/* Add a double-click handler to the rows */
+	/*
     $("#mashups tbody").dblclick(function(event) {
     	window.location = "?menu=mashup"; 
     });
+	*/
 	
 	/* Add a click handler to the rows */
     $("#mashups tbody").click(function(event) {
@@ -170,11 +148,9 @@ function fnGetSelected( oTableLocal )
 <table class="display" id="mashups">
 	<thead>
 		<tr>
-			<th>Show</th>
-			<th>Delete</th>
-			<th>id</th>
-			<th>creator</th>
-			<th>name</th>
+			<th></th>
+			<th>Name</th>
+			<th>Creator</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -183,10 +159,8 @@ function fnGetSelected( oTableLocal )
 	<tfoot>
 		<tr>
 			<th></th>
-			<th></th>
-			<th><input type="text" name="search_id" value="Search id" class="search_init" /></th>
-			<th><input type="text" name="search_creator" value="Search creators" class="search_init" /></th>
-			<th><input type="text" name="search_name" value="Search names" class="search_init" /></th>
+			<th><input type="text" name="search_name" value="Search name" class="search_init" /></th>
+			<th><input type="text" name="search_username" value="Search username" class="search_init" /></th>
 		</tr>
 	</tfoot>
 </table>

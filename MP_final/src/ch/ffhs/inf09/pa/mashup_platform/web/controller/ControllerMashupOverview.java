@@ -9,6 +9,15 @@ public class ControllerMashupOverview extends ControllerApplication
 {
 	public ControllerMashupOverview(Environment environment) throws ExceptionMP
 	{
-		super(environment, new ViewMashupOverview(environment, new ModelMashups()));
+		super(environment);
+		String format = environment.getValuePost("format");
+		ModelMashupOverview model = new ModelMashupOverview(environment);
+		if (format != null && format.equals("json"))
+		{
+			setView(new ViewMashupOverviewJSON(model));
+		} else
+		{
+			setView(new ViewMashupOverview(model));
+		}
 	}
 }
