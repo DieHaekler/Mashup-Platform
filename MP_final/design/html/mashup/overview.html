@@ -63,7 +63,9 @@ $(document).ready(function() {
 						  	"bSearchable": false,
 						  },
                           { "mDataProp": "name" },
-                          { "mDataProp": "username" }
+                          { "mDataProp": "username" },
+                          { "mDataProp": "lastUpdated" },
+                          { "mDataProp": "numberPages" }
                       ]
     	
 	} );
@@ -151,6 +153,8 @@ function fnGetSelected( oTableLocal )
 			<th></th>
 			<th>Name</th>
 			<th>Creator</th>
+			<th>Last updated</th>
+			<th>Number pages</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -161,6 +165,8 @@ function fnGetSelected( oTableLocal )
 			<th></th>
 			<th><input type="text" name="search_name" value="Search name" class="search_init" /></th>
 			<th><input type="text" name="search_username" value="Search username" class="search_init" /></th>
+			<th><input type="text" name="search_lastUpdated" value="Search lastUpdated" class="search_init" /></th>
+			<th><input type="text" name="search_numberPages" value="Search numberPages" class="search_init" /></th>
 		</tr>
 	</tfoot>
 </table>

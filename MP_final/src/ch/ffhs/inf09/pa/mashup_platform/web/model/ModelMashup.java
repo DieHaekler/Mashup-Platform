@@ -19,4 +19,9 @@ public class ModelMashup extends ModelApplication
 	{
 		return environment.getDB().getPage(ident, pageNr);
 	}
+	
+	public MashupInfo getInfo()
+	{
+		return environment.getDB().getInfo(ident);
+	}
 }

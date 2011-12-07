@@ -47,6 +47,34 @@ public class DBOrient extends DBLocal {
 		dbUsers.close();
 	}
 	
+	public MashupInfo getInfo(String mashupIdent)
+	{
+		MashupInfo info = new MashupInfo(mashupIdent);
+		String query = "select name, username, lastUpdated, createdAt from MashupPage where mashupIdent = '"
+			+ mashupIdent + "' limit 1";
+		List<ODocument> r2 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
+		for (ODocument d2: r2)
+		{
+			String name = (String)d2.field("name");
+			String username = (String)d2.field("username");
+			Date lastUpdated = (Date)d2.field("lastUpdated");
+			Date createdAt = (Date)d2.field("createdAt");
+			info.setName(name);
+			info.setUsername(username);
+			info.setLastUpdated(lastUpdated);
+			info.setCreatedAt(createdAt);
+		}
+		query = "select max(pageNr) from MashupPage where mashupIdent = '"
+			+ mashupIdent + "'";
+		List<ODocument> r3 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
+		for (ODocument d3: r3)
+		{
+			int pageNr = (Integer)d3.field("max");
+			info.setNumberPages(pageNr);
+		}
+		return info;
+	}
+	
 	public MashupOverview getOverview(int start, int number, int sortedBy)
 	{
 		MashupOverview overview = new MashupOverview(sortedBy);
@@ -57,30 +85,7 @@ public class DBOrient extends DBLocal {
 			for (ODocument d1: r1)
 			{
 				String mashupIdent = (String)d1.field("distinct");
-				MashupInfo info = new MashupInfo(mashupIdent);
-				query = "select name, username, lastUpdated, createdAt from MashupPage where mashupIdent = '"
-					+ mashupIdent + "' limit 1";
-				List<ODocument> r2 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
-				for (ODocument d2: r2)
-				{
-					String name = (String)d2.field("name");
-					String username = (String)d2.field("username");
-					Date lastUpdated = (Date)d2.field("lastUpdated");
-					Date createdAt = (Date)d2.field("createdAt");
-					info.setName(name);
-					info.setUsername(username);
-					info.setLastUpdated(lastUpdated);
-					info.setCreatedAt(createdAt);
-				}
-				query = "select max(pageNr) from MashupPage where mashupIdent = '"
-					+ mashupIdent + "'";
-				List<ODocument> r3 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
-				for (ODocument d3: r3)
-				{
-					int pageNr = (Integer)d3.field("max");
-					info.setNumberPages(pageNr);
-				}
-				overview.add(info);
+				overview.add(getInfo(mashupIdent));
 			}
 		}
 		return overview;
@@ -143,7 +148,7 @@ public class DBOrient extends DBLocal {
 				oServer.createDatabase("local").close();
 			}
 		} catch (IOException e) {
-			throw new ExceptionMP("[DBOrient] could'nt create " + dbName, e);
+			throw new ExceptionMP("[DBOrient] couldn't create database '" + dbName + "'", e);
 		}
 	}
 

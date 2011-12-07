@@ -19,6 +19,7 @@ public class ModelMain extends Model
 		super.setPageNr(pagenr);
 		int start = pagenr * numberRecordsPerPage;
 		Content content = new Content();
+		content.setCaption(page.getName());
 		String filepath = Config.getFilepathVar()
 			+ "/portrait_of_finnish_bands/config/db/DBFinnishBands.properties";
 		DB db = new DBPortraitOfFinnishBands(filepath);

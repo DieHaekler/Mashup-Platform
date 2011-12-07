@@ -6,7 +6,7 @@ display: inline;
 list-style-type: none;
 }     
 </style>
-
+[__VIEW_PAGINATION_TOP__]
 <div id="main">
 <!-- HTML template -->
 <h1 id="topItem" class="caption">Title of Mashup</h1>
@@ -31,15 +31,47 @@ list-style-type: none;
     </li>
   </ul>
 </div>
+[__VIEW_PAGINATION_BOTTOM__]
 
 <!-- Script logic for template engine - needs to be at the end of this page -->
 <script type="text/javascript" charset="utf-8">
+
+function drawPagination()
+{
+	var el = document.getElementById('mashup_pagination_top');
+	var max = document.getElementById('mashup_pagination_max');
+	var current = document.getElementById('mashup_pagination_current');
+	drawPaginationLinks(el, max, current);
+	el = document.getElementById('mashup_pagination_bottom');
+	drawPaginationLinks(el, max, current);
+}
+
+function drawPaginationLinks(el, max, current)
+{
+	if (el && max && current)
+	{
+		var code = '';
+		var url = window.location.search;
+		url = url.replace(/\&p=\d+/g, '');
+		for (var i = 0; i < max.value; i++)
+		{
+			var color = 'blue';
+			if (current.value == i) { color = 'red'; }
+			code += '<a style="color: ' + color + ';" href="' + url
+				+ "&p=" + i + '">'+ (i + 1) + '</a>&nbsp;&nbsp;';
+		}
+		el.innerHTML = code;
+	}
+}
+
+drawPagination();
+
 $(document).ready(function() {
 
 $.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/json; charset=utf-8"});
 var jsonData = [];
 $.ajax({
-  url: '?menu=mashup&id=portrait_of_finnish_bands&format=json',
+  url: window.location.search + '&format=json',
   contentType: "application/json; charset=utf-8",
   async: false,
   dataType: 'json',

@@ -7,12 +7,12 @@ import java.text.*;
 
 public class LoggerMP
 {
-	public static void writeNotice(String msg)
+	public static synchronized void writeNotice(String msg)
 	{
 		write(msg, "log");
 	}
 	
-	public static void writeError(ExceptionMP e)
+	public static synchronized void writeError(ExceptionMP e)
 	{
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
@@ -20,12 +20,12 @@ public class LoggerMP
 		writeError(sw.toString());
 	}
 	
-	public static void writeError(String msg)
+	public static synchronized void writeError(String msg)
 	{
 		write(msg, "error");
 	}
 	
-	private static void write(String msg, String prefix)
+	private static synchronized void write(String msg, String prefix)
 	{
 		Calendar cal = Calendar.getInstance();
 		DateFormat df = new SimpleDateFormat("yyyy_MM_dd");

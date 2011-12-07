@@ -1,5 +1,7 @@
 package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MashupOverview
@@ -36,11 +38,16 @@ public class MashupOverview
 	public String getJSON()
 	{
 		String s = "";
+		DateFormat df1 = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+		DateFormat df2 = new SimpleDateFormat("HH:mm:ss");
 		for(MashupInfo info: list)
 		{
 			s += "{\"id\":\"" + info.getMashupIdent() + "\","
 				+ "\"name\":\"" + info.getName() + "\","
-				+ "\"username\":\"" + info.getUsername() + "\""
+				+ "\"username\":\"" + info.getUsername() + "\","
+				+ "\"lastUpdated\":\"" + df1.format(info.getLastUpdated()) + "\","
+				+ "\"createdAt\":\"" + df2.format(info.getCreatedAt()) + "\","
+				+ "\"numberPages\":\"" + info.getNumberPages() + "\""
 				+ "},";
 		}
 		if ( !s.equals("") ) s = s.substring(0, s.length() - 1);

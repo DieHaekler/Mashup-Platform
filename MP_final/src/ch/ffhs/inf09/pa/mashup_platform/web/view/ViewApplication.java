@@ -12,6 +12,8 @@ public abstract class ViewApplication
 	public static final String PLACEHOLDER_VIEW_APPLICATION = "[__VIEW_APPLICATION__]";
 	public static final String PLACEHOLDER_WEB_PATH_ROOT = "[__WEB_PATH_ROOT__]";
 	public static final String PLACEHOLDER_VIEW_LOGIN_FORM = "[__VIEW_LOGIN_FORM__]";
+	public static final String PLACEHOLDER_VIEW_PAGINATION_TOP = "[__VIEW_PAGINATION_TOP__]";
+	public static final String PLACEHOLDER_VIEW_PAGINATION_BOTTOM = "[__VIEW_PAGINATION_BOTTOM__]";
 	
 	protected String content;
 	protected String contentType = CONTENT_TYPE_HTML;

@@ -19,6 +19,7 @@ public abstract class DBLocal
 	public abstract void setPage(MashupPage page);
 	public abstract User getUser(String username, String password);
 	public abstract void setUser(User user);
+	public abstract MashupInfo getInfo(String mashupIdent);
 	
 	public synchronized MashupOverview getOverview(int start, int number)
 	{

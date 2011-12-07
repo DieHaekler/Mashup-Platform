@@ -11,13 +11,13 @@ public class ControllerMashup extends ControllerApplication
 	{
 		super(environment);
 		String ident = environment.getValuePost("id");
-		int pagenr = 1;
+		int pagenr = 0;
 		try
 		{
 			pagenr = Integer.parseInt(environment.getValuePost("p"));
 		} catch (NumberFormatException e)
 		{
-			pagenr = 1;
+			pagenr = 0;
 		}
 		String format = environment.getValuePost("format");
 		ModelMashup model = new ModelMashup(environment, ident, pagenr);

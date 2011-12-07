@@ -39,45 +39,58 @@ public class DBFeeder extends Task
 	{
 		String folderpathOutput = Config.getFilepathSystem() + "/output/";
 		ArrayList<String> filenames = FileMP.getFilenames(folderpathOutput, "\\.output$");
-		for (String filename: filenames)
+		DBLocal db = null;
+		if (filenames.size() > 0)
 		{
-			String filepath = folderpathOutput + "/" + filename;
-			String filepathQueue = folderpathOutput + "/queue/" + filename;
-			String filepathDone = folderpathOutput + "/done/" + filename;
-			if ( FileMP.move(filepath, filepathQueue, true) )
+			Config config = Config.getInstance();
+			try
 			{
-				try
+				db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
+					config.getValue(Config.PARAM_DB_PASSWORD));
+			} catch (ExceptionMP e)
+			{
+				LoggerMP.writeError(e);
+			}
+		}
+		if (db != null)
+		{
+			for (String filename: filenames)
+			{
+				String filepath = folderpathOutput + "/" + filename;
+				String filepathQueue = folderpathOutput + "/queue/" + filename;
+				String filepathDone = folderpathOutput + "/done/" + filename;
+				if ( FileMP.move(filepath, filepathQueue, true) )
 				{
-					MashupPage page = (MashupPage)FileMP.get(filepathQueue);
-					if (page != null)
+					try
 					{
-						DBLocal db = null;
-						Config config = Config.getInstance();
-						try
-						{
-							db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
-								config.getValue(Config.PARAM_DB_PASSWORD));
-						} catch (ExceptionMP e)
-						{
-							LoggerMP.writeError(e);
-						}
-						if (db != null)
+						MashupPage page = (MashupPage)FileMP.get(filepathQueue);
+						if (page != null)
 						{
 							db.setPage(page);
 							LoggerMP.writeNotice("[DBFeeder] Mashup '" + page.getMashupIdent()
 								+ "' (page: " + page.getPageNr() + ") stored to DB");
 							FileMP.move(filepathQueue, filepathDone, true);
-							//db.close();
 						}
+					} catch (IOException e)
+					{
+						LoggerMP.writeError("[DBFeeder] couldn't read " + filepathQueue);
+					} catch (ClassNotFoundException e)
+					{
+						LoggerMP.writeError("[DBFeeder] couldn't find " + filepathQueue);
 					}
-				} catch (IOException e)
-				{
-					LoggerMP.writeError("[DBFeeder] couldn't read " + filepathQueue);
-				} catch (ClassNotFoundException e)
-				{
-					LoggerMP.writeError("[DBFeeder] couldn't find " + filepathQueue);
 				}
 			}
+			db.close();
+		}
+		
+		// check stuck queue files
+		filenames = FileMP.getFilenames(folderpathOutput + "/queue/", "\\.output$");
+		for (String filename: filenames)
+		{
+			String filepathQueue = folderpathOutput + "/queue/" + filename;
+			String filepath = folderpathOutput + "/" + filename;
+			int age = (int)(System.currentTimeMillis()/1000 - FileMP.getTimestamp(filepathQueue));
+			if (age > 120) FileMP.move(filepathQueue, filepath, true);
 		}
 	}
 

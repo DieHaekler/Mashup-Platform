@@ -64,10 +64,21 @@ public class FileMP
 		return file.lastModified()/1000;
 	}
 	
-	public static void remove(String filepath)
+	public static boolean remove(String filepath)
 	{
 		File file = new File(filepath);
-		if (file.exists()) file.delete();
+		if ( !file.exists() ) return false;
+		if (file.isDirectory())
+		{
+			String[] children = file.list();
+			for(String child: children)
+			{
+				boolean isOk = remove(filepath + "/" + child);
+				if (!isOk) return false;
+			}
+			return file.delete();
+		}
+		return file.delete();
 	}
 	
 	public static ArrayList<String> getFilenames(String folderpath, String regex)

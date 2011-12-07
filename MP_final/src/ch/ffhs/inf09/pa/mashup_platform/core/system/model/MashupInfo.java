@@ -9,7 +9,7 @@ public class MashupInfo
 {
 	private String ident;
 	private int status;
-	private int pageNrProcessed;
+	private int pageNrProcessed = -1;
 	private long lastProcessed;
 	private int maxNumberPages;
 	private String filepathStatus;
