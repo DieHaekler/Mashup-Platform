@@ -5,7 +5,6 @@ import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.fetcher.*;
 import java.util.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.config.*;
 
 public class DBFinnishBands extends DB
 {

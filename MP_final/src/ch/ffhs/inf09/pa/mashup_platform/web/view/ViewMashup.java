@@ -28,6 +28,16 @@ public class ViewMashup extends ViewApplication
 		part = getTemplate("html/mashup/pagination_bottom.html");
 		content = content.replace(PLACEHOLDER_VIEW_PAGINATION_BOTTOM, part);
 		
+		// insert html code
+		part = getTemplate("html/mashup/" + page.getMashupIdent() + "/content.html");
+		content = content.replace(PLACEHOLDER_VIEW_MASHUP, part);
+		
+		// insert renderer code
+		part = getTemplate("html/mashup/" + page.getMashupIdent() + "/renderer.js");
+		content = content.replace(PLACEHOLDER_VIEW_MASHUP_RENDERER, part);
+		
+		System.out.println("mark2: " + content);
+		
 		complete();
 	}
 }

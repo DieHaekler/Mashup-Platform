@@ -14,6 +14,8 @@ public abstract class ViewApplication
 	public static final String PLACEHOLDER_VIEW_LOGIN_FORM = "[__VIEW_LOGIN_FORM__]";
 	public static final String PLACEHOLDER_VIEW_PAGINATION_TOP = "[__VIEW_PAGINATION_TOP__]";
 	public static final String PLACEHOLDER_VIEW_PAGINATION_BOTTOM = "[__VIEW_PAGINATION_BOTTOM__]";
+	public static final String PLACEHOLDER_VIEW_MASHUP = "[__VIEW_MASHUP__]";
+	public static final String PLACEHOLDER_VIEW_MASHUP_RENDERER = "[__VIEW_MASHUP_RENDERER__]";
 	
 	protected String content;
 	protected String contentType = CONTENT_TYPE_HTML;

@@ -2,38 +2,15 @@
 body { color: black; background-color: #FFF }     
 ul
 {
-display: inline;
-list-style-type: none;
-}     
+	display: inline;
+	list-style-type: none;
+}
 </style>
-[__VIEW_PAGINATION_TOP__]
-<div id="main">
-<!-- HTML template -->
-<h1 id="topItem" class="caption">Title of Mashup</h1>
-  <ul id="treeItem">
-    <li class="bands">
-      	<h3>Portrait:
-      		<a class="caption" href="javascript:void(0)">caption</a>
-      	</h3>
-      	<p></p>	
 
-	    <ul id="flickr" class="flickr">
-	      	<a class="url" href="javascript:void(0)"><img class="imgURL" src="url" alt="alt"></a>
-		</ul>
-		<p></p>
-	    <ul id="google" class="google">
-		    <div class="google_caption">caption</div>
-		    <hr>
-		    <a class="google_body" href="javascript:void(0)">body</a>
-		    <p></p>
-		</ul>
-      	<div class="parts"></div>
-    </li>
-  </ul>
-</div>
+[__VIEW_PAGINATION_TOP__]
+[__VIEW_MASHUP__]
 [__VIEW_PAGINATION_BOTTOM__]
 
-<!-- Script logic for template engine - needs to be at the end of this page -->
 <script type="text/javascript" charset="utf-8">
 
 function drawPagination()
@@ -66,49 +43,27 @@ function drawPaginationLinks(el, max, current)
 
 drawPagination();
 
-$(document).ready(function() {
+$(document).ready(
+	function()
+	{
+		$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/json; charset=utf-8"});
+		var jsonData = [];
+		$.ajax(
+		{
+  			url: window.location.search + '&format=json',
+  			contentType: "application/json; charset=utf-8",
+  			async: false,
+  			dataType: 'json',
+  			success: function (json) { jsonData = json; }
+		});
 
-$.ajaxSetup({ scriptCharset: "utf-8" , contentType: "application/json; charset=utf-8"});
-var jsonData = [];
-$.ajax({
-  url: window.location.search + '&format=json',
-  contentType: "application/json; charset=utf-8",
-  async: false,
-  dataType: 'json',
-  success: function (json) {
-    jsonData = json;
-  }
-});
+		// render title
+		$('#topItem').autoRender(jsonData);
+		
+		[__VIEW_MASHUP_RENDERER__]
+		
+		var rfn = $('#treeItem').compile( directive );
+		$('#treeItem').render( jsonData, rfn );		   
+	});
 
-// Render Mashup Title
-$('#topItem').autoRender(jsonData);
-
-// Render Mashup Content (manual directive)
-	    var directive = {
-	    	'li': {
-	        'part <- finnish_bands.parts': {
-	         	'a.caption': 'part.caption',
-	        	 'ul.google': { 
-	  				       'google <- part.google_search.parts': {
-	  				       'div.google_caption':'google.caption',
-	  				       'a.google_body': 'google.body',
-	  				       'a.google_body@href': 'google.url'},
-	  	         			},
-	  	         'ul.flickr': {
-		  				    'flickr <- part.flickr.parts': {
-							'img.imgURL@src':'flickr.imgURL',
-							'img.imgURL@alt': 'flickr.imgURL',
-							'a.url@href':'flickr.url'}
-	  	         			},
-	          'div.parts': function(ctxt){
-	            return ctxt.part.item.parts ? rfn(ctxt.part.item):'';
-	          }
-	        }
-	      }
-	    };
-	    var rfn = $('#treeItem').compile( directive );
-	    $('#treeItem').render( jsonData, rfn );    
-	   
-});
 </script>
-
