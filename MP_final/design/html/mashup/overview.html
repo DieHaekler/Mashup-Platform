@@ -96,7 +96,7 @@ $(document).ready(function() {
 	$("tfoot input").keyup( function () {
         col = $("tfoot input").index(this);
         /* Do not run on first & second column */ 
-        col = col + 2;
+        col = col + 1;
 		
         /* Filter on the column (the index) of this element */
         oTable.fnFilter( this.value, col );
