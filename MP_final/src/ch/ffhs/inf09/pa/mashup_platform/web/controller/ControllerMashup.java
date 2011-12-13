@@ -20,7 +20,21 @@ public class ControllerMashup extends ControllerApplication
 			pagenr = 0;
 		}
 		String format = environment.getValuePost("format");
-		ModelMashup model = new ModelMashup(environment, ident, pagenr);
+		ModelMashup model = null;
+		
+		// get a valid page
+		for (int i = 0; i < 3; i++)
+		{
+			model = new ModelMashup(environment, ident, pagenr);
+			if (model.getPage() == null)
+			{
+				pagenr++;
+			} else
+			{
+				break;
+			}
+		}
+		
 		if (format != null && format.equals("json"))
 		{
 			setView(new ViewMashupJSON(model));

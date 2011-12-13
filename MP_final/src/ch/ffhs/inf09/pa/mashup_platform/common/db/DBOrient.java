@@ -9,6 +9,7 @@ import org.xml.sax.*;
 import com.orientechnologies.orient.client.remote.*;
 import com.orientechnologies.orient.core.*;
 import com.orientechnologies.orient.core.db.object.*;
+import com.orientechnologies.orient.core.exception.*;
 import com.orientechnologies.orient.core.record.impl.*;
 import com.orientechnologies.orient.core.sql.query.*;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
@@ -26,8 +27,10 @@ public class DBOrient extends DBLocal {
 		Orient.instance().registerEngine(new OEngineRemote());
 		createObjectDatabase(config.getValue(Config.PARAM_DB_MASHUPS));
 		createObjectDatabase(config.getValue(Config.PARAM_DB_USERS));
-		dbMashups = new ODatabaseObjectTx("remote:localhost/" + config.getValue(Config.PARAM_DB_MASHUPS));
-		dbUsers = new ODatabaseObjectTx("remote:localhost/" + config.getValue(Config.PARAM_DB_USERS));
+		dbMashups = new ODatabaseObjectTx("remote:localhost/"
+				+ config.getValue(Config.PARAM_DB_MASHUPS));
+		dbUsers = new ODatabaseObjectTx("remote:localhost/"
+				+ config.getValue(Config.PARAM_DB_USERS));
 		dbMashups.open(dbUsername, dbPassword);
 		dbUsers.open(dbUsername, dbPassword);
 		dbMashups.getEntityManager().registerEntityClass(MashupPage.class);
@@ -46,45 +49,73 @@ public class DBOrient extends DBLocal {
 		dbMashups.close();
 		dbUsers.close();
 	}
-	
-	public MashupInfo getInfo(String mashupIdent)
-	{
+
+	private static String addslashes(String text) {
+		return text.replace("\'", "\\\'");
+	}
+
+	private static List<ODocument> query(ODatabaseObjectTx db, String query) {
+		try {
+			return db.query(new OSQLSynchQuery<ODocument>(query));
+		} catch (OCommandExecutionException e) {
+			LoggerMP.writeError("[DBOrient] couldn't execute: " + query);
+		}
+		return new ArrayList<ODocument>();
+	}
+
+	private List<MashupPage> queryDBMashups(String query) {
+		try {
+			return dbMashups.query(new OSQLSynchQuery<MashupPage>(query));
+		} catch (OCommandExecutionException e) {
+			LoggerMP.writeError("[DBOrient] couldn't execute: " + query);
+		}
+		return new ArrayList<MashupPage>();
+	}
+
+	private List<User> queryDBUsers(String query) {
+		try {
+			return dbMashups.query(new OSQLSynchQuery<Content>(query));
+		} catch (OCommandExecutionException e) {
+			LoggerMP.writeError("[DBOrient] couldn't execute: " + query);
+		}
+		return new ArrayList<User>();
+	}
+
+	public MashupInfo getInfo(String mashupIdent) {
 		MashupInfo info = new MashupInfo(mashupIdent);
 		String query = "select name, username, lastUpdated, createdAt from MashupPage where mashupIdent = '"
-			+ mashupIdent + "' limit 1";
-		List<ODocument> r2 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
-		for (ODocument d2: r2)
-		{
-			String name = (String)d2.field("name");
-			String username = (String)d2.field("username");
-			Date lastUpdated = (Date)d2.field("lastUpdated");
-			Date createdAt = (Date)d2.field("createdAt");
+				+ addslashes(mashupIdent) + "' limit 1";
+		List<ODocument> r2 = query(dbMashups, query);
+		for (ODocument d2 : r2) {
+			String name = (String) d2.field("name");
+			String username = (String) d2.field("username");
+			Date lastUpdated = (Date) d2.field("lastUpdated");
+			Date createdAt = (Date) d2.field("createdAt");
 			info.setName(name);
 			info.setUsername(username);
 			info.setLastUpdated(lastUpdated);
 			info.setCreatedAt(createdAt);
 		}
 		query = "select max(pageNr) from MashupPage where mashupIdent = '"
-			+ mashupIdent + "'";
-		List<ODocument> r3 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
-		for (ODocument d3: r3)
-		{
-			int pageNr = (Integer)d3.field("max");
-			info.setNumberPages(pageNr);
+				+ addslashes(mashupIdent) + "'";
+		List<ODocument> r3 = query(dbMashups, query);
+		for (ODocument d3 : r3) {
+			try {
+				int pageNr = (Integer) d3.field("max");
+				info.setNumberPages(pageNr);
+			} catch (NullPointerException e) {
+			}
 		}
 		return info;
 	}
-	
-	public MashupOverview getOverview(int start, int number, int sortedBy)
-	{
+
+	public MashupOverview getOverview(int start, int number, int sortedBy) {
 		MashupOverview overview = new MashupOverview(sortedBy);
-		if (dbMashups.getClusterType("MashupPage") != null)
-		{
+		if (dbMashups.getClusterType("MashupPage") != null) {
 			String query = "select distinct(mashupIdent) from MashupPage";
-			List<ODocument> r1 = dbMashups.query(new OSQLSynchQuery<ODocument>(query));
-			for (ODocument d1: r1)
-			{
-				String mashupIdent = (String)d1.field("distinct");
+			List<ODocument> r1 = query(dbMashups, query);
+			for (ODocument d1 : r1) {
+				String mashupIdent = (String) d1.field("distinct");
 				overview.add(getInfo(mashupIdent));
 			}
 		}
@@ -95,9 +126,11 @@ public class DBOrient extends DBLocal {
 		MashupPage page = null;
 		if (dbMashups.getClusterType("MashupPage") != null) {
 			String query = "select from MashupPage where mashupIdent = '"
-				+ mashupIdent + "' and pageNr = '" + pageNr + "'";
-			List<MashupPage> results = dbMashups.query(new OSQLSynchQuery<MashupPage>(query));
-			if (results.size() > 0) page = results.get(0);
+					+ addslashes(mashupIdent) + "' and pageNr = '"
+					+ addslashes("" + pageNr) + "'";
+			List<MashupPage> results = queryDBMashups(query);
+			if (results.size() > 0)
+				page = results.get(0);
 		}
 		return page;
 	}
@@ -105,15 +138,17 @@ public class DBOrient extends DBLocal {
 	public void setPage(MashupPage page) {
 		List<MashupPage> existingPages = null;
 		if (page != null) {
-			if(dbMashups.getClusterType("MashupPage") != null) {
+			if (dbMashups.getClusterType("MashupPage") != null) {
 				String query = "select from MashupPage where mashupIdent = '"
-					+ page.getMashupIdent() + "' and pageNr = '" + page.getPageNr() + "'";
-				existingPages = dbMashups.query(new OSQLSynchQuery<MashupPage>(query));
+						+ addslashes(page.getMashupIdent())
+						+ "' and pageNr = '"
+						+ addslashes("" + page.getPageNr()) + "'";
+				existingPages = queryDBMashups(query);
 				for (MashupPage p : existingPages) {
 					dbMashups.delete(p.getContent());
 					dbMashups.delete(p);
 				}
-			}			
+			}
 			dbMashups.save(page);
 		}
 	}
@@ -121,20 +156,23 @@ public class DBOrient extends DBLocal {
 	public User getUser(String username, String password) {
 		User user = null;
 		if (dbUsers.getClusterType("User") != null) {
-			List<User> results = dbUsers.query(new OSQLSynchQuery<Content>(
-					"select from User where username = '" + username
-							+ "' and password = '" + password + "'"));
-			if (results.size() > 0) user = results.get(0);
+			String query = "select from User where username = '"
+					+ addslashes(username) + "' and password = '"
+					+ addslashes(password) + "'";
+			List<User> results = queryDBUsers(query);
+			if (results.size() > 0)
+				user = results.get(0);
 		}
 		return user;
 	}
 
 	public void setUser(User user) {
-		if (user != null
-				&& dbUsers.getClusterType("User") != null) {
-			List<User> results = dbUsers.query(new OSQLSynchQuery<Content>(
-				"select from User where username = '" + user.getUsername() + "'"));
-			for (User u : results) dbUsers.delete(u);
+		if (user != null && dbUsers.getClusterType("User") != null) {
+			String query = "select from User where username = '"
+					+ addslashes(user.getUsername()) + "'";
+			List<User> results = queryDBUsers(query);
+			for (User u : results)
+				dbUsers.delete(u);
 			dbUsers.save(user);
 		}
 	}
@@ -142,13 +180,14 @@ public class DBOrient extends DBLocal {
 	private void createObjectDatabase(String dbName) throws ExceptionMP {
 		OServerAdmin oServer = null;
 		try {
-			oServer = new OServerAdmin("remote:localhost/"
-				+ dbName).connect("root", getRootPassword());
-			if(!oServer.existsDatabase()){
+			oServer = new OServerAdmin("remote:localhost/" + dbName).connect(
+					"root", getRootPassword());
+			if (!oServer.existsDatabase()) {
 				oServer.createDatabase("local").close();
 			}
 		} catch (IOException e) {
-			throw new ExceptionMP("[DBOrient] couldn't create database '" + dbName + "'", e);
+			throw new ExceptionMP("[DBOrient] couldn't create database '"
+					+ dbName + "'", e);
 		}
 	}
 
@@ -159,33 +198,35 @@ public class DBOrient extends DBLocal {
 		}
 		return userNumber;
 	}
-	
+
 	private String getRootPassword() throws ExceptionMP {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true); 
-        DocumentBuilder builder;
-        String password = null;
-        String filepath = config.getValue(Config.PARAM_FILE_PATH_SYSTEM)
-            + config.getValue(Config.PARAM_DB_FOLDER_PATH_CONFIG) + "orientdb-server-config.xml";
-        try {
-            builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(filepath);
-            XPathFactory factoryX = XPathFactory.newInstance();
-            XPath xpath = factoryX.newXPath();
-            XPathExpression expr = xpath.compile("/orient-server/users/user[@name='root']/@password");
-            Object result = expr.evaluate(doc, XPathConstants.NODESET);
-            NodeList nodes = (NodeList) result;            
-            password = nodes.item(0).getNodeValue(); 
-        } catch (ParserConfigurationException e) {
-            throw new ExceptionMP("[DBOrient] couldn't parse " + filepath, e);
-        } catch (SAXException e) {
-        	throw new ExceptionMP("[DBOrient] invalid XML: " + filepath, e);
-        } catch (IOException e) {
-        	throw new ExceptionMP("[DBOrient] couldn't open " + filepath, e);
-        } catch (XPathExpressionException e) {
-        	throw new ExceptionMP("[DBOrient] invalid XML: " + filepath, e);
-        }       
-        return password;
-    }
- 	
+		factory.setNamespaceAware(true);
+		DocumentBuilder builder;
+		String password = null;
+		String filepath = config.getValue(Config.PARAM_FILE_PATH_SYSTEM)
+				+ config.getValue(Config.PARAM_DB_FOLDER_PATH_CONFIG)
+				+ "orientdb-server-config.xml";
+		try {
+			builder = factory.newDocumentBuilder();
+			Document doc = builder.parse(filepath);
+			XPathFactory factoryX = XPathFactory.newInstance();
+			XPath xpath = factoryX.newXPath();
+			XPathExpression expr = xpath
+					.compile("/orient-server/users/user[@name='root']/@password");
+			Object result = expr.evaluate(doc, XPathConstants.NODESET);
+			NodeList nodes = (NodeList) result;
+			password = nodes.item(0).getNodeValue();
+		} catch (ParserConfigurationException e) {
+			throw new ExceptionMP("[DBOrient] couldn't parse " + filepath, e);
+		} catch (SAXException e) {
+			throw new ExceptionMP("[DBOrient] invalid XML: " + filepath, e);
+		} catch (IOException e) {
+			throw new ExceptionMP("[DBOrient] couldn't open " + filepath, e);
+		} catch (XPathExpressionException e) {
+			throw new ExceptionMP("[DBOrient] invalid XML: " + filepath, e);
+		}
+		return password;
+	}
+
 }

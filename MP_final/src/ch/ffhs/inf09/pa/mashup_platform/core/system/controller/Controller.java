@@ -7,37 +7,34 @@ import ch.ffhs.inf09.pa.mashup_platform.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.config.*;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
 
-public class Controller
-{
+public class Controller {
 	private Model model;
-	
-	public Controller(String ident, int pagenr) throws ExceptionMP
-	{
+
+	public Controller(String ident, int pagenr) throws ExceptionMP {
 		String pathVar = "ch.ffhs.inf09.pa.mashup_platform.var";
-		
+
 		// instantiate mashup config
 		String filepath = Config.getFilepathVar() + "/" + ident
-			+ "/config/config.properties";
+				+ "/config/config.properties";
 		ConfigMashup config = new ConfigMashup(filepath);
-		
+
 		// instantiate mashup model
 		String pathModel = pathVar + "." + ident + ".model.ModelMain";
-		try
-		{
-			Class<?> c = (Class<?>)Class.forName(pathModel);
-			Class<?>[] args = new Class[] {ConfigMashup.class};
+		try {
+			Class<?> c = (Class<?>) Class.forName(pathModel);
+			Class<?>[] args = new Class[] { ConfigMashup.class };
 			Constructor<?> ct = c.getConstructor(args);
-			model = (Model)ct.newInstance(config);
-			LoggerMP.writeNotice("model instantiated (" + pathModel + ")");
+			model = (Model) ct.newInstance(config);
+			LoggerMP.writeNotice("[Controller] model instantiated (" + pathModel + ")");
 			model.setPageNr(pagenr);
-		} catch (ClassNotFoundException e)
-		{
-			throw new ExceptionMP("Couldn't find " + pathModel, e);
-		} catch (Exception e)
-		{
-			throw new ExceptionMP("Couldn't instantiate " + pathModel, e);
+		} catch (ClassNotFoundException e) {
+			throw new ExceptionMP("[Controller] couldn't find " + pathModel, e);
+		} catch (Exception e) {
+			throw new ExceptionMP("[Controller] couldn't instantiate " + pathModel, e);
 		}
 	}
-	
-	public MashupPage getPage() { return model.getPage(); }
+
+	public MashupPage getPage() {
+		return model.getPage();
+	}
 }
