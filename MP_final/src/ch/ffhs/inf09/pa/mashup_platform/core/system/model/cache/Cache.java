@@ -55,18 +55,19 @@ public abstract class Cache {
 	public Object getRecord(String ident, int maxAge) throws IOException {
 		Object obj = get(ident);
 		if (obj == null) {
-			LoggerMP.writeNotice("no cache entry found for '" + ident + "'");
+			LoggerMP.writeNotice("[Cache]no entry found for '" + ident + "'");
 			return null;
 		} else {
 			int age = (int) (System.currentTimeMillis() / 1000 - getTimestamp(ident));
-			LoggerMP.writeNotice("cache entry found (ident: '" + ident
+			LoggerMP.writeNotice("[Cache] entry found (ident: '" + ident
 					+ ", age: " + age + " sec)");
 			if (age > maxAge) {
 				remove(ident);
-				LoggerMP.writeNotice("cache entry '" + ident + "' has expired");
+				LoggerMP.writeNotice("[Cache] entry '" + ident
+						+ "' has expired");
 				return null;
 			} else {
-				LoggerMP.writeNotice("cache entry '" + ident
+				LoggerMP.writeNotice("[Cache] cache entry '" + ident
 						+ "' is still valid");
 				return obj;
 			}

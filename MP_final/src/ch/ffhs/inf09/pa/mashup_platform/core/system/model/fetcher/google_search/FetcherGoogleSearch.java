@@ -5,6 +5,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.LoggerMP;
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.fetcher.Fetcher;
 
 import com.google.gson.JsonArray;
@@ -46,16 +47,26 @@ public class FetcherGoogleSearch extends Fetcher {
 		JsonParser parser = new JsonParser();
 		JsonObject obj = parser.parse(text).getAsJsonObject();
 		JsonElement el = obj.get("responseData");
-		obj = el.getAsJsonObject();
-		el = obj.get("results");
-		JsonArray arr = el.getAsJsonArray();
-		for (int i = 0; i < arr.size(); i++) {
-			ResultGoogleSearch result = new ResultGoogleSearch();
-			obj = arr.get(i).getAsJsonObject();
-			result.setURL(obj.get("url").getAsString());
-			result.setTitle(obj.get("title").getAsString());
-			result.setContent(obj.get("content").getAsString());
-			results.add(result);
+		String errorMsg = "[FetcherGoogleSearch] the retrieved text doesn't match the expected structure: "
+				+ text;
+		if (el == null) {
+			LoggerMP.writeError(errorMsg);
+		} else {
+			obj = el.getAsJsonObject();
+			el = obj.get("results");
+			if (el == null) {
+				LoggerMP.writeError(errorMsg);
+			} else {
+				JsonArray arr = el.getAsJsonArray();
+				for (int i = 0; i < arr.size(); i++) {
+					ResultGoogleSearch result = new ResultGoogleSearch();
+					obj = arr.get(i).getAsJsonObject();
+					result.setURL(obj.get("url").getAsString());
+					result.setTitle(obj.get("title").getAsString());
+					result.setContent(obj.get("content").getAsString());
+					results.add(result);
+				}
+			}
 		}
 		return results;
 	}
