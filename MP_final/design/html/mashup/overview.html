@@ -7,19 +7,6 @@ var asInitVals = new Array();
 
 $(document).ready(function() {
 	
-
-	/*$('#mashups tbody tr').each( function() {
-        var sTitle;
-        var nTds = $('td', $('#mashups tbody tr'));
-        var sBrowser = $(nTds[2]).text();
-        var sGrade = $(nTds[2]).text();
-
-            sTitle =  sBrowser+' will provide a first class (A) level of CSS support.';
-
-        alert( sTitle )
-    } );*/
-
-
     /* Init table */
 	oTable = $('#mashups').dataTable({
 		"bProcessing": true,
@@ -50,8 +37,10 @@ $(document).ready(function() {
         	    var nRow = $(this).parents('tr')[0];
 	     		/* Get content from current row */
         	    var aData=oTable.fnGetData(nRow);
-	     		window.location = "?menu=mashup&id=" + aData.id;
-        	    //alert("Show ID: "+aData.id)
+	     		if (aData.numberPages < 1)
+	     			{alert("No mashup pages yet!");}
+	     		else
+	     			{window.location = "?menu=mashup&id=" + aData.id;}
         	    //console.log(aData.id);
               });
         },
