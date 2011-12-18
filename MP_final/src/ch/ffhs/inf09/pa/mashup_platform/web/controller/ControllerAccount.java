@@ -1,15 +1,19 @@
 package ch.ffhs.inf09.pa.mashup_platform.web.controller;
 
-import ch.ffhs.inf09.pa.mashup_platform.web.model.*;
-import ch.ffhs.inf09.pa.mashup_platform.web.view.*;
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.web.*;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
+import ch.ffhs.inf09.pa.mashup_platform.web.Environment;
+import ch.ffhs.inf09.pa.mashup_platform.web.model.ModelUser;
+import ch.ffhs.inf09.pa.mashup_platform.web.view.ViewAccount;
 
-public class ControllerAccount extends ControllerApplication
-{
-	public ControllerAccount(Environment environment) throws ExceptionMP
-	{
+/**
+ * This class controls the user account.
+ * 
+ * @author Joël
+ * 
+ */
+public class ControllerAccount extends ControllerApplication {
+	public ControllerAccount(Environment environment) throws ExceptionMP {
 		super(environment);
-		setView(new ViewAccount(new ModelUser(environment, "admin","admin")));
+		setView(new ViewAccount(new ModelUser(environment, "admin", "admin")));
 	}
 }

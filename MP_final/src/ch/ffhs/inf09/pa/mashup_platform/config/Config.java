@@ -1,12 +1,20 @@
 package ch.ffhs.inf09.pa.mashup_platform.config;
 
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
-import java.io.*;
-import java.util.*;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
 
-public class Config
-{
+/**
+ * The config class provides read access to the config parameters that are
+ * defined in a properties file.
+ * 
+ * @author Malte
+ * 
+ */
+public class Config {
 	public static final String PARAM_FILE_PATH_SYSTEM = "FILE_PATH_SYSTEM";
 	public static final String PARAM_WEB_PATH_ROOT = "WEB_PATH_ROOT";
 	public static final String PARAM_DB_FOLDER_PATH = "DB_FOLDER_PATH";
@@ -15,54 +23,59 @@ public class Config
 	public static final String PARAM_DB_PASSWORD = "DB_PASSWORD";
 	public static final String PARAM_DB_USERS = "DB_USERS";
 	public static final String PARAM_DB_MASHUPS = "DB_MASHUPS";
-	
+
 	private Properties properties = new Properties();
 	private static Config instance;
-	
-	public static Config getInstance(String filepath)
-	{
+
+	/**
+	 * Returns an instance of the Config class
+	 * 
+	 * @param filepath
+	 *            the absolute path of the properties file
+	 * @return
+	 */
+	public static Config getInstance(String filepath) {
 		if (instance == null)
-		try
-		{
-			instance = new Config(filepath);
-		} catch (ExceptionMP e)
-		{
-			e.printStackTrace();
-		}
+			try {
+				instance = new Config(filepath);
+			} catch (ExceptionMP e) {
+				e.printStackTrace();
+			}
 		return instance;
 	}
-	
-	public static Config getInstance()
-	{
-		return getInstance(new File(".").getAbsolutePath() + "/config/config.properties");
+
+	public static Config getInstance() {
+		return getInstance(new File(".").getAbsolutePath()
+				+ "/config/config.properties");
 	}
-	
-	private Config(String filepath) throws ExceptionMP
-	{
-		try
-		{
+
+	private Config(String filepath) throws ExceptionMP {
+		try {
 			properties.load(new FileInputStream(filepath));
-		} catch (IOException e)
-		{
+		} catch (IOException e) {
 			throw new ExceptionMP("[Config] couldn't load " + filepath, e);
 		}
 	}
-	
-	public String getValue(String ident)
-	{
+
+	/**
+	 * 
+	 * @param ident
+	 * @return
+	 */
+	public String getValue(String ident) {
 		return properties.getProperty(ident);
 	}
-	
-	public static String getFilepathVar()
-	{
+
+	public static String getFilepathVar() {
 		String filepath = getFilepathSystem();
-		if (filepath == null) return null;
+		if (filepath == null)
+			return null;
 		return filepath + "/src/ch/ffhs/inf09/pa/mashup_platform/var/";
 	}
-	
-	public static String getFilepathSystem()
-	{
-		if (instance == null) instance = getInstance();
+
+	public static String getFilepathSystem() {
+		if (instance == null)
+			instance = getInstance();
 		return instance.getValue(Config.PARAM_FILE_PATH_SYSTEM);
 	}
 }

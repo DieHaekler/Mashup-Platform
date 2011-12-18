@@ -1,12 +1,22 @@
 package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.db;
 
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
+import java.util.List;
+
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.Content;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.ContentSection;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.DB;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.DBFlickr;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.DBGoogleSearch;
 
-import java.util.*;
-
+/**
+ * This virtual database provides the mashed data of Finnish bands. The data are
+ * coming from Wikipedia, Flickr and Google.
+ * 
+ * @author Joël
+ * 
+ */
 public class DBPortraitOfFinnishBands extends DB {
 	public static final String DB_IDENT = "portrait_of_finnish_bands___DBPortraitOfFinnishBands";
 	public static final String PARAM_NUMBER_FLICKR_RESULTS = "NUMBER_FLICKR_RESULTS";

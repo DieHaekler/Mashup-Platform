@@ -1,11 +1,20 @@
 package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
-import java.io.*;
-import java.util.*;
+import java.io.Serializable;
+import java.util.Date;
+
 import javax.persistence.Id;
 import javax.persistence.Version;
 
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.Content;
+
+/**
+ * This class represents a page. Mashup data are split in pages to avoid large
+ * data volume.
+ * 
+ * @author Alexander
+ * 
+ */
 public class MashupPage implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Content content;

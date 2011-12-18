@@ -1,21 +1,43 @@
 package ch.ffhs.inf09.pa.mashup_platform.common.db;
 
-import java.io.*;
-import java.util.*;
-import javax.xml.parsers.*;
-import javax.xml.xpath.*;
-import org.w3c.dom.*;
-import org.xml.sax.*;
-import com.orientechnologies.orient.client.remote.*;
-import com.orientechnologies.orient.core.*;
-import com.orientechnologies.orient.core.db.object.*;
-import com.orientechnologies.orient.core.exception.*;
-import com.orientechnologies.orient.core.record.impl.*;
-import com.orientechnologies.orient.core.sql.query.*;
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.config.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import javax.xml.xpath.XPathExpression;
+import javax.xml.xpath.XPathExpressionException;
+import javax.xml.xpath.XPathFactory;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.LoggerMP;
+import ch.ffhs.inf09.pa.mashup_platform.config.Config;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.Content;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.ContentSection;
+
+import com.orientechnologies.orient.client.remote.OEngineRemote;
+import com.orientechnologies.orient.client.remote.OServerAdmin;
+import com.orientechnologies.orient.core.Orient;
+import com.orientechnologies.orient.core.db.object.ODatabaseObjectTx;
+import com.orientechnologies.orient.core.exception.OCommandExecutionException;
+import com.orientechnologies.orient.core.record.impl.ODocument;
+import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
+
+/**
+ * This wrapper class provides access to the Orient DB.
+ * 
+ * @author Alexander
+ * 
+ */
 public class DBOrient extends DBLocal {
 	private ODatabaseObjectTx dbMashups;
 	private ODatabaseObjectTx dbUsers;

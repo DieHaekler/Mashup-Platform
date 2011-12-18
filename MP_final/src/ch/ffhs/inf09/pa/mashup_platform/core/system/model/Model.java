@@ -1,11 +1,21 @@
 package ch.ffhs.inf09.pa.mashup_platform.core.system.model;
 
-import java.text.*;
-import java.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.common.db.*;
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.config.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import ch.ffhs.inf09.pa.mashup_platform.common.db.MashupPage;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.LoggerMP;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.config.ConfigMashup;
+
+/**
+ * The Model class represents a mashup. To avoid memory overflow, the Model
+ * object only keeps a single page in memory at runtime.
+ * 
+ * @author Jan
+ * 
+ */
 public abstract class Model {
 	public static String PARAM_IDENT = "IDENT";
 	public static String PARAM_NAME = "NAME";

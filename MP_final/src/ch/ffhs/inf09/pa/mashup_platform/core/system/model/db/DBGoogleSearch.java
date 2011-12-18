@@ -1,10 +1,20 @@
 package ch.ffhs.inf09.pa.mashup_platform.core.system.model.db;
 
-import java.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.*;
-import ch.ffhs.inf09.pa.mashup_platform.core.system.model.fetcher.google_search.*;
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.Content;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.ContentSection;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.fetcher.google_search.FetcherGoogleSearch;
+import ch.ffhs.inf09.pa.mashup_platform.core.system.model.fetcher.google_search.ResultGoogleSearch;
+
+/**
+ * This virtual data source provides access to the Google search.
+ * 
+ * @author Malte
+ * 
+ */
 public class DBGoogleSearch extends DB {
 	public static final String DB_IDENT = "system___DBGoogleSearch";
 	public static final String SECTION_IDENT = "google_search";
@@ -14,6 +24,11 @@ public class DBGoogleSearch extends DB {
 		super(filepath);
 	}
 
+	/**
+	 * A "Google Search" section gets added to the content object. This section
+	 * contains a list of (sub-)content objects keeping the information of the
+	 * Google search results.
+	 */
 	public void fillIn(Content content, int start, int number)
 			throws ExceptionMP {
 		String identCache = DB.identCache(DB_IDENT, content, start, number);

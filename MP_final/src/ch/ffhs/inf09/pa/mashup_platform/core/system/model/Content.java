@@ -1,21 +1,32 @@
 package ch.ffhs.inf09.pa.mashup_platform.core.system.model;
 
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import java.util.*;
-import java.io.*;
-import java.security.*;
+import java.io.Serializable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import javax.persistence.Id;
 import javax.persistence.Version;
 
-public class Content implements Serializable
-{  
-	
-	@Id   
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
+
+/**
+ * The content class keeps the mashup output of a single page in a tree-like
+ * structure.
+ * 
+ * @author Jan
+ * 
+ */
+public class Content implements Serializable {
+
+	@Id
 	private Object id;
-	
-	@Version   
+
+	@Version
 	private Object version;
-	
+
 	private static final long serialVersionUID = 1L;
 	private HashMap<String, ContentSection> sections = new HashMap<String, ContentSection>();
 	private List<String> keywords = new ArrayList<String>();
@@ -29,127 +40,145 @@ public class Content implements Serializable
 	private String publisher;
 	private String publisherURL;
 	private String publishedDate;
-	
-	public void clearKeywords()
-	{
+
+	/**
+	 * Removes the keywords that are linked to the Content object
+	 */
+	public void clearKeywords() {
 		keywords = new ArrayList<String>();
 	}
-	
-	public String getJSON()
-	{
+
+	/**
+	 * Returns the JSON representation of the Content object
+	 * 
+	 * @return
+	 */
+	public String getJSON() {
 		return toJSON(this);
 	}
 
-	private String toJSON(Content content)
-	{
+	private String toJSON(Content content) {
 		String k = "";
-		for (String keyword: content.getKeywords())
-		{
-			if (keyword != null && !keyword.equals(""))
-			{
+		for (String keyword : content.getKeywords()) {
+			if (keyword != null && !keyword.equals("")) {
 				k += "\"" + keyword + "\",";
 			}
 		}
-		if ( !k.equals("") ) k = k.substring(0, k.length() - 1);
+		if (!k.equals(""))
+			k = k.substring(0, k.length() - 1);
 		String s = "{"
-			+ (content.getCaption() != null ? ("\"caption\":\"" + content.getCaption() + "\",") : "")
-			+ (content.getImgUrl() != null ? "\"imgURL\":\"" + content.getImgUrl() + "\"," : "")
-			+ (content.getIntro() != null ? "\"intro\":\"" + content.getIntro() + "\"," : "")
-			+ (content.getHeading() != null ? "\"heading\":\"" + content.getHeading() + "\"," : "")
-			+ (content.getBody() != null ? "\"body\":\"" + content.getBody() + "\"," : "")
-			+ (content.getFooter() != null ? "\"footer\":\"" + content.getFooter() + "\"," : "")
-			+ (content.getUrl() != null ? "\"url\":\"" + content.getUrl() + "\"," : "")
-			+ (content.getPublisher() != null ? "\"publisher\":\"" + content.getPublisher() + "\"," : "")
-			+ (content.getPublisherURL() != null ? "\"publisherURL\":\"" + content.getPublisherURL() + "\"," : "")
-			+ (content.getPublishedDate() != null ? "\"publishedDate\":\"" + content.getPublishedDate() + "\"," : "")
-			+ (!k.equals("") ? "\"keywords\":[" + k + "]," : "");
+				+ (content.getCaption() != null ? ("\"caption\":\""
+						+ content.getCaption() + "\",") : "")
+				+ (content.getImgUrl() != null ? "\"imgURL\":\""
+						+ content.getImgUrl() + "\"," : "")
+				+ (content.getIntro() != null ? "\"intro\":\""
+						+ content.getIntro() + "\"," : "")
+				+ (content.getHeading() != null ? "\"heading\":\""
+						+ content.getHeading() + "\"," : "")
+				+ (content.getBody() != null ? "\"body\":\""
+						+ content.getBody() + "\"," : "")
+				+ (content.getFooter() != null ? "\"footer\":\""
+						+ content.getFooter() + "\"," : "")
+				+ (content.getUrl() != null ? "\"url\":\"" + content.getUrl()
+						+ "\"," : "")
+				+ (content.getPublisher() != null ? "\"publisher\":\""
+						+ content.getPublisher() + "\"," : "")
+				+ (content.getPublisherURL() != null ? "\"publisherURL\":\""
+						+ content.getPublisherURL() + "\"," : "")
+				+ (content.getPublishedDate() != null ? "\"publishedDate\":\""
+						+ content.getPublishedDate() + "\"," : "")
+				+ (!k.equals("") ? "\"keywords\":[" + k + "]," : "");
 		HashMap<String, ContentSection> sections = content.getSections();
-		if (sections.size() > 0)
-		{
-			for (String ident: sections.keySet())
-			{
+		if (sections.size() > 0) {
+			for (String ident : sections.keySet()) {
 				s += "\"" + ident + "\":{";
 				ContentSection section = sections.get(ident);
 				List<Content> parts = section.getParts();
 				String caption = section.getCaption();
 				String q = "";
-				if (caption != null && !caption.equals(""))
-				{
+				if (caption != null && !caption.equals("")) {
 					q = "\"caption\":\"" + caption + "\",";
 				}
-				if (parts.size() > 0)
-				{
+				if (parts.size() > 0) {
 					String p = "";
-					for (Content part: parts)
-					{
+					for (Content part : parts) {
 						String t = toJSON(part);
-						if ( !t.equals("{}") ) p += t + ",";
+						if (!t.equals("{}"))
+							p += t + ",";
 					}
-					if ( !p.equals("") )
-					{
+					if (!p.equals("")) {
 						p = p.substring(0, p.length() - 1);
 						q += "\"parts\":[" + p + "],";
 					}
 				}
-				if ( !q.equals("") )
-				{
+				if (!q.equals("")) {
 					q = q.substring(0, q.length() - 1);
 				}
 				s += q + "},";
 			}
 		}
-		if ( !s.equals("{") ) s = s.substring(0, s.length() - 1);
+		if (!s.equals("{"))
+			s = s.substring(0, s.length() - 1);
 		return s + "}";
 	}
-	
-	public String getHashCode() throws ExceptionMP
-	{
+
+	/**
+	 * Returns the hash code of the Content object
+	 * 
+	 * @return the hash code
+	 * @throws ExceptionMP
+	 */
+	public String getHashCode() throws ExceptionMP {
 		String ident = hash(this);
-		try
-		{
+		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
 			md.update(ident.getBytes());
 			StringBuffer hex = new StringBuffer();
 			byte[] result = md.digest();
-			for (int i = 0; i < result.length; i++)
-			{
-				if (result[i] <= 15 && result[i] >= 0) hex.append("0");
+			for (int i = 0; i < result.length; i++) {
+				if (result[i] <= 15 && result[i] >= 0)
+					hex.append("0");
 				hex.append(Integer.toHexString(0xFF & result[i]));
 			}
 			return hex.toString();
-		} catch (NoSuchAlgorithmException e)
-		{
+		} catch (NoSuchAlgorithmException e) {
 			throw new ExceptionMP("MD5 algorithm is not supported", e);
 		}
 	}
-	
-	private String hash(Content content)
-	{
-		String s = content.getCaption() + "_" + content.getIntro()
-			+ "_" + content.getHeading() + "_" + content.getBody()
-			+ "_" + content.getFooter() + "_" + content.getUrl()
-			+ "_" + content.getPublisher() + "_" + content.getPublisherURL();
+
+	private String hash(Content content) {
+		String s = content.getCaption() + "_" + content.getIntro() + "_"
+				+ content.getHeading() + "_" + content.getBody() + "_"
+				+ content.getFooter() + "_" + content.getUrl() + "_"
+				+ content.getPublisher() + "_" + content.getPublisherURL();
 		HashMap<String, ContentSection> sections = content.getSections();
-		for (String ident: sections.keySet())
-		{
+		for (String ident : sections.keySet()) {
 			ContentSection section = sections.get(ident);
 			s += "_" + section.getCaption();
 			List<Content> parts = section.getParts();
-			for (Content part: parts)
-			{
+			for (Content part : parts) {
 				s += "_" + hash(part);
 			}
 		}
 		return s;
 	}
-	
-	public HashMap<String, ContentSection> getSections()
-	{
+
+	/**
+	 * Returns a list of sections that are linked to the Content object.
+	 * 
+	 * @return the list of sections
+	 */
+	public HashMap<String, ContentSection> getSections() {
 		return sections;
 	}
-	
-	public void update(Content content)
-	{
+
+	/**
+	 * Replaces the data with the ones from another content object.
+	 * 
+	 * @param content
+	 *            the Content object with the input data.
+	 */
+	public void update(Content content) {
 		sections = content.getSections();
 		keywords = content.getKeywords();
 		caption = content.getCaption();
@@ -163,139 +192,126 @@ public class Content implements Serializable
 		publisherURL = content.getPublisherURL();
 		publishedDate = content.getPublishedDate();
 	}
-	
-	public void addKeyword(String keyword)
-	{
+
+	/**
+	 * Adds a key word to the content object
+	 * 
+	 * @param keyword
+	 *            the key word to be added
+	 */
+	public void addKeyword(String keyword) {
 		keywords.add(keyword);
 	}
-	
-	public List<String> getKeywords()
-	{
+
+	/**
+	 * Returns a list of key words that are linked to the Content object.
+	 * 
+	 * @return a list of key words
+	 */
+	public List<String> getKeywords() {
 		return keywords;
 	}
-	
+
 	public void setCaption(String caption) {
 		this.caption = caption;
 	}
-	
-	public void setImgURL(String imgURL)
-	{
+
+	public void setImgURL(String imgURL) {
 		this.imgURL = imgURL;
 	}
-	
-	public void setIntro(String intro)
-	{
+
+	public void setIntro(String intro) {
 		this.intro = intro;
 	}
-	
-	public void setHeading(String heading)
-	{
+
+	public void setHeading(String heading) {
 		this.heading = heading;
 	}
-	
-	public void setBody(String body)
-	{
+
+	public void setBody(String body) {
 		this.body = body;
 	}
-	
-	public void setFooter(String footer)
-	{
+
+	public void setFooter(String footer) {
 		this.footer = footer;
 	}
-	
-	public void setUrl(String url)
-	{
+
+	public void setUrl(String url) {
 		this.url = url;
 	}
-	
-	public void setPublisher(String publisher)
-	{
+
+	public void setPublisher(String publisher) {
 		this.publisher = publisher;
 	}
-	
-	public void setPublisherURL(String url)
-	{
+
+	public void setPublisherURL(String url) {
 		publisherURL = url;
 	}
-	
-	public String getPublisherURL()
-	{
+
+	public String getPublisherURL() {
 		return publisherURL;
 	}
-	
-	public void setPublishedDate(String date)
-	{
+
+	public void setPublishedDate(String date) {
 		this.publishedDate = date;
 	}
-	
+
 	public void setKeywords(ArrayList<String> keywords) {
 		this.keywords = keywords;
 	}
-	
-	public void setSections(HashMap<String, ContentSection> sections)
-	{
+
+	public void setSections(HashMap<String, ContentSection> sections) {
 		this.sections = sections;
 	}
-	
-	public String getCaption()
-	{
+
+	public String getCaption() {
 		return caption;
 	}
-	
-	public String getIntro()
-	{
+
+	public String getIntro() {
 		return intro;
 	}
-	
-	public String getHeading()
-	{
+
+	public String getHeading() {
 		return heading;
 	}
-	
-	public String getBody()
-	{
+
+	public String getBody() {
 		return body;
 	}
-	
-	public String getFooter()
-	{
+
+	public String getFooter() {
 		return footer;
 	}
-	
-	public String getUrl()
-	{
+
+	public String getUrl() {
 		return url;
 	}
-	
-	public void addSection(String ident, ContentSection section)
-	{
+
+	public void addSection(String ident, ContentSection section) {
 		sections.put(ident, section);
 	}
-	
-	public String getPublisher()
-	{
+
+	public String getPublisher() {
 		return publisher;
 	}
-	
-	public String getPublishedDate()
-	{
+
+	public String getPublishedDate() {
 		return publishedDate;
 	}
-	
-	public ContentSection getSection(String ident)
-	{
+
+	public ContentSection getSection(String ident) {
 		return sections.get(ident);
 	}
-	
-	public String getImgUrl()
-	{
+
+	public String getImgUrl() {
 		return imgURL;
 	}
 
 	public String getImgURL() {
 		return imgURL;
 	}
-	
+
 	public Object getId() {
 		return id;
 	}

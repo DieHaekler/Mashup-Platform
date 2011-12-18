@@ -1,121 +1,118 @@
 package ch.ffhs.inf09.pa.mashup_platform.web.controller;
 
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import ch.ffhs.inf09.pa.mashup_platform.common.util.*;
-import ch.ffhs.inf09.pa.mashup_platform.web.view.*;
-import ch.ffhs.inf09.pa.mashup_platform.web.*;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.LoggerMP;
+import ch.ffhs.inf09.pa.mashup_platform.web.Environment;
+import ch.ffhs.inf09.pa.mashup_platform.web.view.ViewApplication;
 
+/**
+ * The front controller receives all client requests and forward them to the
+ * distint application controller.
+ * 
+ * @author Joël
+ * 
+ */
 @WebServlet("/main")
-public class FrontController extends HttpServlet
-{
+public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private enum Menu 
-	{ 
+	private enum Menu {
 		HOME, OVERVIEW, MASHUP, ACCOUNT;
 
-	    private static final Menu[] copyOfValues = values();
+		private static final Menu[] copyOfValues = values();
 
-	    public static Menu forName(String name) {
-	        for (Menu value : copyOfValues) {
-	            if (value.name().equals(name)) {
-	                return value;
-	            }
-	        }
-	        return Menu.HOME;
-	    }
-
+		public static Menu forName(String name) {
+			for (Menu value : copyOfValues) {
+				if (value.name().equals(name)) {
+					return value;
+				}
+			}
+			return Menu.HOME;
+		}
 
 	};
-	
-	public FrontController()
-	{
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{	
+	public FrontController() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		ControllerApplication controller = null;
 		Environment environment = null;
-		try
-		{
+		try {
 			environment = initEnvironment(request);
-			
-			//Default Menu
+
+			// Default Menu
 			Menu menu = Menu.HOME;
-			
-			//Menu navigation
-			if (environment.getValuePost("menu") != null)
-			{
+
+			// Menu navigation
+			if (environment.getValuePost("menu") != null) {
 				String menuParm = environment.getValuePost("menu");
 				menuParm = menuParm.toUpperCase();
 				menu = Menu.forName(menuParm);
 			}
-			
-			switch(menu)
-             {
-               case HOME:
-            	   controller = new ControllerMashupOverview(environment);
-            	   break;
-               case OVERVIEW:
-            	   controller = new ControllerMashupOverview(environment);
-            	   break;
-               case MASHUP:
-            	   controller = new ControllerMashup(environment);
-            	 break;
-               case ACCOUNT:
-	       			if ( environment.isUserLoggedIn() )
-	    			{
-	    				controller = new ControllerAccount(environment);
-	    			} else
-	    			{
-	    				controller = new ControllerLogin(environment);
-	    			}
-	       			break;
-               default:
-            	   controller = new ControllerMashupOverview(environment);
-             }
-		} catch (ExceptionMP e)
-		{
+
+			switch (menu) {
+			case HOME:
+				controller = new ControllerMashupOverview(environment);
+				break;
+			case OVERVIEW:
+				controller = new ControllerMashupOverview(environment);
+				break;
+			case MASHUP:
+				controller = new ControllerMashup(environment);
+				break;
+			case ACCOUNT:
+				if (environment.isUserLoggedIn()) {
+					controller = new ControllerAccount(environment);
+				} else {
+					controller = new ControllerLogin(environment);
+				}
+				break;
+			default:
+				controller = new ControllerMashupOverview(environment);
+			}
+		} catch (ExceptionMP e) {
 			LoggerMP.writeError(e);
 			e.printStackTrace();
 		}
-		if (controller != null)
-		{
+		if (controller != null) {
 			ViewApplication view = controller.getView();
 			response.setContentType(view.getContentType());
 			PrintWriter out = response.getWriter();
 			out.println(view.getContent());
 		}
-		if (environment != null) environment.close();
+		if (environment != null)
+			environment.close();
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException
-	{
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
-	
-	private Environment initEnvironment(HttpServletRequest request) throws ExceptionMP
-	{
+
+	private Environment initEnvironment(HttpServletRequest request)
+			throws ExceptionMP {
 		Environment environment = new Environment(request);
-		if ( environment.isUserLoggedIn() )
-		{
+		if (environment.isUserLoggedIn()) {
 			// check if user wants to log out
 			String flag = environment.getValuePost("logout");
-			if (flag != null && flag.equals("1") )
-			{
+			if (flag != null && flag.equals("1")) {
 				environment.logout();
 			}
-		} else
-		{
+		} else {
 			// check if user has submitted login data
-			if ( !environment.isUserLoggedIn() )
-			{
+			if (!environment.isUserLoggedIn()) {
 				String username = environment.getValuePost("user");
 				String password = environment.getValuePost("pw");
 				environment.login(username, password);
