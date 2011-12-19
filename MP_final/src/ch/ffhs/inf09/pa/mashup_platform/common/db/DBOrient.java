@@ -30,6 +30,7 @@ import com.orientechnologies.orient.core.Orient;
 import com.orientechnologies.orient.core.db.object.ODatabaseObjectTx;
 import com.orientechnologies.orient.core.exception.OCommandExecutionException;
 import com.orientechnologies.orient.core.record.impl.ODocument;
+import com.orientechnologies.orient.core.sql.OCommandSQL;
 import com.orientechnologies.orient.core.sql.query.OSQLSynchQuery;
 
 /**
@@ -250,5 +251,17 @@ public class DBOrient extends DBLocal {
 		}
 		return password;
 	}
-
+	
+	public void clear(){
+		clear(dbMashups, "MashupPage");
+		clear(dbMashups, "ContentSection");
+		clear(dbMashups, "Content");
+		clear(dbUsers, "User");	
+	}
+	
+	private void clear(ODatabaseObjectTx db, String className){
+		if(db.getClusterType(className) != null){
+			db.command(new OCommandSQL("delete from " + className)).execute();
+		}
+	}
 }

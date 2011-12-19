@@ -2,6 +2,8 @@ package ch.ffhs.inf09.pa.mashup_platform.core;
 
 import java.util.ArrayList;
 
+import ch.ffhs.inf09.pa.mashup_platform.common.db.DBOrient;
+import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.FileMP;
 import ch.ffhs.inf09.pa.mashup_platform.common.util.LoggerMP;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
@@ -27,10 +29,14 @@ public class PlatformResetter {
 		if (FileMP.remove(folderpathUsers)) {
 			LoggerMP.writeNotice("[PlatformResetter] removed '"
 					+ folderpathUsers + "'");
+		}else{
+			clearDB(config);
 		}
 		if (FileMP.remove(folderpathMashups)) {
 			LoggerMP.writeNotice("[PlatformResetter] removed '"
 					+ folderpathMashups + "'");
+		}else{
+			clearDB(config);
 		}
 
 		// remove cache
@@ -50,6 +56,17 @@ public class PlatformResetter {
 		remove(folderpath, "\\.status$");
 	}
 
+	private static void clearDB(Config config){
+		try {
+			DBOrient db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
+					config.getValue(Config.PARAM_DB_PASSWORD));
+			db.clear();
+			db.close();
+		} catch (ExceptionMP e) {
+			LoggerMP.writeError(e);
+		}
+	}
+	
 	private static void remove(String folderpath, String regex) {
 		ArrayList<String> names = FileMP.getFilenames(folderpath, regex);
 		for (String name : names) {

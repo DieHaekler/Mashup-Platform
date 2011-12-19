@@ -14,8 +14,12 @@ import ch.ffhs.inf09.pa.mashup_platform.core.system.controller.background.DBFeed
 public class BotStarter {
 	public static void main(String[] args) {
 		try {
-			new Thread(new Bot()).start();
-			new Thread(new DBFeeder()).start();
+			Thread bot = new Thread(new Bot());
+			bot.setName("bot");
+			bot.start();
+			Thread dbFeeder = new Thread(new DBFeeder());
+			dbFeeder.setName("db_feeder");
+			dbFeeder.start();
 		} catch (ExceptionMP e) {
 			LoggerMP.writeError(e);
 			e.printStackTrace();

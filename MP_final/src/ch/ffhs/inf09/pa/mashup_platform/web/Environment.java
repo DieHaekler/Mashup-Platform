@@ -23,14 +23,17 @@ public class Environment {
 	private Config config;
 	private DBLocal db;
 
-	public Environment(HttpServletRequest request) throws ExceptionMP {
+	public Environment(HttpServletRequest request, String filepath) throws ExceptionMP
+	{
 		this.request = request;
 		session = request.getSession(true);
 		ServletContext context = session.getServletContext();
-		String filepath = context.getRealPath("");
+		if((filepath == null || filepath.equals("")) && (request.getParameter("filepath") == null || request.getParameter("filepath").equals(""))){
+			filepath = context.getRealPath("");
+		}	
 		config = Config.getInstance(filepath + "/config/config.properties");
 		db = new DBOrient(config.getValue(Config.PARAM_DB_USERNAME),
-				config.getValue(Config.PARAM_DB_PASSWORD));
+			config.getValue(Config.PARAM_DB_PASSWORD));
 	}
 
 	/**

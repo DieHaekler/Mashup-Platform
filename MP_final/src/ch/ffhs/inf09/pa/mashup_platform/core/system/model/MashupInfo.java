@@ -60,6 +60,7 @@ public class MashupInfo {
 	public void setPageNrProcessed(int pagenr) throws ExceptionMP {
 		try {
 			FileMP.write(filepathStatus, pagenr + "", false);
+			pageNrProcessed = pagenr;
 		} catch (IOException e) {
 			throw new ExceptionMP("[MashupInfo] couldn't write to "
 					+ filepathStatus, e);

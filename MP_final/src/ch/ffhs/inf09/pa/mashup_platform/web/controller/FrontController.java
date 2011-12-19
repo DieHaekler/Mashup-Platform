@@ -103,7 +103,7 @@ public class FrontController extends HttpServlet {
 
 	private Environment initEnvironment(HttpServletRequest request)
 			throws ExceptionMP {
-		Environment environment = new Environment(request);
+		Environment environment = new Environment(request, null);
 		if (environment.isUserLoggedIn()) {
 			// check if user wants to log out
 			String flag = environment.getValuePost("logout");

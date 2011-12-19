@@ -35,7 +35,7 @@ public class DBFlickr extends DB {
 		if (!fillInFromCache(content, identCache)) {
 			List<ResultFlickr> results = FetcherFlickr.fetchResults(
 					config.getValue(PARAM_URL_API),
-					(ArrayList<String>) content.getKeywords());
+					(ArrayList<String>) content.getKeywords());			
 			if (start < 0)
 				start = 0;
 			int end = start + number;
