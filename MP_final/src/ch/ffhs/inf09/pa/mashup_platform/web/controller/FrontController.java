@@ -16,7 +16,7 @@ import ch.ffhs.inf09.pa.mashup_platform.web.view.ViewApplication;
 
 /**
  * The front controller receives all client requests and forward them to the
- * distint application controller.
+ * distinct application controller.
  * 
  * @author Joël
  * 
