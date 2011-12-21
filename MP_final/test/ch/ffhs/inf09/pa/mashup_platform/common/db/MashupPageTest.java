@@ -8,18 +8,26 @@ import org.junit.Test;
 
 import ch.ffhs.inf09.pa.mashup_platform.core.system.model.Content;
 
+/**
+ * This is a test class for the class MashupPage.
+ * 
+ * @author Alexander
+ * 
+ */
 public class MashupPageTest {
 
-	private String name = "name";
-	private String ident = "ident";
-	private int pageNr = 1;
-	private Date creationDate = new Date();
-	private Date lastUpdated = new Date();
-	private String username = "username";
-	private Content content = new Content();
-	
 	@Test
-	public void mainTest(){
+	public void mainTest() {
+		// initialize test variables
+		String name = "name";
+		String ident = "ident";
+		int pageNr = 1;
+		Date creationDate = new Date();
+		Date lastUpdated = new Date();
+		String username = "username";
+		Content content = new Content();
+
+		// create MashupPage instance
 		MashupPage page = new MashupPage();
 		page.setCreatedAt(creationDate);
 		page.setContent(content);
@@ -28,7 +36,8 @@ public class MashupPageTest {
 		page.setPageNr(pageNr);
 		page.setUsername(username);
 		page.setLastUpdated(lastUpdated);
-		
+
+		// check values
 		assertEquals(creationDate, page.getCreatedAt());
 		assertEquals(content, page.getContent());
 		assertEquals(ident, page.getMashupIdent());
@@ -36,5 +45,5 @@ public class MashupPageTest {
 		assertEquals(pageNr, page.getPageNr());
 		assertEquals(username, page.getUsername());
 		assertEquals(lastUpdated, page.getLastUpdated());
-	}	
+	}
 }

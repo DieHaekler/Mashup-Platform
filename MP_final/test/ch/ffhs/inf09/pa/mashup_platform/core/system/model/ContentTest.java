@@ -10,60 +10,66 @@ import org.junit.Test;
 
 import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
 
+/**
+ * This is a test class for the class Content.
+ * 
+ * @author Alexander
+ * 
+ */
 public class ContentTest {
-
-	private String caption = "caption";
-	private String heading = "heading";
-	private String body = "body";
-	private String footer = "footer";
-	private String imageURL = "imageURL";
-	private String intro = "intro";
-	private String keyword1 = "keyword1";
-	private String keyword2 = "keyword2";
-	private String keyword3 = "keyword3";
-	private String publishedDate = "2011-12-03 12:00:00";
-	private String publisher = "publisher";
-	private String publisherURL = "publisherURL";
-	private String url = "url";
-	private ArrayList<String> keywords = new ArrayList<String>(Arrays.asList(
-			keyword1, keyword2));
-
-	private String newCaption = "newCaption";
-	private String newHeading = "newHeading";
-	private String newBody = "newBody";
-	private String newFooter = "newFooter";
-	private String newImageURL = "newImageURL";
-	private String newIntro = "newIntro";
-	private String newKeyword1 = "newKeyword1";
-	private String newKeyword2 = "newKeyword2";
-	private String newPublishedDate = "2011-12-03 12:00:01";
-	private String newPublisher = "newPublisher";
-	private String newPublisherURL = "newPublisherURL";
-	private String newUrl = "newUrl";
-	private ArrayList<String> newKeywords = new ArrayList<String>(
-			Arrays.asList(newKeyword1, newKeyword2));
-
-	private String sectionContentCaption = "sectionContentCaption";
-	private String sectionCaption = "sectionCaption";
-	private String sectionContentHeading = "sectionContentHeading";
-	private String sectionContentBody = "sectionContentBody";
-	private String sectionContentFooter = "sectionContentFooter";
-	private String sectionContentImageURL = "sectionContentImageURL";
-	private String sectionContentIntro = "sectionContentIntro";
-	private String sectionKeyword1 = "sectionKeyword1";
-	private String sectionKeyword2 = "sectionKeyword2";
-	private String sectionContentPublishedDate = "2011-12-03 12:00:03";
-	private String sectionContentPublisher = "sectionContentPublisher";
-	private String sectionContentPublisherURL = "sectionContentPublisherURL";
-	private String sectionContentURL = "sectionContentUrl";
-	private ArrayList<String> sectionContentKeywords = new ArrayList<String>(
-			Arrays.asList(sectionKeyword1, sectionKeyword2));
-
-	private Calendar cal = Calendar.getInstance();
 
 	@Test
 	public void mainTest() throws ExceptionMP {
+		// initialize test variables
+		String caption = "caption";
+		String heading = "heading";
+		String body = "body";
+		String footer = "footer";
+		String imageURL = "imageURL";
+		String intro = "intro";
+		String keyword1 = "keyword1";
+		String keyword2 = "keyword2";
+		String keyword3 = "keyword3";
+		String publishedDate = "2011-12-03 12:00:00";
+		String publisher = "publisher";
+		String publisherURL = "publisherURL";
+		String url = "url";
+		ArrayList<String> keywords = new ArrayList<String>(Arrays.asList(
+				keyword1, keyword2));
 
+		String newCaption = "newCaption";
+		String newHeading = "newHeading";
+		String newBody = "newBody";
+		String newFooter = "newFooter";
+		String newImageURL = "newImageURL";
+		String newIntro = "newIntro";
+		String newKeyword1 = "newKeyword1";
+		String newKeyword2 = "newKeyword2";
+		String newPublishedDate = "2011-12-03 12:00:01";
+		String newPublisher = "newPublisher";
+		String newPublisherURL = "newPublisherURL";
+		String newUrl = "newUrl";
+		ArrayList<String> newKeywords = new ArrayList<String>(Arrays.asList(
+				newKeyword1, newKeyword2));
+
+		String sectionContentCaption = "sectionContentCaption";
+		String sectionCaption = "sectionCaption";
+		String sectionContentHeading = "sectionContentHeading";
+		String sectionContentBody = "sectionContentBody";
+		String sectionContentFooter = "sectionContentFooter";
+		String sectionContentImageURL = "sectionContentImageURL";
+		String sectionContentIntro = "sectionContentIntro";
+		String sectionKeyword1 = "sectionKeyword1";
+		String sectionKeyword2 = "sectionKeyword2";
+		String sectionContentPublishedDate = "2011-12-03 12:00:03";
+		String sectionContentPublisher = "sectionContentPublisher";
+		String sectionContentPublisherURL = "sectionContentPublisherURL";
+		String sectionContentURL = "sectionContentUrl";
+		ArrayList<String> sectionContentKeywords = new ArrayList<String>(
+				Arrays.asList(sectionKeyword1, sectionKeyword2));
+		Calendar cal = Calendar.getInstance();
+
+		// create Content instance
 		Content content = new Content();
 		content.setCaption(caption);
 		content.setHeading(heading);
@@ -77,6 +83,7 @@ public class ContentTest {
 		content.setPublisherURL(publisherURL);
 		content.setUrl(url);
 
+		// check values
 		assertEquals(caption, content.getCaption());
 		assertEquals(heading, content.getHeading());
 		assertEquals(body, content.getBody());
@@ -89,10 +96,10 @@ public class ContentTest {
 		assertEquals(publisherURL, content.getPublisherURL());
 		assertEquals(url, content.getUrl());
 		assertEquals(keywords, content.getKeywords());
-
 		content.addKeyword(keyword3);
 		assertEquals(keyword3, content.getKeywords().get(2));
 
+		// create new Content
 		Content newContent = new Content();
 		newContent.setCaption(newCaption);
 		newContent.setHeading(newHeading);
@@ -106,7 +113,9 @@ public class ContentTest {
 		newContent.setPublisherURL(newPublisherURL);
 		newContent.setUrl(newUrl);
 
+		// update old Content instance
 		content.update(newContent);
+		// check if the content has been updated
 		assertEquals(newCaption, content.getCaption());
 		assertEquals(newHeading, content.getHeading());
 		assertEquals(newBody, content.getBody());
@@ -119,10 +128,12 @@ public class ContentTest {
 		assertEquals(newUrl, content.getUrl());
 		assertEquals(newKeywords, content.getKeywords());
 
+		// clear key words
 		content.clearKeywords();
-
 		assertEquals(0, content.getKeywords().size());
 
+		// create new ContentSection instance and new Content instance within
+		// this section
 		ContentSection section = new ContentSection();
 		Content sectionContent = new Content();
 		sectionContent.setCaption(sectionContentCaption);
@@ -136,16 +147,16 @@ public class ContentTest {
 		sectionContent.setPublisher(sectionContentPublisher);
 		sectionContent.setPublisherURL(sectionContentPublisherURL);
 		sectionContent.setUrl(sectionContentURL);
-
 		section.addPart(sectionContent);
 
+		// add section to the existing content
 		content.addSection(sectionCaption, section);
+
+		// check values
 		assertEquals(content.getSection(sectionCaption), section);
 		assertEquals(
 				"{\"caption\":\"newCaption\",\"imgURL\":\"newImageURL\",\"intro\":\"newIntro\",\"heading\":\"newHeading\",\"body\":\"newBody\",\"footer\":\"newFooter\",\"url\":\"newUrl\",\"publisher\":\"newPublisher\",\"publisherURL\":\"newPublisherURL\",\"publishedDate\":\"2011-12-03 12:00:01\",\"sectionCaption\":{\"parts\":[{\"caption\":\"sectionContentCaption\",\"imgURL\":\"sectionContentImageURL\",\"intro\":\"sectionContentIntro\",\"heading\":\"sectionContentHeading\",\"body\":\"sectionContentBody\",\"footer\":\"sectionContentFooter\",\"url\":\"sectionContentUrl\",\"publisher\":\"sectionContentPublisher\",\"publisherURL\":\"sectionContentPublisherURL\",\"publishedDate\":\"2011-12-03 12:00:03\",\"keywords\":[\"sectionKeyword1\",\"sectionKeyword2\"]}]}}",
 				content.getJSON());
-		assertEquals("a1b24f3c6f54b0aab4ce1d948e4b2f26", content.getHashCode());
-
 	}
 
 }

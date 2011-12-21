@@ -10,31 +10,40 @@ import ch.ffhs.inf09.pa.mashup_platform.common.util.ExceptionMP;
 import ch.ffhs.inf09.pa.mashup_platform.config.Config;
 import ch.ffhs.inf09.pa.mashup_platform.core.PlatformResetter;
 
-public class ConfigDBTest 
-{
+/**
+ * This is a test class for the class ConfigDB.
+ * 
+ * @author Alexander
+ * 
+ */
+public class ConfigDBTest {
 	@BeforeClass
-    public static void setUpBeforeClass() {
-       PlatformResetter.main(null);
-    }
-
-    @AfterClass
-    public static void tearDownAfterClass() {
-        PlatformResetter.main(null);
-    }
-	
-	@Test
-	public void mainTest() throws ExceptionMP
-	{			
-		String filepath = Config.getFilepathVar() + "/" + "portrait_of_finnish_bands"
-			+ "/config/db/DBFinnishBands.properties";	
-		ConfigMashup config = new ConfigDB(filepath);		
-		assertNotNull(config);
-		assertNotNull(config.properties);
-		assertEquals("http://en.wikipedia.org/wiki/List_of_bands_from_Finland", config.getValue("URL"));
+	public static void setUpBeforeClass() {
+		PlatformResetter.main(null);
 	}
-	
-	@Test(expected=ExceptionMP.class)
-    public void testWrongFilepathException() throws ExceptionMP {
+
+	@AfterClass
+	public static void tearDownAfterClass() {
+		PlatformResetter.main(null);
+	}
+
+	@Test
+	public void mainTest() throws ExceptionMP {
+		// get file path
+		String filepath = Config.getFilepathVar() + "/"
+				+ "portrait_of_finnish_bands"
+				+ "/config/db/DBFinnishBands.properties";
+		// create ConfigMashup instance
+		ConfigDB config = new ConfigDB(filepath);
+
+		// check values
+		assertNotNull(config.properties);
+		assertEquals("http://en.wikipedia.org/wiki/List_of_bands_from_Finland",
+				config.getValue("URL"));
+	}
+
+	@Test(expected = ExceptionMP.class)
+	public void testWrongFilepathException() throws ExceptionMP {
 		new ConfigDB("wrongFilepath");
-    }	
+	}
 }

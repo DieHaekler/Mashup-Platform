@@ -97,7 +97,7 @@ public class DBOrient extends DBLocal {
 
 	private List<User> queryDBUsers(String query) {
 		try {
-			return dbMashups.query(new OSQLSynchQuery<Content>(query));
+			return dbUsers.query(new OSQLSynchQuery<User>(query));
 		} catch (OCommandExecutionException e) {
 			LoggerMP.writeError("[DBOrient] couldn't execute: " + query);
 		}
@@ -190,12 +190,14 @@ public class DBOrient extends DBLocal {
 	}
 
 	public void setUser(User user) {
-		if (user != null && dbUsers.getClusterType("User") != null) {
-			String query = "select from User where username = '"
-					+ addslashes(user.getUsername()) + "'";
-			List<User> results = queryDBUsers(query);
-			for (User u : results)
-				dbUsers.delete(u);
+		if (user != null) {
+			if (dbUsers.getClusterType("User") != null) {
+				String query = "select from User where username = '"
+						+ addslashes(user.getUsername()) + "'";
+				List<User> results = queryDBUsers(query);
+				for (User u : results)
+					dbUsers.delete(u);
+			}
 			dbUsers.save(user);
 		}
 	}
@@ -251,16 +253,16 @@ public class DBOrient extends DBLocal {
 		}
 		return password;
 	}
-	
-	public void clear(){
+
+	public void clear() {
 		clear(dbMashups, "MashupPage");
 		clear(dbMashups, "ContentSection");
 		clear(dbMashups, "Content");
-		clear(dbUsers, "User");	
+		clear(dbUsers, "User");
 	}
-	
-	private void clear(ODatabaseObjectTx db, String className){
-		if(db.getClusterType(className) != null){
+
+	private void clear(ODatabaseObjectTx db, String className) {
+		if (db.getClusterType(className) != null) {
 			db.command(new OCommandSQL("delete from " + className)).execute();
 		}
 	}

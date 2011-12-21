@@ -6,31 +6,39 @@ import java.util.Date;
 
 import org.junit.Test;
 
-
+/**
+ * This is a test class for the class MashupInfo.
+ * 
+ * @author Alexander
+ * 
+ */
 public class MashupInfoTest {
 
-	private String ident = "ident";
-	private int numberPages = 1;
-	private Date creationDate = new Date();
-	private Date lastUpdated = new Date();
-	private String name = "name";
-	private String username = "username";
-	
 	@Test
-	public void mainTest(){
+	public void mainTest() {
+		// initialize test variables
+		String ident = "ident";
+		int numberPages = 1;
+		Date creationDate = new Date();
+		Date lastUpdated = new Date();
+		String name = "name";
+		String username = "username";
+
+		// create MashupInfo instance
 		MashupInfo info = new MashupInfo(ident);
 		info.setCreatedAt(creationDate);
 		info.setName(name);
 		info.setNumberPages(numberPages);
 		info.setUsername(username);
 		info.setLastUpdated(lastUpdated);
-		
+
+		// check values
 		assertEquals(ident, info.getMashupIdent());
 		assertEquals(creationDate, info.getCreatedAt());
 		assertEquals(name, info.getName());
 		assertEquals(numberPages, info.getNumberPages());
 		assertEquals(username, info.getUsername());
-		assertEquals(lastUpdated, info.getLastUpdated());				
-	}	
-	
+		assertEquals(lastUpdated, info.getLastUpdated());
+	}
+
 }
