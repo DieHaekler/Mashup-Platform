@@ -1,4 +1,4 @@
-package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_finnish_bands.model.db;
+package ch.ffhs.inf09.pa.mashup_platform.var.portrait_of_italian_cars.model.db;
 
 import java.util.List;
 
@@ -17,14 +17,14 @@ import ch.ffhs.inf09.pa.mashup_platform.core.system.model.db.DBGoogleSearch;
  * @author Joël
  * 
  */
-public class DBPortraitOfFinnishBands extends DB {
-	public static final String DB_IDENT = "portrait_of_finnish_bands___DBPortraitOfFinnishBands";
+public class DBPortraitOfItalianCars extends DB {
+	public static final String DB_IDENT = "portrait_of_italian_cars___DBPortraitOfItalianCars";
 	public static final String PARAM_NUMBER_FLICKR_RESULTS = "NUMBER_FLICKR_RESULTS";
 	public static final String PARAM_NUMBER_GOOGLE_SEARCH_RESULTS = "NUMBER_GOOGLE_SEARCH_RESULTS";
 	private int numberFlickrResults = 3;
 	private int numberGoogleSearchResults = 5;
 
-	public DBPortraitOfFinnishBands(String filepath) throws ExceptionMP {
+	public DBPortraitOfItalianCars(String filepath) throws ExceptionMP {
 		super(filepath);
 		String temp = config.getValue(PARAM_NUMBER_FLICKR_RESULTS);
 		if (temp != null) {
@@ -41,21 +41,21 @@ public class DBPortraitOfFinnishBands extends DB {
 		String identCache = DB.identCache(DB_IDENT, content, start, number);
 		if (!fillInFromCache(content, identCache)) {
 			// get the Finnish band names
-			DBFinnishBands db1 = new DBFinnishBands(
+			DBItalianCars db1 = new DBItalianCars(
 					Config.getFilepathVar()
-							+ "/portrait_of_finnish_bands/config/db/DBFinnishBands.properties");
+							+ "/portrait_of_italian_cars/config/db/DBItalianCars.properties");
 			db1.fillIn(content, start, number);
 			
 			// process Flickr search
 			DBFlickr dbFlickr = new DBFlickr(Config.getFilepathSystem()
 					+ "/config/system/db/DBFlickr.properties");
 			ContentSection section = content
-					.getSection(DBFinnishBands.SECTION_IDENT);
+					.getSection(DBItalianCars.SECTION_IDENT);
 			List<Content> parts = section.getParts();
 			for (Content part : parts) {
 				part.clearKeywords();
 				part.addKeyword(part.getCaption());
-				part.addKeyword("band");
+				part.addKeyword("car");
 				dbFlickr.fillIn(part, 0, numberFlickrResults);
 			}
 
@@ -63,13 +63,13 @@ public class DBPortraitOfFinnishBands extends DB {
 			DBGoogleSearch dbGoogleSearch = new DBGoogleSearch(
 					Config.getFilepathSystem()
 							+ "/config/system/db/DBGoogleSearch.properties");
-			section = content.getSection(DBFinnishBands.SECTION_IDENT);
+			section = content.getSection(DBItalianCars.SECTION_IDENT);
 			parts = section.getParts();
 			for (Content part : parts) {
 				part.clearKeywords();
 				part.addKeyword(part.getCaption());
-				part.addKeyword("finnish");
-				part.addKeyword("band");
+				part.addKeyword("italian");
+				part.addKeyword("car");
 				dbGoogleSearch.fillIn(part, 0, numberGoogleSearchResults);
 			}
 
