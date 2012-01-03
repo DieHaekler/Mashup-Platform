@@ -25,7 +25,7 @@ public class ModelMain extends Model {
 		Content content = new Content();
 		content.setCaption(page.getName());
 		String filepath = Config.getFilepathVar()
-				+ "/portrait_of_finnish_bands/config/db/DBFinnishBands.properties";
+				+ "/portrait_of_finnish_bands/config/db/DBPortraitOfFinnishBands.properties";
 		DB db = new DBPortraitOfFinnishBands(filepath);
 		db.fillIn(content, start, numberRecordsPerPage);
 		page.setContent(content);

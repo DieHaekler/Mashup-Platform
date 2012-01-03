@@ -25,7 +25,7 @@ public class ModelMain extends Model {
 		Content content = new Content();
 		content.setCaption(page.getName());
 		String filepath = Config.getFilepathVar()
-				+ "/portrait_of_italian_cars/config/db/DBItalianCars.properties";
+				+ "/portrait_of_italian_cars/config/db/DBPortraitOfItalianCars.properties";
 		DB db = new DBPortraitOfItalianCars(filepath);
 		db.fillIn(content, start, numberRecordsPerPage);
 		page.setContent(content);
